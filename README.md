@@ -1,6 +1,6 @@
 # ProjectRepo
 
-# setup environment
+# Setup Environment
 install mongodb
 ```
 sudo apt-get install mongodb
@@ -8,7 +8,6 @@ sudo apt-get install mongodb
 
 create a virtual environment and install python packages
 ```
-
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -17,7 +16,7 @@ pip install -r requirements.txt
 you can now start editing
 
 
-# pushing rules
+# Pushing Rules
 
 
 make sure that all requirements of the project are in requirements.txt
