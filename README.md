@@ -1,5 +1,14 @@
 # ProjectRepo
 
+## To run
+
+setup environment first then
+
+```
+./run.py
+```
+navigate to [localhost:5000](http://localhost:5000)
+
 # Setup Environment
 install mongodb
 ```
