@@ -56,3 +56,9 @@ Static files such as images, css, and javascript go into the application/static/
 Flask documentation : [http://flask.pocoo.org/docs/0.10/](http://flask.pocoo.org/docs/0.10/)
 
 Flask-mongoengine documentation : [http://docs.mongoengine.org/](http://docs.mongoengine.org/)
+
+# Bugs
+
+If you happen to find a bug report it AND THEN attempt to fix it, if you cannot indicate that in the bug report
+
+The issue tracker is [here](https://github.com/BaySchoolCS2/ProjectRepo/issues/new)
