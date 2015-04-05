@@ -17,9 +17,7 @@ sudo apt-get install mongodb
 
 create a virtual environment and install python packages
 ```
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
+./setup.sh
 ```
 
 you can now start editing
@@ -44,6 +42,17 @@ add anyfiles that you many have created
 ```
 git add --all
 ```
+
+# Tools
+Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete all users from the database.
+
+The tools have their own separate virtual environment for themselves and are run from their by default.
+
+To execute a tool
+```
+./tools/<toolname>.py
+```
+no need to enter a virtual environment
 
 # Templates
 
