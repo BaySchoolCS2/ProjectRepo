@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Welcome!</title>
-	</head>
-	<body>
+{% extends 'layout.html'}
+{% block title %}Welcome{% endblock %}
+{% block body}
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
@@ -11,5 +8,4 @@
 	<a href="/logout">Log out</a></br>
 	Main Page<br/>
 	<a href="/u/Bob">Example user page</a>
-	</body>
-
+{% endblock %}
