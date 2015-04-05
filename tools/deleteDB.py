@@ -1,4 +1,4 @@
-#! tool-env/bin/python
+#! tools-env/bin/python
 import pymongo
 
 print('This tool DELETES THE WHOLE DATABASE!  Use this tool ONLY IN LOCAL TESTING!')
