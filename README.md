@@ -52,7 +52,7 @@ To execute a tool
 ```
 ./tools/<toolname>.py
 ```
-no need to enter a virtual environment
+No need to enter a virtual environment
 
 # Templates
 
