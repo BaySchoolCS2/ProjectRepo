@@ -19,3 +19,10 @@ class Posts(db.Document):
 class Following(db.Document):
     user = db.ReferenceField(User)
     following = db.ListField(db.ReferenceField(User))
+
+class Kicked(db.Document):
+    alias = db.StringField(required=True)
+    ends = db.DateTimeField(required=True)
+
+class Banned(db.Document):
+    email = db.EmailField(required=True)
