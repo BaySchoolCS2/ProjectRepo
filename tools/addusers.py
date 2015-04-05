@@ -13,7 +13,7 @@ for line in usernames_file:
             verified = True
         else:
             verified = False
-        users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2]), "emailVerified":verified})
+        users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2]), "emailVerified":True})
 #check_password_hash would be used to check passwords (if you used this you would then have to also import check_password_hash from werkzeug.security)
 #example: http://flask.pocoo.org/snippets/54/
 
