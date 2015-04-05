@@ -1,6 +1,6 @@
 #! tools-env/bin/python
 
-import pymongo, sys
+import pymongo
 from werkzeug.security import generate_password_hash #werkzeug is a dependency for flask it is installed if flask is installed
 
 usernames_file = open("tools/libs/usernames", "r")
