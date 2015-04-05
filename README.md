@@ -75,9 +75,6 @@ Flask-mongoengine documentation : [http://docs.mongoengine.org/](http://docs.mon
 
 # Bugs
 
-If you happen to find a bug report it AND THEN attempt to fix it, if you cannot indicate that in the bug report
-
-Is this what you meant?
 If you happen to find a bug, report it and then attempt to fix it. If you cannot fix it, indicate that you could not in the bug report.
 
 
