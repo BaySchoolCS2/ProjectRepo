@@ -44,7 +44,7 @@ git add --all
 ```
 
 # Tools
-Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete all users from the database.
+Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete the whole database.
 
 The tools have their own separate virtual environment for themselves and are run from their by default.
 
@@ -53,6 +53,12 @@ To execute a tool
 ./tools/<toolname>.py
 ```
 No need to enter a virtual environment
+
+Code | Description
+---- | --------------------------------
+./tools/addusers.py | adds users in /libs/usernames
+./tools/listusers.py | lists all users
+./tools/deleteDB.py | deletes the WHOLE database (use only localy)
 
 # Templates
 
@@ -69,5 +75,9 @@ Flask-mongoengine documentation : [http://docs.mongoengine.org/](http://docs.mon
 # Bugs
 
 If you happen to find a bug report it AND THEN attempt to fix it, if you cannot indicate that in the bug report
+
+Is this what you meant?
+If you happen to find a bug report it attempt to fix it, if you cannot, indicate that you could not fix it in the bug report.
+
 
 The issue tracker is [here](https://github.com/BaySchoolCS2/ProjectRepo/issues/new)
