@@ -16,6 +16,6 @@ class Posts(db.Document):
     content= db.StringField(max_length=10000)
     score = db.IntField(default=0)
 
-class Following(db.document):
+class Following(db.Document):
     user = db.ReferenceField(User)
     following = db.ListField(db.ReferenceField(User))
