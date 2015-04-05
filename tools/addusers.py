@@ -9,7 +9,11 @@ users = []
 
 for line in usernames_file:
     if not(pymongo.MongoClient().project.User.find_one({'alias':line.split(":")[0]})):
-        users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2].strip())})
+        if line.split(':')[3].strip() == 'true':
+            verified = True
+        else:
+            verified = False
+        users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2]), "emailVerified":verified})
 #check_password_hash would be used to check passwords (if you used this you would then have to also import check_password_hash from werkzeug.security)
 #example: http://flask.pocoo.org/snippets/54/
 
