@@ -24,6 +24,7 @@ class Following(db.Document):
 class Kicked(db.Document):
     #stores temporary locks on user accounts
     user = db.ReferenceField(User)
+    start = db.DateTimeField(required=True)
     ends = db.DateTimeField(required=True)
     reason = db.StringField(max_length=1000)
 
