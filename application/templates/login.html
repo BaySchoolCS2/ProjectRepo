@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+  <form method="post" action="/login">
+    {{ form.csrf_token }}
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ from.password.label}} {{ form.password()}} 
+  </form>
+{% endblock %}
