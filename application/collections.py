@@ -21,7 +21,7 @@ class Following(db.Document):
     following = db.ListField(db.ReferenceField(User))
 
 class Kicked(db.Document):
-    alias = db.StringField(required=True)
+    user = db.ReferenceField(User)
     ends = db.DateTimeField(required=True)
 
 class Banned(db.Document):
