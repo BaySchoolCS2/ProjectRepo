@@ -25,7 +25,9 @@ class Kicked(db.Document):
     #stores temporary locks on user accounts
     user = db.ReferenceField(User)
     ends = db.DateTimeField(required=True)
+    reason = db.StringField(max_length=1000)
 
 class Banned(db.Document):
     #stores emails of people who are not allowed to make accounts
     email = db.EmailField(required=True)
+    reason = db.StringField(max_length=1000)
