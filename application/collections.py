@@ -22,8 +22,10 @@ class Following(db.Document):
     following = db.ListField(db.ReferenceField(User))
 
 class Kicked(db.Document):
+    #stores temporary locks on user accounts
     user = db.ReferenceField(User)
     ends = db.DateTimeField(required=True)
 
 class Banned(db.Document):
+    #stores emails of people who are not allowed to make accounts
     email = db.EmailField(required=True)
