@@ -69,9 +69,11 @@ Static files such as images, css, and javascript go into the application/static/
 
 ## Various documentation
 
-Flask documentation : [http://flask.pocoo.org/docs/0.10/](http://flask.pocoo.org/docs/0.10/)
+Flask : [http://flask.pocoo.org/docs/0.10/](http://flask.pocoo.org/docs/0.10/)
 
-Flask-mongoengine documentation : [http://docs.mongoengine.org/](http://docs.mongoengine.org/)
+Flask-mongoengine : [http://docs.mongoengine.org/](http://docs.mongoengine.org/)
+
+Flask-WTF : [https://flask-wtf.readthedocs.org/en/latest/](https://flask-wtf.readthedocs.org/en/latest/)
 
 ## Bugs
 
