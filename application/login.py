@@ -7,7 +7,6 @@ def login():
     if form.validate_on_submit():
         pass
         #what happens after form is submitted goes here
-        
     return render_template("login.html", form=form)
 
 @app.route("/logout")
