@@ -5,4 +5,4 @@ app = Flask(__name__)
 app.config.from_pyfile("config.cfg")
 db = MongoEngine(app)
 
-from application import login, home
+from application import login, home, signup

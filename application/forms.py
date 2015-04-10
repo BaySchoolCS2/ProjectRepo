@@ -7,5 +7,7 @@ class LoginForm(Form):
     password = PasswordField("password", validators=[DataRequired()])
 
 class SignupForm(Form):
-    #FILL OUT LATER
-    pass
+    email = StringField("email", validators=[DataRequired()])
+    alias = StringField("alias", validators=[DataRequired()])
+    password = PasswordField("password", validators=[DataRequired()])
+    password2 = PasswordField("password (again)", validators=[DataRequired()])
