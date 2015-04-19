@@ -1,26 +1,17 @@
-<!DOCTYPE html>
-<!--Example template page
-template handling code is located in home.py
-note: all variables in brackets have to be defined in python
-navigate to http://localhost:5000/u/Bob for an example
--->
-<html>
-	<head>
-		{% if name %}
-		  <title>User {{ name }}!</title>
-		{% else %}
-		  <title>error</title>
-		{% endif %}
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	</head>
-	<body>
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if name %}
+	User {{ name }}!
+{% else %}
+	ERROR
+{% endif %}
+{% endblock %}
+{% block body %}
 	{% if name %}
 		<h1>This is the profile for {{ name }}!</h1>
 	{% else %}
 		<h1>Error 404</h1>
 		no user specified
 	{% endif %}
-	</body>
-</html>
+{% endblock %}
