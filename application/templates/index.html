@@ -4,8 +4,8 @@
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
-	<a href="/login">Log in</a></br>
-	<a href="/logout">Log out</a></br>
+	<a href="{{ url_for('login')}}">Log in</a></br>
+	<a href="{{ url_for('logout')}}">Log out</a></br>
 	Main Page<br/>
-	<a href="/u/Bob">Example user page</a>
+	<a href="{{ url_for('profile', user=bob)}}">Example user page</a>
 {% endblock %}
