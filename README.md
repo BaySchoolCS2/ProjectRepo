@@ -25,6 +25,7 @@ you can now start editing
 
 ## Pushing Rules
 
+test, write unittests and then, 
 
 make sure that all requirements of the project are in requirements.txt
 
@@ -37,7 +38,7 @@ make sure that all package documentation is linked in the documentation section 
 if you installed tools that are required to run the server add them to the readme under setup environment
 
 
-add anyfiles that you many have created
+add any files that you many have created
 
 ```
 git add --all
