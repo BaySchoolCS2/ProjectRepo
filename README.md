@@ -64,8 +64,8 @@ No need to enter a virtual environment
 
 Code | Description
 ---- | --------------------------------
-./tools/addusers.py | adds users in /libs/usernames
-./tools/listusers.py | lists all users
+./tools/addUsers.py | adds users in /libs/usernames
+./tools/listUsers.py | lists all users
 ./tools/deleteDB.py | deletes the WHOLE database (use only localy)
 ./tools/deleteUsers.py | deletes ALL the users but no other part of the database
 
