@@ -1,7 +1,7 @@
 #! tools-env/bin/python
 
 import pymongo
-from werkzeug.security import generate_password_hash #werkzeug is a dependency for flask it is installed if flask is installed
+from werkzeug.security import generate_password_hash
 
 usernames_file = open("tools/libs/usernames", "r")
 
@@ -14,8 +14,6 @@ for line in usernames_file:
         else:
             verified = False
         users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2]), "emailVerified":verified})
-#check_password_hash would be used to check passwords (if you used this you would then have to also import check_password_hash from werkzeug.security)
-#example: http://flask.pocoo.org/snippets/54/
 
 for user in users:
     pymongo.MongoClient().project.User.insert(user)
