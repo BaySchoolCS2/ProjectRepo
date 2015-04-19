@@ -2,7 +2,5 @@
 
 import pymongo
 
-users = pymongo.MongoClient().project.User.find()
-
-for user in users:
+for user in pymongo.MongoClient().project.User.find():
     print user
