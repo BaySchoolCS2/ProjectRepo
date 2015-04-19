@@ -1,6 +1,6 @@
 from application import app
 from collections import User
-from flask import session, render_template
+from flask import session, render_template, flash
 from forms import LoginForm
 from werkzeug.security import check_password_hash
 
@@ -15,6 +15,8 @@ def login():
             session['follow'] = user.allowTracking
             session['isMod'] = user.isMod
             return redirect(url_for('index'))
+        else:
+            flash("incorrect username or password")
         return render_template('login.html', form = form)
 
 @app.route('/logout')

@@ -5,7 +5,7 @@ from forms import SignupForm
 
 @app.route('/signup')
 def signup():
-    form = SignupForm
+    form = SignupForm()
     if session.get('logged_in'):
         return redirect(url_for('index'))
     if form.validate_on_submit():
