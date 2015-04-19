@@ -3,7 +3,7 @@
 ## Setup Environment
 to setup the environment you first have to install mongodb
 
-on linux this is as easy as
+on Linux this is as easy as
 ```
 sudo apt-get install mongodb
 ```
@@ -24,6 +24,7 @@ Setup environment first then execute
 ```
 ./run.py
 ```
+
 and then navigate to [localhost:5000](http://localhost:5000)
 
 ## Pushing Rules
@@ -51,6 +52,7 @@ if you installed tools that are required to run the server add them to the readm
 if there are any temporary files that have been created and that should not be included in the repository add them to .gitignore
 
 ## Tools
+
 Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete the whole database (do this only if testing).
 
 The tools have their own separate virtual environment for themselves and are run from their by default.
@@ -60,6 +62,7 @@ To execute a tool
 ```
 ./tools/<toolname>.py
 ```
+
 No need to enter a virtual environment
 
 Code | Description
@@ -94,4 +97,4 @@ The issue tracker is [here](https://github.com/BaySchoolCS2/ProjectRepo/issues/n
 
 ## MISC
 
- - Documentation for useage and installing that is very verbose should go into the wiki.
+ - Documentation for usage and installing that is very verbose should go into the wiki
