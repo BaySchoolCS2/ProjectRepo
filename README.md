@@ -1,54 +1,62 @@
 # ProjectRepo
 
-## To run
-
-setup environment first then
-
-```
-./run.py
-```
-navigate to [localhost:5000](http://localhost:5000)
-
 ## Setup Environment
-install mongodb
+to setup the environment you first have to install mongodb
+
+on linux this is as easy as
 ```
 sudo apt-get install mongodb
 ```
 
-create a virtual environment and install python packages
+you then need create the required virtual environment and install python packages,
+fortunately we have a script for that
+
 ```
 ./setup.sh
 ```
 
-you can now start editing
+Congratulations you can now edit and test.
 
+## To run
+
+Setup environment first then execute
+
+```
+./run.py
+```
+and then navigate to [localhost:5000](http://localhost:5000)
 
 ## Pushing Rules
 
-
+BEFORE you push:
 make sure that all requirements of the project are in requirements.txt
+
+to do this type these commands into the console
 
 ```
 source venv/bin/activate
 pip freeze > requirements.txt
 ```
-make sure that all package documentation is linked in the documentation section bellow
+
+if you were messing around inside the tool virtual environment then you should also commit those packages to the tool-requirements.txt
+```
+source tools-env/bin/activate
+pip freeze > tool-requirements.txt
+```
+
+make sure that all module documentation is linked in the documentation section bellow
 
 if you installed tools that are required to run the server add them to the readme under setup environment
 
-
-add anyfiles that you many have created
-
-```
-git add --all
-```
+if there are any temporary files that have been created and that should not be included in the repository add them to .gitignore
 
 ## Tools
-Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete the whole database.
+Tools are launched from the tools directory they allow you to do things like create and list users in the database as well as delete the whole database (do this only if testing).
 
 The tools have their own separate virtual environment for themselves and are run from their by default.
 
 To execute a tool
+
 ```
 ./tools/<toolname>.py
 ```
@@ -82,3 +90,8 @@ If you happen to find a bug, report it and then attempt to fix it. If you cannot
 
 
 The issue tracker is [here](https://github.com/BaySchoolCS2/ProjectRepo/issues/new)
+
+
+## MISC
+
+ - Documentation for useage and installing that is very verbose should go into the wiki.
