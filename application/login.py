@@ -1,6 +1,8 @@
 from application import app
 from flask import session, render_template
 from forms import LoginForm
+from werkzeug.security import check_password_hash
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     form = LoginForm()
