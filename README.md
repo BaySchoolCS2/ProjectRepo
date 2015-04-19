@@ -75,6 +75,7 @@ Flask-mongoengine : [http://docs.mongoengine.org/](http://docs.mongoengine.org/)
 
 Flask-WTF : [https://flask-wtf.readthedocs.org/en/latest/](https://flask-wtf.readthedocs.org/en/latest/)
 
+Unittesting Flask : [http://flask.pocoo.org/docs/0.10/testing/](http://flask.pocoo.org/docs/0.10/testing/)
 ## Bugs
 
 If you happen to find a bug, report it and then attempt to fix it. If you cannot fix it, indicate that you could not in the bug report.
