@@ -1,4 +1,5 @@
 from application import app
+from collections import User
 from flask import session, render_template
 from forms import LoginForm
 from werkzeug.security import check_password_hash
@@ -7,9 +8,14 @@ from werkzeug.security import check_password_hash
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        pass
-        #what happens after form is submitted goes here
-    return render_template('login.html', form = form)
+        user = User(email=)
+        if check_password_hash(User.password, form.password):
+            session['logged_in'] = True
+            session['alias'] = user.alias
+            session['follow'] = user.allowTracking
+            session['isMod'] = user.isMod
+            return redirect(url_for('index'))
+        return render_template('login.html', form = form)
 
 @app.route('/logout')
 def logout():
