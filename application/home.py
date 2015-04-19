@@ -7,5 +7,5 @@ def index():
 
 @app.route('/u/')
 @app.route('/u/<name>')
-def profile(name=None):
-	return render_template('user.html', name=name)
+def profile(name = None):
+	return render_template('user.html', name = name)
