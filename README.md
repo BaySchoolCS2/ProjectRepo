@@ -25,7 +25,11 @@ Setup environment first then execute
 ./run.py
 ```
 
+<<<<<<< HEAD
 and then navigate to [localhost:5000](http://localhost:5000)
+=======
+test, write unittests and then, 
+>>>>>>> 3ab608f404b7bc3cecfccde49db319857b65c43c
 
 ## Pushing Rules
 
@@ -47,7 +51,11 @@ pip freeze > tool-requirements.txt
 
 make sure that all module documentation is linked in the documentation section bellow
 
+<<<<<<< HEAD
 if you installed tools that are required to run the server add them to the readme under setup environment
+=======
+add any files that you many have created
+>>>>>>> 3ab608f404b7bc3cecfccde49db319857b65c43c
 
 if there are any temporary files that have been created and that should not be included in the repository add them to .gitignore
 
