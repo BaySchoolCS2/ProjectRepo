@@ -23,4 +23,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-    return 'log out'
+    if session.get('logged_in'):
+        session.pop('logged_in',None)
+    return redirect(url_for('index'))
