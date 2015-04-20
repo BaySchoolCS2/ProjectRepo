@@ -11,8 +11,14 @@ sudo apt-get install mongodb
 you then need create the required virtual environment and install python packages,
 fortunately we have a script for that
 
+either
 ```
-./setup.sh
+./utils/setup.sh
+```
+
+or if you have [fabric](http://fabfile.org) use
+```
+fab setup_env
 ```
 
 Congratulations you can now edit and test.
