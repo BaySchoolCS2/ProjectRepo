@@ -1,8 +1,8 @@
 from application import db
 
 class User(db.Document):
-    email = db.EmailField(required = True)
-    alias = db.StringField(required = True)
+    email = db.EmailField(required = True, unique = True)
+    alias = db.StringField(required = True, unique = True)
     password = db.StringField(min_length = 8, required = True)
     emailVerified = db.BooleanField(default = False)
     lastLogin = db.DateTimeField()
