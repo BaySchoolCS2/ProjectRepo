@@ -10,15 +10,18 @@ def login():
     if session.get('logged_in'):
         return redirect(url_for('index'))
     if form.validate_on_submit():
-        user = User.objects(email=form.email.data)[0]
-        if check_password_hash(user.password, form.password.data):
-            session['logged_in'] = True
-            session['alias'] = user.alias
-            session['allowTracking'] = user.allowTracking
-            session['isMod'] = user.isMod
-            return redirect(url_for('index'))
-        else:
-            flash('incorrect username or password')
+        try:
+            user = User.objects(email=form.email.data)[0]
+            if check_password_hash(user.password, form.password.data):
+                session['logged_in'] = True
+                session['alias'] = user.alias
+                session['allowTracking'] = user.allowTracking
+                session['isMod'] = user.isMod
+                return redirect(url_for('index'))
+            else:
+                flash('Wrong password')
+        except:
+            flash('Wrong email')
     return render_template('login.html', form = form)
 
 @app.route('/logout')
