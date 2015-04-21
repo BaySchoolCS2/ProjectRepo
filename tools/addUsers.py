@@ -7,6 +7,10 @@ usernames_file = open("tools/libs/usernames", "r")
 
 users = []
 
+connect(db='project',
+    host = 'localhost',
+    port = 27017)
+
 class User(Document):
     email = EmailField(required = True, unique = True)
     alias = StringField(required = True, unique = True)
@@ -16,10 +20,10 @@ class User(Document):
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
 
+
+
 for line in usernames_file:
     for line in usernames_file:
+        print line
         pw_hash = generate_password_hash(line.split(":")[2])
-        try:
-            User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3]).save()
-        except:
-            print "failed to create user %s" % line.split(":")[0]
+        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3]).save()
