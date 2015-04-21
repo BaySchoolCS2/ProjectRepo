@@ -26,6 +26,4 @@ def signup():
                 flash('Password too short')
             else:
                 flash('Passwords do not match')
-
->>>>>>> 052341e8a75119f7129260ff60e92397019ab30b
     return render_template('signup.html', form = form)
