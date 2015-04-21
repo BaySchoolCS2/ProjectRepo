@@ -1,6 +1,6 @@
 from application import app
 from collections import User
-from flask import session, render_template
+from flask import session, render_template, redirect
 from forms import SignupForm
 from werkzeug.security import generate_password_hash
 
