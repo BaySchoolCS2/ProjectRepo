@@ -29,6 +29,5 @@ def signup():
                 error = 'Password too short'
             else:
                 error = 'Passwords do not match'
-    elif request.method == 'POST' and error == None:
-        error = 'form not validated'
+
     return render_template('signup.html', form = form, err = error)
