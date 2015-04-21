@@ -1,10 +1,9 @@
 import application
-from application.collections import User
 from mongoengine import connect
 import unittest
 from werkzeug.security import generate_password_hash
 
-mongoDB_Settings = {
+MONGODB = {
     'db' : 'project_test',
     'host' : 'localhost',
     'port' : 27017
@@ -14,7 +13,7 @@ mongoDB_Settings = {
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
-        application.app.config["MONGODB_SETTINGS"] = mongoDB_Settings
+        application.app.config["MONGODB_SETTINGS"] = MONGODB
         application.app.config["WTF_CSRF_ENABLED"] = False
         application.app.config["TESTING"] = True
         application.app.secret_key = "TEST KEY"
@@ -22,10 +21,10 @@ class AppTestCase(unittest.TestCase):
 
     def tearDown(self):
         connect(
-            mongoDB_Settings['db'],
-            host = mongoDB_Settings['host'],
-            port = mongoDB_Settings['port']
-        ).drop_database(mongoDB_Settings['db'])
+            db = MONGODB['db'],
+            host = MONGODB['host'],
+            port = MONGODB['port']
+        ).drop_database(MONGODB['db'])
 
     def login(self, email, password):
         return self.app.post('/login', data = dict(
