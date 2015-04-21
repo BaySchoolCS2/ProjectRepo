@@ -1,8 +1,5 @@
 from application import app
 from collections import User
-<<<<<<< HEAD
-from flask import session, render_template, redirect, flash
-=======
 from mongoengine import ValidationError, errors
 from flask import session, render_template, redirect, flash, url_for
 >>>>>>> 052341e8a75119f7129260ff60e92397019ab30b
