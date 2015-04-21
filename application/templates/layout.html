@@ -8,15 +8,11 @@
     <script src={{ url_for('static', filename='css/style.css')}}></script><!-- example for custom js after jquery so it can be used-->
   </head>
   <body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class=flashes>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+    <ul class=flashes>
+    {% for message in get_flashed_messages() %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
     {% block body %}
     {% endblock %}
   </body>

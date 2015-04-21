@@ -3,7 +3,7 @@ from application import db
 class User(db.Document):
     email = db.EmailField(required = True)
     alias = db.StringField(required = True)
-    password = db.StringField(required = True)
+    password = db.StringField(min_length = 8, required = True)
     emailVerified = db.BooleanField(default = False)
     lastLogin = db.DateTimeField()
     allowTracking = db.BooleanField(default = False)
