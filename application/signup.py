@@ -27,5 +27,4 @@ def signup():
             else:
                 flash('Passwords do not match')
 
-
     return render_template('signup.html', form = form)
