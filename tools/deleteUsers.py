@@ -4,4 +4,4 @@ Uin = raw_input('This command deletes all users.  Are you sure you want to conti
 Uin = Uin.lower()
 
 if Uin in ["y", "yes", "yolo", "yolo :)"]:
-    pymongo.MongoClient().project.drop_collection('User')
+    pymongo.MongoClient().project.drop_collection('user')
