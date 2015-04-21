@@ -2,7 +2,6 @@ from application import app
 from collections import User
 from mongoengine import ValidationError, errors
 from flask import session, render_template, redirect, flash, url_for
->>>>>>> 052341e8a75119f7129260ff60e92397019ab30b
 from forms import SignupForm
 from werkzeug.security import generate_password_hash
 
