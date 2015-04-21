@@ -8,4 +8,4 @@ def update_reqs():
 
 def setup_env():
     '''sets up environment'''
-    local('./utils/upgrade.sh')
+    local('./utils/setup.sh')

@@ -1,19 +1,29 @@
 #! tools-env/bin/python
 
-import pymongo
+from mongoengine import connect, Document, EmailField, StringField, BooleanField, DateTimeField
 from werkzeug.security import generate_password_hash
 
 usernames_file = open("tools/libs/usernames", "r")
 
 users = []
 
-for line in usernames_file:
-    if not(pymongo.MongoClient().project.User.find_one({'alias':line.split(":")[0]})):
-        if line.split(':')[3].strip() == 'true':
-            verified = True
-        else:
-            verified = False
-        users.append({"alias":line.split(":")[0],"email":line.split(":")[1],"password":generate_password_hash(line.split(":")[2]), "emailVerified":verified})
+connect(db='project',
+    host = 'localhost',
+    port = 27017)
 
-for user in users:
-    pymongo.MongoClient().project.User.insert(user)
+class User(Document):
+    email = EmailField(required = True, unique = True)
+    alias = StringField(required = True, unique = True)
+    password = StringField(min_length = 8, required = True)
+    emailVerified = BooleanField(default = False)
+    lastLogin = DateTimeField()
+    allowTracking = BooleanField(default = False)
+    isMod = BooleanField(default = False)
+
+
+
+for line in usernames_file:
+    for line in usernames_file:
+        print line
+        pw_hash = generate_password_hash(line.split(":")[2])
+        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3]).save()

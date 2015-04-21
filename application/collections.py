@@ -1,9 +1,9 @@
 from application import db
 
 class User(db.Document):
-    email = db.EmailField(required = True)
-    alias = db.StringField(required = True)
-    password = db.StringField(required = True)
+    email = db.EmailField(required = True, unique = True)
+    alias = db.StringField(required = True, unique = True)
+    password = db.StringField(min_length = 8, required = True)
     emailVerified = db.BooleanField(default = False)
     lastLogin = db.DateTimeField()
     allowTracking = db.BooleanField(default = False)
@@ -38,7 +38,7 @@ class Kicked(db.Document):
     ends = db.DateTimeField(required = True)
     reason = db.StringField(max_length = 1000)
 
-class Banned(db.Document):]
+class Banned(db.Document):
     '''stores emails of people who are not allowed to make accounts'''
     email = db.EmailField(required = True)
     reason = db.StringField(max_length = 1000)
