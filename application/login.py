@@ -21,7 +21,7 @@ def login():
             else:
                 flash('Wrong password')
         except:
-            flash('Wrong email')
+            flash('Wrong email, silly!')
     return render_template('login.html', form = form)
 
 @app.route('/logout')
