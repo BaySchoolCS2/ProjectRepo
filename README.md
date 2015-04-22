@@ -23,7 +23,7 @@ or if you have [fabric](http://fabfile.org) use
 fab setup_env
 ```
 
-Congratulations you can now edit and test.
+Congratulations, you can now edit and test.
 
 # To run
 
@@ -53,10 +53,10 @@ source tools-env/bin/activate
 pip freeze > tool-requirements.txt
 ```
 
-make sure that all module documentation is linked in the documentation section bellow
+make sure that all module documentation is linked in the documentation section below
 
 if you installed tools that are required to run the server add them to the readme under setup environment
-=======
+
 add any files that you many have created
 
 if there are any temporary files that have been created and that should not be included in the repository add them to .gitignore
