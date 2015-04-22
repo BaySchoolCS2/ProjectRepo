@@ -3,9 +3,9 @@
 
 
 # Setup Environment
-to setup the environment you first have to install mongodb
+To setup the environment you first have to install mongodb
 
-on Linux this is as easy as
+On Linux this is as easy as
 ```
 sudo apt-get install mongodb
 ```
