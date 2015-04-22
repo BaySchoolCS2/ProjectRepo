@@ -1,12 +1,15 @@
 {% extends 'layout.html' %}
 {% block title %}Signup{% endblock %}
 {% block body %}
-  <form method="post" action="{{ url_for('signup') }}">
-    {{ form.csrf_token }}
-    {{ form.email.label }} {{ form.email() }}<br>
-    {{ form.alias.label }} {{ form.alias() }}<br>
-    {{ form.password.label }} {{ form.password()}}<br>
-    {{ form.password2.label }} {{ form.password2() }}
-    <input type="submit" value="signup">
-  </form>
+    {% if err != None %}
+        {{ err }}
+    {% endif %}
+    <form method="post" action="{{ url_for('signup') }}">
+        {{ form.csrf_token }}
+        {{ form.email.label }} {{ form.email() }}<br>
+        {{ form.alias.label }} {{ form.alias() }}<br>
+        {{ form.password.label }} {{ form.password()}}<br>
+        {{ form.password2.label }} {{ form.password2() }}
+        <input type="submit" value="signup">
+    </form>
 {% endblock %}

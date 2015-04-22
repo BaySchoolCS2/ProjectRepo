@@ -11,3 +11,7 @@ class SignupForm(Form):
     alias = StringField('alias', validators = [DataRequired()])
     password = PasswordField('password', validators = [DataRequired()])
     password2 = PasswordField('password (again)', validators = [DataRequired()])
+
+class NewPost(Form):
+    title = StringField('title', validators = [DataRequired()])
+    
