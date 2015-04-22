@@ -1,7 +1,11 @@
 from application import app
 from collections import User
 from mongoengine import ValidationError, errors
+<<<<<<< HEAD
+from flask import session, render_template, redirect, flash, url_for
+=======
 from flask import session, render_template, redirect, flash, url_for, request
+>>>>>>> b6c7c14cc9cbb7c28f4eea39904c10a22b46d380
 from forms import SignupForm
 from werkzeug.security import generate_password_hash
 
@@ -28,6 +32,11 @@ def signup():
             if len(form.password.data) < 8:
                 error = 'Password too short'
             else:
+<<<<<<< HEAD
+                flash('Passwords do not match')
+    return render_template('signup.html', form = form)
+=======
                 error = 'Passwords do not match'
 
     return render_template('signup.html', form = form, err = error)
+>>>>>>> b6c7c14cc9cbb7c28f4eea39904c10a22b46d380
