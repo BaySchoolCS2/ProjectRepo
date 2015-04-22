@@ -20,8 +20,6 @@ class User(Document):
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
 
-
-
 for line in usernames_file:
     for line in usernames_file:
         print line
