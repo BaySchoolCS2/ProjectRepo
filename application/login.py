@@ -18,9 +18,7 @@ def login():
         session['alias'] is the alias of the user that is currently logged in
         session['allowTracking'] is wether or not the user is to be tracked
         session['isMod'] is wether or not user is a moderator/advanced permission
-        flash returns a string to be delayed
-
-        
+        flash returns a string to be delayeds
     '''
     form = LoginForm()
     if session.get('logged_in'):
