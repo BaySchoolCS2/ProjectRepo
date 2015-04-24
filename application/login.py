@@ -4,8 +4,7 @@ from flask import session, render_template, flash, redirect, url_for
 from forms import LoginForm
 from werkzeug.security import check_password_hash
 
-@app.route('/login', methods=['POST', 'GET'])#when /login is accessed run login
-
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     '''
         form is imported from froms.py
