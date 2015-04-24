@@ -7,6 +7,9 @@ def index():
 
 @app.route('/u/')
 @app.route('/u/<name>')
-def profile(name = None):
-    posts = collections.Posts.objects(author=collections.User.objects(alias='bob')[0])
+def profile(name = None, posts = ''):
+    try:
+        posts = collections.Posts.objects(author=collections.User.objects(alias=name)[0])#returns a list of posts by the first user with the alias in the variable name
+    except IndexError:
+        pass
     return render_template('user.html', name = name, posts = posts)

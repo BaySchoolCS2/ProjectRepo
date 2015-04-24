@@ -15,7 +15,7 @@ def signup():
         return redirect(url_for('index'))
     if form.validate_on_submit():
         if form.password.data == form.password2.data and len(form.password.data) >= 8:
-            pw_hash = generate_password_hash(form.password.data)
+            pw_hash = generate_password_hash(form.password.data)#hash password
             try:
                 user = User(email = form.email.data, alias = form.alias.data, password = pw_hash)
                 user.save()
