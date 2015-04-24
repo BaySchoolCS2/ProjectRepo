@@ -4,6 +4,21 @@
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
+	
+	<style type="text/css">
+	body{
+	text-align: center;
+	background: #E0EEEE;
+	}
+	
+	.links a{
+	color: #000080;
+	}
+	
+	</style>
+	
+	<div class="links">
+	
 	{% if not session.get('logged_in') %}
 		<a href="{{ url_for('login')}}">Log in</a></br>
 	{% endif %}
@@ -11,11 +26,6 @@
 	Main Page<br/>
 	<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
 	
-	<style type="text/css">
-	body{
-	text-align: center;
-	background: #E0EEEE;
-	}
-	</style>
+	</div>
 	
 {% endblock %}
