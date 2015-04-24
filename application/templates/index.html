@@ -5,7 +5,7 @@
 	see user.html for an example on template
 	-->
 	{% if not session.get('logged_in') %}
-		<a href="{{ url_for('login')}}">Log in</a></br>
+	<a href="{{ url_for('login')}}">Log in</a></br>
 	{% endif %}
 	<a href="{{ url_for('logout')}}">Log out</a></br>
 	Main Page<br/>
