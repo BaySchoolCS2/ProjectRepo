@@ -9,6 +9,10 @@ from flask.ext.restful import Api, Resource
 
 api = Api(app)
 
+def apiUrlWrap(url):
+    return "/api"+url
+
+
 class ViewPosts(Resource):
     def get(self, user):
         return {"hello":user}

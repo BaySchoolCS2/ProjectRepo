@@ -7,6 +7,6 @@ db = MongoEngine(app)
 
 from application import login, home, signup
 
-from application.api import api, ViewPosts
+from application.api import api, ViewPosts, apiUrlWrap
 
-api.add_resource(ViewPosts,'/api/viewposts/<string:user>')
+api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'))
