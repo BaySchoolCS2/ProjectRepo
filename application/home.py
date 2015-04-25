@@ -5,7 +5,7 @@ from flask import render_template
 def index():
 	return render_template('index.html') # variables go after template
 
-@app.route('/u/')
+@app.route('/u')
 @app.route('/u/<name>')
 def profile(name = None, posts = ''):
     try:
