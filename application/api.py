@@ -5,9 +5,10 @@
 """
 
 from application import app
+from flask.ext.restful import Api, Resource
 
-api = restful.Api(app)
+api = Api(app)
 
-class ViewPosts(restful.Resource):
-    def get(self):
-        return {"hello":"derp"}
+class ViewPosts(Resource):
+    def get(self, user):
+        return {"hello":user}
