@@ -3,7 +3,11 @@ from flask import render_template
 
 @app.route('/')
 def index():
-	return render_template('index.html') # variables go after template
+	posts = []
+	for post in collections.Posts.objects:
+		posts.append(post)
+
+	return render_template('index.html', posts = posts) # variables go after template
 
 @app.route('/u')
 @app.route('/u/<name>')
