@@ -27,13 +27,13 @@ alias = raw_input('alias: ')
 
 title = raw_input('title: ')
 
-content = raw_input('post (must be under 1000 characters): ')
+content = raw_input('post (Not required.  Must be under 1000 characters): ')
 
 try:
     user = User.objects(alias=alias)[0]  # returns user object by alias
     post = Posts(author=user, title=title, content=content)
 
     post.save()
-    
+
 except IndexError:
     print('Failed to find user %s', alias)
