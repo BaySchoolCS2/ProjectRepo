@@ -15,3 +15,4 @@ def pull():
     '''pull from remote and then try to install all requirements if they have
     changed
     '''
+    local('./utils/pull.sh')
