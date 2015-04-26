@@ -10,3 +10,8 @@ def update_reqs():
 def setup_env():
     '''sets up environment'''
     local('./utils/setup.sh')
+
+def pull():
+    '''pull from remote and then try to install all requirements if they have
+    changed
+    '''
