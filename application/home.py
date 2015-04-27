@@ -12,7 +12,7 @@ def index():
 @app.route('/u')
 @app.route('/u/<name>')
 def profile(name = None, posts = ''):
-    profile = User.objects.get_or_404()
+    profile = collections.User.objects.get_or_404()
 
     try:
         posts = collections.Posts.objects(author=profile.alias)
