@@ -8,6 +8,7 @@ class User(db.Document):
     lastLogin = db.DateTimeField()
     allowTracking = db.BooleanField(default = False)
     isMod = db.BooleanField(default = False)
+    apiKey = db.StringField()
 
 class Posts(db.Document):
     #max length of title is 140 characters
