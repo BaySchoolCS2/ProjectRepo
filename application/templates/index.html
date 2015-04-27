@@ -27,16 +27,13 @@
 
 	{% if not session.get('logged_in') %}
 		<a href="{{ url_for('login')}}">Log in</a></br>
+		<a href="{{ url_for('signup')}}">Sign up</a></br>
 	{% endif %}
 	{% if session.get('logged_in') %}
 	<a href="{{ url_for('logout')}}">Log out</a></br>
 	{% endif %}
 	Main Page<br/>
 	<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
-<<<<<<< HEAD
-	<a href="{{ url_for('signup')}}">Sign up</a></br>
-=======
-
 	</div>
 
 	{% if len(posts) > 0 %}
