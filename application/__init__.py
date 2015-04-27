@@ -16,3 +16,9 @@ from application import dashboard
 from application.api import api, ViewPosts, apiUrlWrap
 
 api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'))
+
+
+
+# @app.errorhandler(404)
+# def page_not_found():
+#     return render_template("errorpages/404.html"), 404
