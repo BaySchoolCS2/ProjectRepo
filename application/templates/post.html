@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{% if post %}
+	User {{ post.title }}!
+{% else %}
+	ERROR
+{% endif %}
+{% endblock %}
+{% block body %}
+	{% if post %}
+    	<h2>{{ post.title }}</h2>
+        <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
+        <p>
+            {{ post.content }}
+        </p>
+	{% else %}
+		<h1>Error 404</h1>
+		no post found<br/>
+	{% endif %}
+{% endblock %}

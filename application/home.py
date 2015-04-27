@@ -19,3 +19,15 @@ def profile(name = None, posts = ''):
     except IndexError:
         pass
     return render_template('user.html', name = name, posts = posts)
+
+@app.route('/p/')
+@app.route('/p/<uid>')
+def post(uid = None):
+    try:
+        content = collections.Posts.objects(id = uid)[0]
+        err = 200
+        print(content)
+    except IndexError:
+        err = 404
+        post = None
+    return render_template('post.html', post=content), err

@@ -77,10 +77,12 @@ No need to enter a virtual environment
 
 Code | Description
 ---- | --------------------------------
-./tools/addUsers.py | adds users in /libs/usernames
-./tools/listUsers.py | lists all users
-./tools/deleteDB.py | deletes the WHOLE database (use only localy)
-./tools/deleteUsers.py | deletes ALL the users but no other part of the database
+`./tools/addUsers.py` | adds users in /libs/usernames
+`./tools/createPost.py` | Creates a post (The program will prompt you for a user, title, and content text)
+`./tools/listUsers.py` | lists all users
+`./tools/deleteDB.py` | deletes the WHOLE database (use only localy)
+`./tools/deleteUsers.py` | deletes ALL the users but no other part of the database
+`./tools/deletePosts.py` | deletes ALL the posts but no other part of the database
 
 ## Templates
 
