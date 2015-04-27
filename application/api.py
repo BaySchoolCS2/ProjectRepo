@@ -12,13 +12,16 @@
 from application import app, db
 from collections import User, Posts
 from flask.ext.restful import Api, Resource
-from flask import abort
+from flask import abort, request
 
 api = Api(app)
 
 def apiUrlWrap(url):
     return "/api"+url
 
+class Me(Resource):
+    def get(self):
+        pass
 
 class ViewPosts(Resource):
     def get(self, user):
@@ -33,6 +36,4 @@ class ViewPosts(Resource):
                 p.append(post)
         except IndexError:
             posts = None
-
-
         return {"username":user.alias, "posts":p}
