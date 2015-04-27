@@ -14,5 +14,9 @@ def setup_env():
 def pull():
     '''pull from remote and then try to install all requirements if they have
     changed
+<<<<<<< HEAD
+    '''
+=======
         '''
+>>>>>>> e45ac2998a2a3d19252b7cc203e968519d1be69b
     local('./utils/pull.sh')
