@@ -5,4 +5,14 @@ app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 db = MongoEngine(app)
 
-from application import login, home, signup
+app.jinja_env.globals["len"] = len
+
+
+from application import login
+from application import home
+from application import signup
+from application import dashboard
+
+from application.api import api, ViewPosts, apiUrlWrap
+
+api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'))
