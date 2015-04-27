@@ -33,7 +33,7 @@ Setup environment first then execute
 ./run.py
 ```
 
-and then navigate to [localhost:5000](http://localhost:5000) to test, write unittests and then, push
+and then point your browser (navigate) to [localhost:5000](http://localhost:5000) to test (as well as to?) write unittests and then, push
 
 ## Pushing Rules
 
