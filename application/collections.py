@@ -1,4 +1,5 @@
 from application import db
+from datetime import datetime
 
 class User(db.Document):
     email = db.EmailField(required = True, unique = True)
@@ -17,6 +18,7 @@ class Posts(db.Document):
     #max length of content is 10000 characters
     content = db.StringField(max_length = 10000)
     score = db.IntField(default = 0)
+    
 
 class Following(db.Document):
     '''
