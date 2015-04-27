@@ -10,7 +10,7 @@
 """
 
 from application import app, db
-from collections import User
+from collections import User, Posts
 from flask.ext.restful import Api, Resource
 from flask import abort
 
@@ -26,10 +26,13 @@ class ViewPosts(Resource):
             user = User.objects(alias = user)[0]
         except IndexError:
             abort(404)
-
         try:
-            posts = collections.Posts.objects(author = User.objects(alias=user)[0])  # returns a list of posts by alias
+            posts = Posts.objects(author = user)
+            p = []
+            for post in posts:
+                p.append(post)
         except IndexError:
             posts = None
 
-        return {"username":user.alias, "posts":posts}
+
+        return {"username":user.alias, "posts":p}
