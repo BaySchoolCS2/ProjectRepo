@@ -8,7 +8,11 @@ db = MongoEngine(app)
 app.jinja_env.globals["len"] = len
 
 
-from application import login, home, signup, dashboard
+from application import login
+from application import home
+from application import signup
+from application import dashboard
+
 from application.api import api, ViewPosts, apiUrlWrap
 
 api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'))
