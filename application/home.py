@@ -12,8 +12,10 @@ def index():
 @app.route('/u')
 @app.route('/u/<name>')
 def profile(name = None, posts = ''):
+    profile = collections.User.objects.get_or_404()
+
     try:
-        posts = collections.Posts.objects(author=collections.User.objects(alias=name)[0])  # returns a list of posts by alias
+        posts = collections.Posts.objects(author=profile.alias)
     except IndexError:
         pass
     return render_template('user.html', name = name, posts = posts)

@@ -6,15 +6,18 @@
 	-->
 
 	<style type="text/css">
-	
+
 	body{
-	text-align: center;
 	background: #E0EEEE;
+	text-align: center;
 	}
-	
+
 	.links {
+	background: white;
 	border: 1px solid black;
-	width: 500px;
+	padding: 7px;
+	text-align: right;
+	top: 0px;
 	}
 
 	.links a{
@@ -26,20 +29,21 @@
 	letter-spacing: 1px;
 	text-decoration: none;
 	}
-	
+
 	</style>
 
 	<div class="links">
-
-	{% if not session.get('logged_in') %}
-		<a href="{{ url_for('login')}}">Log in</a></br>
-		<a href="{{ url_for('signup')}}">Sign up</a></br>
-	{% endif %}
-	{% if session.get('logged_in') %}
-	<a href="{{ url_for('logout')}}">Log out</a></br>
-	{% endif %}
-	Main Page<br/>
-	<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
+		{% if not session.get('logged_in') %}
+			<a href="{{ url_for('login')}}">Log in</a>
+			•
+			<a href="{{ url_for('signup')}}">Sign up</a>
+		{% endif %}
+		{% if session.get('logged_in') %}
+			•
+			<a href="{{ url_for('logout')}}">Log out</a>
+		{% endif %}
+		•
+		<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
 	</div>
 
 	{% if len(posts) > 0 %}
@@ -47,6 +51,6 @@
 			{{ post.title }}<br>
 		{% endfor %}
 	{% else %}
-		<h2> No Posts Found </h2>
+		<h2> No Posts Found :( </h2>
 	{% endif %}
-{% endblock %}
+	{% endblock %}
