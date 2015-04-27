@@ -7,12 +7,22 @@ from werkzeug.security import generate_password_hash
 
 @app.route('/signup', methods=['POST','GET'])
 def signup():
+    """
+        Signup, creates a new user
+        if the session is logged in return to index
+        when form is valided if the passwords match and the password length is
+        greater than 8 characters then create the password hash
+        if it is not the throw errors
+
+        try to create the user object and catch all expected errors.
+    """
     form = SignupForm()
 
     error = None
 
     if session.get('logged_in'):
         return redirect(url_for('index'))
+
     if form.validate_on_submit():
         if form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)

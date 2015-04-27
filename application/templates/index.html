@@ -4,11 +4,48 @@
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
+
+	<style type="text/css">
+	body{
+	text-align: center;
+	background: #E0EEEE;
+	}
+
+	.links a{
+	color: #000000;
+	}
+
+	.links a:hover{
+	color: #000080;
+	letter-spacing: 1px;
+	text-decoration: none;
+	}
+
+	</style>
+
+	<div class="links">
+
 	{% if not session.get('logged_in') %}
 		<a href="{{ url_for('login')}}">Log in</a></br>
 	{% endif %}
+	{% if session.get('logged_in') %}
 	<a href="{{ url_for('logout')}}">Log out</a></br>
+	{% endif %}
 	Main Page<br/>
 	<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
+<<<<<<< HEAD
 	<a href="{{ url_for('signup')}}">Sign up</a></br>
+=======
+
+	</div>
+
+	{% if len(posts) > 0 %}
+		{% for post in posts %}
+			{{ post.title }}<br>
+		{% endfor %}
+	{% else %}
+		<h2> No Posts Found </h2>
+	{% endif %}
+
+>>>>>>> aaf39566c65fa2b65707921efc6c996634fcde6f
 {% endblock %}

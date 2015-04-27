@@ -20,11 +20,7 @@ class AppTestCase(unittest.TestCase):
         self.app = application.app.test_client()
 
     def tearDown(self):
-        connect(
-            db = MONGODB['db'],
-            host = MONGODB['host'],
-            port = MONGODB['port']
-        ).drop_database(MONGODB['db'])
+        application.app.db.drop_database
 
     def login(self, email, password):
         return self.app.post('/login', data = dict(
@@ -45,6 +41,7 @@ class AppTestCase(unittest.TestCase):
 
     def test_signup(self):
         rv = self.signup('test@test.com', 'testTest', 'password', 'password')
+        print rv.data
         assert 'login' in rv.data
         rv = self.signup('derp@derp.com', 'testTest2', 'password', 'password')
         assert 'Email or username' in rv.data
@@ -54,7 +51,6 @@ class AppTestCase(unittest.TestCase):
         assert 'Passwords do no match'
         rv = self.signup('derp@herp.com', 'testTest2', 'pass', 'pass')
         assert 'Password too short'
-
 
     # def test_login(self):
     #     rv = self.login("test@test.com", "testPassword")
