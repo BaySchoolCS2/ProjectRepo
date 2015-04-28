@@ -32,7 +32,11 @@
 	font-weight: bold;
 	text-decoration: none;
 	}
-
+	
+	.npf {
+	top: 20px;
+	}
+	
 	</style>
 
 	<div class="links">
@@ -54,6 +58,6 @@
 			<a href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
 		{% endfor %}
 	{% else %}
-		<h2> No Posts Found :( </h2>
+		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
 	{% endblock %}
