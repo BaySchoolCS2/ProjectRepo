@@ -16,6 +16,8 @@
 	background: white;
 	border: 1px solid black;
 	padding: 7px;
+	position: fixed;
+	right: 0px;
 	text-align: right;
 	top: 0px;
 	}
@@ -48,7 +50,7 @@
 
 	{% if len(posts) > 0 %}
 		{% for post in posts %}
-			{{ post.title }}<br>
+			<a href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
 		{% endfor %}
 	{% else %}
 		<h2> No Posts Found :( </h2>
