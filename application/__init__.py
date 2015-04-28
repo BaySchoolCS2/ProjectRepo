@@ -13,10 +13,10 @@ from application import home
 from application import signup
 from application import dashboard
 
-from application.api import api, ViewPosts, apiUrlWrap
+from application.api import api, ViewPosts, apiUrlWrap, Me
 
-api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'))
-
+api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'), apiUrlWrap('/posts'))
+api.add_resource(Me, apiUrlWrap('/me'))
 
 
 # @app.errorhandler(404)

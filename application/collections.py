@@ -1,4 +1,5 @@
 from application import db
+
 import datetime
 
 class User(db.Document):
@@ -9,12 +10,13 @@ class User(db.Document):
     lastLogin = db.DateTimeField()
     allowTracking = db.BooleanField(default = False)
     isMod = db.BooleanField(default = False)
-    apiKey = db.StringField()
+    apiKey = db.StringField(unique=True)
 
-class Comment(db.Document):
+class Comment(db.EmbeddedDocument):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
+
 
 class Posts(db.Document):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
@@ -24,10 +26,12 @@ class Posts(db.Document):
     #max length of content is 10000 characters
     content = db.StringField(max_length = 10000)
     score = db.IntField(default = 0)
+    sticky = db.BooleanField(default = False)
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
     meta = {
         'allow_inheritance': True
     }
+
 
 
 

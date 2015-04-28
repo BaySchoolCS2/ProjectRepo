@@ -11,29 +11,48 @@
 
 from application import app, db
 from collections import User, Posts
-from flask.ext.restful import Api, Resource
+from flask.ext.restful import Api, Resource, reqparse
 from flask import abort, request
 
 api = Api(app)
 
-def apiUrlWrap(url):
-    return "/api"+url
+parser = reqparse.RequestParser()
+parser.add_argument('Authorization', type=str, location='headers')
+
+
+def apiUrlWrap(url, version="v1"):
+    return "/api/"+version+url
 
 class Me(Resource):
     def get(self):
+        args = parser.parse_args()
         pass
-
+    def post(self):
+        body = request.form["data"]
+        title = request.form["title"]
 class ViewPosts(Resource):
-    def get(self, user):
-        try:
-            user = User.objects(alias = user)[0]
-        except IndexError:
-            abort(404)
-        try:
-            posts = Posts.objects(author = user)
+    def get(self, user=None):
+        if user != None:
+            try:
+                user = User.objects(alias = user)[0]
+            except IndexError:
+                abort(404)
+            try:
+                posts = Posts.objects(author = user)
+                p = []
+                for post in posts:
+                    post["author"] = post["author"]["alias"]
+                    post.pop("score", None)
+                    p.append(post)
+            except IndexError:
+                posts = None
+        else:
+            posts = Posts.objects()
             p = []
             for post in posts:
                 p.append(post)
-        except IndexError:
-            posts = None
-        return {"username":user.alias, "posts":p}
+
+            for post in p:
+                post["author"] = post["author"]["alias"]
+                post.pop("score", None)
+        return {"posts":p}

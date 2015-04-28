@@ -9,15 +9,21 @@
 
 	body{
 	background: #E0EEEE;
+	background-image: url('http://www.thepolivkafamily.com/wp-content/uploads/2013/05/San-Francisco-1024x576.jpg');
+	background-size: 100% 100%;
 	text-align: center;
 	}
 
 	.links {
 	background: white;
-	border: 1px solid black;
+	border-bottom: 1px solid black;
+	opacity: 0.7;
 	padding: 7px;
+	position: fixed;
+	right: 0px;
 	text-align: right;
 	top: 0px;
+	width: 100%;
 	}
 
 	.links a{
@@ -26,10 +32,14 @@
 
 	.links a:hover{
 	color: #000080;
-	letter-spacing: 1px;
+	font-weight: bold;
 	text-decoration: none;
 	}
-
+	
+	.npf {
+	margin-top: 50px;
+	}
+	
 	</style>
 
 	<div class="links">
@@ -51,6 +61,6 @@
 			<a href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
 		{% endfor %}
 	{% else %}
-		<h2> No Posts Found :( </h2>
+		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
 	{% endblock %}
