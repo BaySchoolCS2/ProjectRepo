@@ -34,6 +34,7 @@ class ViewPosts(Resource):
                 posts = Posts.objects(author = user)
                 p = []
                 for post in posts:
+                    post["author"] = post["author"]["alias"]
                     post.pop("score", None)
                     p.append(post)
 
