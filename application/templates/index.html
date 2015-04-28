@@ -57,7 +57,9 @@
 		•
 		<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
 	</div>
-
+	
+	<br><br><br>
+	
 	{% if len(posts) > 0 %}
 		{% for post in posts %}
 			<a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
