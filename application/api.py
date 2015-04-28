@@ -11,10 +11,14 @@
 
 from application import app, db
 from collections import User, Posts
-from flask.ext.restful import Api, Resource
+from flask.ext.restful import Api, Resource, reqparse
 from flask import abort, request
 
 api = Api(app)
+
+parser = reqparse.RequestParser
+parser.add_argument('Auth', type=str, location='headers')
+
 
 def apiUrlWrap(url, version="v1"):
     return "/api/"+version+url
@@ -22,6 +26,7 @@ def apiUrlWrap(url, version="v1"):
 class Me(Resource):
     def get(self):
         pass
+
 
 class ViewPosts(Resource):
     def get(self, user=None):
