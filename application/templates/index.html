@@ -1,16 +1,18 @@
 {% extends 'layout.html' %}
 {% block title %}Welcome{% endblock %}
+
 {% block body %}
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
-
+	
 	<style type="text/css">
 
 	body{
 	background: #E0EEEE;
-	background-image: url('https://bayschoolsf.files.wordpress.com/2014/06/m51-final.jpg?w=700&h=&crop=1');
-	background-size: 100% 100%;
+	background-image: url('https://bayschoolsf.files.wordpress.com/2014/12/aiweiwei5.jpg?w=1000&h=');
+	background-repeat: none;
+	background-size: 100%;
 	text-align: center;
 	}
 
@@ -63,4 +65,5 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
+	
 	{% endblock %}
