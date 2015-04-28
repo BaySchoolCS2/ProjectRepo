@@ -16,8 +16,8 @@ from flask import abort, request
 
 api = Api(app)
 
-parser = reqparse.RequestParser
-parser.add_argument('Auth', type=str, location='headers')
+parser = reqparse.RequestParser()
+parser.add_argument('Authorization', type=str, location='headers')
 
 
 def apiUrlWrap(url, version="v1"):
@@ -25,9 +25,11 @@ def apiUrlWrap(url, version="v1"):
 
 class Me(Resource):
     def get(self):
+        args = parser.parse_args()
         pass
-
-
+    def post(self):
+        body = request.form["data"]
+        title = request.form["title"]
 class ViewPosts(Resource):
     def get(self, user=None):
         if user != None:
@@ -42,10 +44,8 @@ class ViewPosts(Resource):
                     post["author"] = post["author"]["alias"]
                     post.pop("score", None)
                     p.append(post)
-
             except IndexError:
                 posts = None
-            return {"posts":p}
         else:
             posts = Posts.objects()
             p = []
@@ -55,4 +55,4 @@ class ViewPosts(Resource):
             for post in p:
                 post["author"] = post["author"]["alias"]
                 post.pop("score", None)
-            return {"posts":p}
+        return {"posts":p}
