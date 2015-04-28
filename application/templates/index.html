@@ -60,7 +60,7 @@
 
 	{% if len(posts) > 0 %}
 		{% for post in posts %}
-			<a href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
+			<a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
 		{% endfor %}
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
