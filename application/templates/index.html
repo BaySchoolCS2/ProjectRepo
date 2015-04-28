@@ -1,9 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %}Welcome{% endblock %}
-{% block body %}
-	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
-	see user.html for an example on template
-	-->
+
+<head>
 
 	<style type="text/css">
 
@@ -12,6 +10,13 @@
 	background-image: url('https://bayschoolsf.files.wordpress.com/2014/12/aiweiwei5.jpg?w=1000&h=');
 	background-size: 100% 100%;
 	text-align: center;
+	}
+	
+	#everything {
+	background: white;
+	background-size: 100% 100%;
+	opacity: 0.7;
+	position: fixed;
 	}
 
 	.links {
@@ -42,6 +47,15 @@
 	
 	</style>
 
+</head>
+
+{% block body %}
+	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
+	see user.html for an example on template
+	-->
+	
+	<div id="everything">
+
 	<div class="links">
 		{% if not session.get('logged_in') %}
 			<a href="{{ url_for('login')}}">Log in</a>
@@ -63,4 +77,7 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
+	
+	</div>
+	
 	{% endblock %}
