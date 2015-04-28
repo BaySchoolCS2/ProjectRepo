@@ -1,5 +1,6 @@
 from application import app, collections
 from flask import render_template
+from mongoengine import ValidationError, errors
 
 @app.route('/')
 def index():
@@ -28,7 +29,7 @@ def post(uid = None):
         content = collections.Posts.objects(id = uid)[0]
         err = 200
         print(content)
-    except IndexError:
+    except ValidationError:
         err = 404
-        post = None
+        content = ''
     return render_template('post.html', post=content), err
