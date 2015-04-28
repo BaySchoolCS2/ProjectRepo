@@ -1,6 +1,7 @@
 #! tools-env/bin/python
 
-from mongoengine import connect, Document, EmailField, StringField, BooleanField, DateTimeField, ReferenceField, IntField
+from mongoengine import connect, Document, EmailField, StringField, BooleanField, DateTimeField, ReferenceField, IntField, ListField, EmbeddedDocumentField
+import datetime
 
 connect(db='project',
     host = 'localhost',
@@ -14,14 +15,26 @@ class User(Document):
     lastLogin = DateTimeField()
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
+    apiKey = StringField()
+
+class Comment(Document):
+    created_at = DateTimeField(default=datetime.datetime.now, required=True)
+    author = ReferenceField(User)
+    body = StringField(max_length=1000, required=True)
 
 class Posts(Document):
+    created_at = DateTimeField(default=datetime.datetime.now, required=True)
     #max length of title is 140 characters
     title = StringField(required = True, max_length = 140)
     author = ReferenceField(User)
     #max length of content is 10000 characters
     content = StringField(max_length = 10000)
     score = IntField(default = 0)
+    comments = ListField(EmbeddedDocumentField('Comment'))
+    meta = {
+        'allow_inheritance': True
+    }
+
 
 alias = raw_input('alias: ')
 
