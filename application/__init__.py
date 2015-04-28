@@ -12,6 +12,7 @@ from application import login
 from application import home
 from application import signup
 from application import dashboard
+from application import settings
 
 from application.api import api, ViewPosts, apiUrlWrap, Me
 
