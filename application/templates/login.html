@@ -1,6 +1,22 @@
 {% extends 'layout.html' %}
 {% block title %}Login{% endblock %}
 {% block body %}
+
+    <style type="text/css">
+    
+    body{
+    background: #E0EEEE;
+    text-align: center;
+    }
+    
+    form{
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 24px;
+    }
+    
+    </style>
+
     <form method="post" action="{{ url_for('login') }}">
         {{ form.csrf_token }}
         {{ form.email.label }} {{ form.email() }}<br>
