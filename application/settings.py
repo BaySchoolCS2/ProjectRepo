@@ -18,7 +18,7 @@ def generateapikey():
     if not session.get("logged_in"):
         return redirect(url_for('index'))
     user = User.objects(alias = session.get("alias")).get()
-    api_key = urandom(9).encode('base_64').replace("=","")
+    api_key = urandom(9).encode('base_64').replace("=","").strip()
     user.apiKey = api_key
     user.save()
     return redirect(url_for('settings'))

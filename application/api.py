@@ -10,7 +10,7 @@
 """
 
 from application import app, db
-from collections import User, Posts
+from collections import User, Posts, Following
 from flask.ext.restful import Api, Resource, reqparse
 from flask import abort, request
 
@@ -24,7 +24,13 @@ def apiUrlWrap(url, version="v1"):
 
 class Me(Resource):
     def get(self):
-        return request.headers.get('Authentication')
+        user = User.objects(apiKey = request.headers.get('Authorization'))[0]
+        posts = Posts.objects(author = user)
+        s = []
+        subscriptions = Following.objects(user = user)
+        for i in subscriptions[0]:
+            s.append(i)
+        return {"subscriptions":s, "posts":posts}
     def post(self):
         body = request.form["data"]
         title = request.form["title"]
