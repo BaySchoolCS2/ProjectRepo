@@ -3,6 +3,8 @@ from flask import render_template, session, redirect, url_for
 from collections import User
 from os import urandom
 import hashlib
+from forms import changePassword
+
 
 
 @app.route('/settings')
