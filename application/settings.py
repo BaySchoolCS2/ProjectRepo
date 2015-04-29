@@ -9,12 +9,14 @@ from forms import changePassword
 
 @app.route('/settings')
 def settings():
+    form = changePassword()
+
     if not session.get('logged_in'):
 
         return redirect(url_for('index'))
     user = User.objects(alias = session.get("alias")).get()
 
-    return render_template('settings.html', apikey = user.apiKey)
+    return render_template('settings.html', apikey = user.apiKey, form = form)
 
 @app.route('/generate_api_key')
 def generateapikey():
