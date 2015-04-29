@@ -1,8 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Settings{% endblock %}
+{% block body%}
+    <h1>Settings</h1>
+    {% if apikey != None %}
+        <input type="text" value="{{ apikey }}" readonly>
+        <a href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+    {% else %}
+        <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a>
+    {% endif %}
+    <p>Words go here I guess</p>
 
-
-{% if apikey != None %}
-    <input type="text" value="{{ apikey }}" readonly>
-    <a href="{{ url_for('generateapikey') }}">Generate Api Key</a>
-{% else %}
-    <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a>
-{% endif %}
+{% endblock %}

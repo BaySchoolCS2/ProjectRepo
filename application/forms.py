@@ -28,5 +28,13 @@ class NewPost(Form):
     '''
         aparently i cant english
     '''
-    
+
     title = StringField('title', validators = [DataRequired()])
+
+class changePassword(Form):
+
+    password = PasswordField('Password', validators = [DataRequired()])
+    newPassword = PasswordField('New Password', validators = [DataRequired()])
+    newPassword2 = PasswordField('Verify New Password', validators = [DataRequired()])
+
+    
