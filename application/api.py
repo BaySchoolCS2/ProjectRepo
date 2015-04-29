@@ -10,14 +10,14 @@
 """
 
 from application import app, db
-from collections import User, Posts
+from collections import User, Posts, Following
 from flask.ext.restful import Api, Resource, reqparse
 from flask import abort, request
 
+
 api = Api(app)
 
-parser = reqparse.RequestParser()
-parser.add_argument('Authorization', type=str, location='headers')
+
 
 
 def apiUrlWrap(url, version="v1"):
@@ -25,11 +25,33 @@ def apiUrlWrap(url, version="v1"):
 
 class Me(Resource):
     def get(self):
-        args = parser.parse_args()
-        pass
+        try:
+            user = User.objects.get(apiKey = request.headers.get('Authorization'))
+        except db.DoesNotExist:
+            abort(401, {'message': 'bad api key'})
+        try:
+            posts = Posts.objects.get(author = user)
+        except db.DoesNotExist:
+            posts = []
+        s = []
+        try:
+            subscriptions = Following.objects.get(user = user)
+            for i in subscriptions[0]:
+                s.append(i)
+        except db.DoesNotExist:
+            s = []
+        return {"subscriptions":s, "posts":posts}
     def post(self):
+        try:
+            user = User.objects.get(apiKey = request.headers.get('Authorization'))
+        except db.DoesNotExists:
+            abort(401, {'message':'bad api key'})
         body = request.form["data"]
         title = request.form["title"]
+        p = Posts(author = user, title = title, content = body)
+        p.save()
+        p["author"] = p["author"]["alias"]
+        return p
 class ViewPosts(Resource):
     def get(self, user=None):
         if user != None:

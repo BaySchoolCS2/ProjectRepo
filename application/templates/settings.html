@@ -1,0 +1,8 @@
+
+
+{% if apikey != None %}
+    <input type="text" value="{{ apikey }}" readonly>
+    <a href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+{% else %}
+    <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a>
+{% endif %}
