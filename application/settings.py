@@ -8,8 +8,8 @@ import hashlib
 @app.route('/settings')
 def settings():
     if not session.get('logged_in'):
-        return redirect(url_for('index'))
-    user = User.objects(alias = session.get("alias")).get()
+        return redirect(url_for('login'))
+    user = User.objects(alias = session.get("login")).get()
 
     return render_template('settings.html', apikey = user.apiKey)
 
