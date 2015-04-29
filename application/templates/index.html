@@ -5,7 +5,7 @@
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
-	
+
 	<style type="text/css">
 
 	body{
@@ -37,7 +37,7 @@
 	font-weight: bold;
 	text-decoration: none;
 	}
-	
+
 	.npf{
 	background: white;
 	border: 3px solid white;
@@ -49,7 +49,7 @@
 	-moz-box-shadow: 0px 0px 7px 1px white;
 	-webkit-box-shadow: 0px 0px 7px 1px white;
 	}
-	
+
 	.npf a{
 	color: #000000;
 	text-decoration: none;
@@ -59,7 +59,7 @@
 	font-weight: bold;
 	text-decoration: none;
 	}
-	
+
 	</style>
 
 	<div class="links">
@@ -71,13 +71,15 @@
 		{% if session.get('logged_in') %}
 			•
 			<a href="{{ url_for('logout')}}">Log out</a>
+			•
+			<a href="{{ url_for('settings')}}">Settings</a>
 		{% endif %}
 		•
 		<a href="{{ url_for('profile', name = 'bob')}}">Example user page</a>
 	</div>
-	
+
 	<br><br><br>
-	
+
 	{% if len(posts) > 0 %}
 		{% for post in posts %}
 			<a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
@@ -85,5 +87,5 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
-	
+
 	{% endblock %}
