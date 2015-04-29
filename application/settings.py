@@ -1,14 +1,14 @@
 from application import app, collections
-from flask import render_template, session, redirect, url_for
+from flask import render_template, session, redirect, url_for,flash
 from collections import User
 from os import urandom
 import hashlib
 from forms import changePassword
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 
-@app.route('/settings')
+@app.route('/settings', methods=['POST','GET'])
 def settings():
     form = changePassword()
 
@@ -19,16 +19,14 @@ def settings():
     user = User.objects(alias = session.get("alias")).get()
 
     if form.validate_on_submit():
-        try:
-            user.password
-            if check_password_hash(user.password, form.password.data):
-                if form.password.data == form.password2.data and len(form.password.data) >= 8:
-                    pw_hash = generate_password_hash(form.password.data)
-                    user.password=pw_hash
-                    user.save()
-                    flash('Changed Password')
-            else:
-                flash('Wrong Password')
+        if check_password_hash(user.password, form.password.data):
+            if form.newPassword.data == form.newPassword2.data and len(form.newPassword.data) >= 8:
+                pw_hash = generate_password_hash(form.newPassword.data)
+                user.password=pw_hash
+                user.save()
+                flash('Changed Password')
+        else:
+            flash('Wrong Password')
 
     return render_template('settings.html', apikey = user.apiKey, form = form)
 
