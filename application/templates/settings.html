@@ -2,12 +2,24 @@
 {% block title %}Settings{% endblock %}
 {% block body%}
     <h1>Settings</h1>
+    <br><p>API Key Generator</p>
     {% if apikey != None %}
         <input type="text" value="{{ apikey }}" readonly>
-        <a href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+        <a href="{{ url_for('generateapikey') }}">Generate Api Key</a><br>
     {% else %}
-        <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a>
+        <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a><br>
     {% endif %}
-    <p>Words go here I guess</p>
+
+    {% if err != None %}
+        {{ err }}
+    {% endif %}
+    <br><p>Change Password</p>
+    <form method="post" action="{{ url_for('settings') }}">
+        {{ form.csrf_token }}
+        {{ form.password.label }} {{ form.password()}}<br>
+        {{ form.newPassword.label }} {{ form.newPassword() }}<br>
+        {{ form.newPassword2.label }} {{ form.newPassword2() }}<br>
+        <input type="submit" value="change password">
+    </form>
 
 {% endblock %}
