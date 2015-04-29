@@ -10,6 +10,7 @@ from forms import changePassword
 @app.route('/settings')
 def settings():
     if not session.get('logged_in'):
+
         return redirect(url_for('index'))
     user = User.objects(alias = session.get("alias")).get()
 
