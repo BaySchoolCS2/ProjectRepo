@@ -18,7 +18,7 @@
     padding: 24px;
     position: absolute;
     top: 100px;
-    width: 300px;
+    width: 450px;
     }
     
     </style>
@@ -30,6 +30,8 @@
                 <td>
                 {{ form.email.label }}
                 </td>
+                <td style="width: 24px;">
+                </td>
                 <td>
                 {{ form.email() }}
                 </td>
@@ -37,6 +39,8 @@
             <tr>
                 <td>
                 {{ form.password.label}}
+                </td>
+                <td style="width: 24px;">
                 </td>
                 <td>
                 {{ form.password()}}
