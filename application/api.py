@@ -16,8 +16,7 @@ from flask import abort, request
 
 api = Api(app)
 
-parser = reqparse.RequestParser()
-parser.add_argument('Authorization', type=str, location='headers')
+
 
 
 def apiUrlWrap(url, version="v1"):
@@ -25,8 +24,7 @@ def apiUrlWrap(url, version="v1"):
 
 class Me(Resource):
     def get(self):
-        args = parser.parse_args()
-        pass
+        return request.headers.get('Authentication')
     def post(self):
         body = request.form["data"]
         title = request.form["title"]
