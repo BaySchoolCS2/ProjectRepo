@@ -3,12 +3,12 @@
 {% block body %}
 
     <style type="text/css">
-    
+
     body{
     background: #E0EEEE;
     text-align: center;
     }
-    
+
     form{
     background: white;
     border: 1px solid gray;
@@ -18,16 +18,39 @@
     padding: 24px;
     position: absolute;
     top: 100px;
-    width: 300px;
+    max-width: 400px;
     }
-    
+
     </style>
 
     <form method="post" action="{{ url_for('login') }}">
         {{ form.csrf_token }}
-        {{ form.email.label }} {{ form.email() }}<br>
-        <br>
-        {{ form.password.label}} {{ form.password()}}<br>
+        <table>
+            <tr style="height: 15px;">
+            </tr>
+            <tr>
+                <td>
+                {{ form.email.label }}
+                </td>
+                <td style="width: 24px;">
+                </td>
+                <td>
+                {{ form.email() }}
+                </td>
+            </tr>
+            <tr style="height: 7px;">
+            </tr>
+            <tr>
+                <td>
+                {{ form.password.label}}
+                </td>
+                <td style="width: 24px;">
+                </td>
+                <td>
+                {{ form.password()}}
+                </td>
+            </tr>
+        </table>
         <br>
         <input type="submit" value="login">
     </form>
