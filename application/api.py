@@ -29,29 +29,40 @@ class Me(Resource):
             user = User.objects.get(apiKey = request.headers.get('Authorization'))
         except db.DoesNotExist:
             abort(401, {'message': 'bad api key'})
+        p = []
         try:
-            posts = Posts.objects.get(author = user)
+            for post in Posts.objects(author = user):
+                p.append(post)
         except db.DoesNotExist:
-            posts = []
+            pass
         s = []
+
         try:
-            subscriptions = Following.objects.get(user = user)
-            for i in subscriptions[0]:
+            for i in Following.objects(user = user):
                 s.append(i)
         except db.DoesNotExist:
             s = []
-        return {"subscriptions":s, "posts":posts}
+        p1 = []
+        for post in p:
+            post["author"] = post["author"]["alias"]
+            post.pop("score", None)
+            p1.append(post)
+        return {"subscriptions":s, "posts":p1}
+
     def post(self):
         try:
             user = User.objects.get(apiKey = request.headers.get('Authorization'))
         except db.DoesNotExists:
             abort(401, {'message':'bad api key'})
+
         body = request.form["data"]
         title = request.form["title"]
+
         p = Posts(author = user, title = title, content = body)
         p.save()
-        p["author"] = p["author"]["alias"]
-        return p
+
+        return {"derp":"derp"}
+
 class ViewPosts(Resource):
     def get(self, user=None):
         if user != None:
@@ -67,7 +78,7 @@ class ViewPosts(Resource):
                     post.pop("score", None)
                     p.append(post)
             except IndexError:
-                posts = None
+                p = None
         else:
             posts = Posts.objects()
             p = []
