@@ -14,9 +14,8 @@ def settings():
 
 
     if not session.get('logged_in'):
-
-        return redirect(url_for('index'))
-    user = User.objects(alias = session.get("alias")).get()
+        return redirect(url_for('login'))
+    user = User.objects(alias = session.get("login")).get()
 
     if form.validate_on_submit():
         if check_password_hash(user.password, form.password.data):
