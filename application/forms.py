@@ -30,11 +30,10 @@ class NewPost(Form):
     '''
 
     title = StringField('title', validators = [DataRequired()])
+    body = TextAreaField()
 
 class changePassword(Form):
 
     password = PasswordField('Password', validators = [DataRequired()])
     newPassword = PasswordField('New Password', validators = [DataRequired()])
     newPassword2 = PasswordField('Verify New Password', validators = [DataRequired()])
-
-    
