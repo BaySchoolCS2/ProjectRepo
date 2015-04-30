@@ -13,6 +13,7 @@ from application import home
 from application import signup
 from application import dashboard
 from application import settings
+from application import follow
 
 from application.api import api, ViewPosts, apiUrlWrap, Me
 
