@@ -1,4 +1,4 @@
-from application import app, collections
+from application import app
 from flask import render_template, session, redirect, url_for,flash
 from collections import User
 from os import urandom

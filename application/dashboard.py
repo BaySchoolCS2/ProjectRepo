@@ -1,4 +1,4 @@
-from application import app, db
+from application import app
 from flask import render_template, session, redirect, url_for
 from collections import Following, User
 
