@@ -5,7 +5,6 @@
 	<!--see http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates for information on how to use templates
 	see user.html for an example on template
 	-->
-	<br><br><br>
 	{% if len(posts) > 0 %}
 		{% for post in posts %}
 			<div class="row"><a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a></div>
