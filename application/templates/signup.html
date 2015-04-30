@@ -6,10 +6,10 @@
     {% endif %}
     <form method="post" action="{{ url_for('signup') }}">
         {{ form.csrf_token }}
-        {{ form.email.label }} {{ form.email() }}<br>
-        {{ form.alias.label }} {{ form.alias() }}<br>
-        {{ form.password.label }} {{ form.password()}}<br>
-        {{ form.password2.label }} {{ form.password2() }}
+        {{ form.email.label }} {{ form.email(placeholder = 'Email') }}<br>
+        {{ form.alias.label }} {{ form.alias(placeholder = 'Username') }}<br>
+        {{ form.password.label }} {{ form.password(placeholder = 'Password')}}<br>
+        {{ form.password2.label }} {{ form.password2(placeholder = 'Password (Again)') }}<br>
         <input type="submit" value="signup">
     </form>
 {% endblock %}
