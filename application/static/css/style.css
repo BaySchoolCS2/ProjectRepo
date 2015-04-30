@@ -1,7 +1,7 @@
 
 body{
 background: #E0EEEE;
-background-image: url('https://farm8.staticflickr.com/7696/17163130335_6f14dfc73e_o.jpg');
+/*background-image: url('https://farm8.staticflickr.com/7696/17163130335_6f14dfc73e_o.jpg');*/
 background-repeat: none;
 background-size: 100%;
 text-align: center;
@@ -31,7 +31,6 @@ text-decoration: none;
 }
 
 .npf{
-display: block;
 background: white;
 border: 3px solid white;
 box-shadow: 0px 0px 7px 1px white;
@@ -41,7 +40,6 @@ padding: 7px;
 text-align: left;
 -moz-box-shadow: 0px 0px 7px 1px white;
 -webkit-box-shadow: 0px 0px 7px 1px white;
-margin-top: 100px;
 }
 
 .npf a{

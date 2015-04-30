@@ -6,12 +6,12 @@
 	see user.html for an example on template
 	-->
 	<br><br><br>
-	{% if len(posts) > 0 %}
-		{% for post in posts %}
-			<a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
-		{% endfor %}
-	{% else %}
-		<h2 class="npf"> No Posts Found :( </h2>
-	{% endif %}
+		{% if len(posts) > 0 %}
+			{% for post in posts %}
+				<a class="npf" href="{{ url_for('post', uid=post.id) }}">{{ post.title }}</a><br>
+			{% endfor %}
+		{% else %}
+			<h2 class="npf"> No Posts Found :( </h2>
+		{% endif %}
 
 	{% endblock %}
