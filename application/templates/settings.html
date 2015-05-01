@@ -19,12 +19,18 @@
         {{ err }}
     {% endif %}
     <br><p>Change Password</p>
-    <form method="post" action="{{ url_for('settings') }}">
-        {{ form.csrf_token }}
-        {{ form.password.label }} {{ form.password()}}<br>
-        {{ form.newPassword.label }} {{ form.newPassword() }}<br>
-        {{ form.newPassword2.label }} {{ form.newPassword2() }}<br>
-        <input type="submit" value="change password">
-    </form>
+        <form method="post" action="{{ url_for('settings') }}">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.password.label }} {{ form.password(placeholder="Old Password", class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{ form.newPassword.label }} {{ form.newPassword(placeholder="New Password", class_="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.newPassword2.label }} {{ form.newPassword2(placeholder="New Password (Again)", class_="form-control") }}
+            </div>
+            <input class="btn btn-default" type="submit" value="change password">
+        </form>
     </div>
 {% endblock %}
