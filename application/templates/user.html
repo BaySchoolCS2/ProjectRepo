@@ -9,7 +9,7 @@
 {% endblock %}
 {% block body %}
 	{% if name %}
-		<h1>This is the profile for {{ name }}!</h1>
+		<h1>This is the profile for {{ name }}!</h1><a href="{{ url_for('follow', fuser=name) }}">Follow</a>
 	{% else %}
 		<h1>Error 404</h1>
 		no user specified<br/>
