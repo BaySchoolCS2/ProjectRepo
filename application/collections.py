@@ -10,6 +10,9 @@ class User(db.Document):
     allowTracking = db.BooleanField(default = False)
     isMod = db.BooleanField(default = False)
     apiKey = db.StringField()
+    isJudge = db.BooleanField(default=False)
+    hasJudgeKey = db.BooleanField(default=False)
+    judgeKey = db.StringField()
 
 class Comment(db.EmbeddedDocument):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)

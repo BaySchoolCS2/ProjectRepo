@@ -22,15 +22,15 @@
         </form>
     </div>
     <div class="col-md-4 col-md-offset-4">
-    <p>Advanced</p>
-    {% if apikey != None %}
-        <div class="form-group">
-            <label class="sr-only" for="api-key">ApiKeys</label>
-            <input type="text" class="form-control" id="api-key"value="{{ apikey }}" readonly>
-        </div>
-        <a class="btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
-    {% else %}
-        <a class= "btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
-    {% endif %}
+        <p>Advanced</p>
+        {% if apikey != None %}
+            <div class="form-group">
+                <label class="sr-only" for="api-key">ApiKeys</label>
+                <input type="text" class="form-control" id="api-key"value="{{ apikey }}" readonly>
+            </div>
+            <a class="btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+        {% else %}
+            <a class= "btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+        {% endif %}
     </div>
 {% endblock %}
