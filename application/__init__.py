@@ -15,7 +15,7 @@ from application import dashboard
 from application import settings
 from application import follow
 
-from application.api import api, ViewPosts, apiUrlWrap, Me
+from api import api, ViewPosts, apiUrlWrap, Me
 
 api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'), apiUrlWrap('/posts'))
 api.add_resource(Me, apiUrlWrap('/me'))
