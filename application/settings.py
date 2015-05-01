@@ -10,7 +10,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 @app.route('/settings', methods=['POST','GET'])
 def settings():
-    form = changePassword()
+    form = ChangePassword()
 
 
     if not session.get('logged_in'):

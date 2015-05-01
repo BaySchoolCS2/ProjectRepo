@@ -28,11 +28,10 @@ class NewPost(Form):
     '''
         aparently i cant english
     '''
-
     title = StringField('title', validators = [DataRequired()])
     body = TextAreaField()
 
-class changePassword(Form):
+class ChangePassword(Form):
 
     password = PasswordField('Password', validators = [DataRequired()])
     newPassword = PasswordField('New Password', validators = [DataRequired()])
