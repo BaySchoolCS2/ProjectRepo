@@ -6,8 +6,7 @@ from mongoengine import ValidationError, errors
 @app.route('/')
 def index():
 	posts = []
-	for post in Posts.objects:
-		posts.append(post)
+	posts = Posts.objects.order_by('score', '-created_at')
 
 	return render_template('index.html', posts = posts) # variables go after template
 
