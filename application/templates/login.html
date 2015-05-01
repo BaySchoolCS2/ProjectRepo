@@ -2,31 +2,6 @@
 {% block title %}Login{% endblock %}
 {% block body %}
 
-    <style type="text/css">
-
-    body{
-    background: #E0EEEE;
-    text-align: center;
-    }
-
-    .loginForm{
-    background: white;
-    border: 1px solid gray;
-    border-radius: 3px;
-    left: 50%;
-    margin-left: -150px;
-    padding: 24px;
-    position: absolute;
-    text-align: right;
-    top: 100px;
-    max-width: 400px;
-    }
-    .btn {
-        width: 100%;
-    }
-
-
-    </style>
 
     <form class="loginForm" method="post" action="{{ url_for('login') }}">
         {{ form.csrf_token }}
