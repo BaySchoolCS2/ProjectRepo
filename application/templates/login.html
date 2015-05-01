@@ -9,7 +9,7 @@
     text-align: center;
     }
 
-    form{
+    .loginForm{
     background: white;
     border: 1px solid gray;
     border-radius: 3px;
@@ -21,38 +21,22 @@
     top: 100px;
     max-width: 400px;
     }
+    .btn {
+        width: 100%;
+    }
 
     </style>
 
-    <form method="post" action="{{ url_for('login') }}">
+    <form class="loginForm" method="post" action="{{ url_for('login') }}">
         {{ form.csrf_token }}
-        <table>
-            <tr style="height: 15px;">
-            </tr>
-            <tr>
-                <td>
-                {{ form.email.label }}
-                </td>
-                <td style="width: 24px;">
-                </td>
-                <td>
-                {{ form.email(placeholder='Email') }}
-                </td>
-            </tr>
-            <tr style="height: 7px;">
-            </tr>
-            <tr>
-                <td>
-                {{ form.password.label}}
-                </td>
-                <td style="width: 24px;">
-                </td>
-                <td>
-                {{ form.password(placeholder='Password')}}
-                </td>
-            </tr>
-        </table>
-        <br>
-        <input type="submit" value="login">
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(placeholder='Email', class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(placeholder='Password', class_="form-control")}}
+        </div>
+        <input class="btn btn-primary" type="submit" value="Login">
     </form>
 {% endblock %}
