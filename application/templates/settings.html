@@ -2,23 +2,11 @@
 {% block title %}Settings{% endblock %}
 {% block body%}
     <h1>Settings</h1>
-    <br><p>API Key Generator</p>
-    <div class="col-md-4 col-md-offset-4">
-    {% if apikey != None %}
-        <div class="form-group">
-            <label class="sr-only" for="api-key">ApiKeys</label>
-            <input type="text" class="form-control" id="api-key"value="{{ apikey }}" readonly>
-        </div>
-        <a class="btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
-    {% else %}
-        <a class= "btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
-    {% endif %}
-    </div>
     <div class="col-md-4 col-md-offset-4">
     {% if err != None %}
         {{ err }}
     {% endif %}
-    <br><p>Change Password</p>
+    <p>Change Password</p>
         <form method="post" action="{{ url_for('settings') }}">
             {{ form.csrf_token }}
             <div class="form-group">
@@ -32,5 +20,17 @@
             </div>
             <input class="btn btn-default" type="submit" value="change password">
         </form>
+    </div>
+    <div class="col-md-4 col-md-offset-4">
+    <p>Advanced</p>
+    {% if apikey != None %}
+        <div class="form-group">
+            <label class="sr-only" for="api-key">ApiKeys</label>
+            <input type="text" class="form-control" id="api-key"value="{{ apikey }}" readonly>
+        </div>
+        <a class="btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+    {% else %}
+        <a class= "btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
+    {% endif %}
     </div>
 {% endblock %}
