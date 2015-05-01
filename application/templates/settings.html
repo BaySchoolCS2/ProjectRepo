@@ -3,13 +3,18 @@
 {% block body%}
     <h1>Settings</h1>
     <br><p>API Key Generator</p>
+    <div class="col-md-4 col-md-offset-4">
     {% if apikey != None %}
-        <input type="text" value="{{ apikey }}" readonly>
-        <a href="{{ url_for('generateapikey') }}">Generate Api Key</a><br>
+        <div class="form-group">
+            <label class="sr-only" for="api-key">ApiKeys</label>
+            <input type="text" class="form-control" id="api-key"value="{{ apikey }}" readonly>
+        </div>
+        <a class="btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
     {% else %}
-        <a href="{{ url_for('generateapikey') }}">Generate New Api Key</a><br>
+        <a class= "btn btn-danger" href="{{ url_for('generateapikey') }}">Generate Api Key</a>
     {% endif %}
-
+    </div>
+    <div class="col-md-4 col-md-offset-4">
     {% if err != None %}
         {{ err }}
     {% endif %}
@@ -21,5 +26,5 @@
         {{ form.newPassword2.label }} {{ form.newPassword2() }}<br>
         <input type="submit" value="change password">
     </form>
-
+    </div>
 {% endblock %}
