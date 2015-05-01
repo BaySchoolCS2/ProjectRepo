@@ -1,8 +1,8 @@
 from application import app
 from collections import User
-from mongoengine import ValidationError, errors
 from flask import session, render_template, redirect, flash, url_for, request
 from forms import SignupForm
+from mongoengine import ValidationError, errors
 from werkzeug.security import generate_password_hash
 
 @app.route('/signup', methods=['POST','GET'])

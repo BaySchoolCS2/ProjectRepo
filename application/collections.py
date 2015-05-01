@@ -1,5 +1,4 @@
 from application import db
-
 import datetime
 
 class User(db.Document):

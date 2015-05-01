@@ -1,6 +1,6 @@
 from application import app, collections
-from flask import session, redirect, url_for
 from collections import User, Following
+from flask import session, redirect, url_for
 
 @app.route('/follow/<fuser>')
 def follow(fuser=None):

@@ -1,9 +1,9 @@
 from application import app
-from flask import render_template, session, redirect, url_for,flash
 from collections import User
-from os import urandom
-import hashlib
+from flask import render_template, session, redirect, url_for,flash
 from forms import changePassword
+import hashlib
+from os import urandom
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
