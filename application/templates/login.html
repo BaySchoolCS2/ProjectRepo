@@ -25,6 +25,7 @@
         width: 100%;
     }
 
+
     </style>
 
     <form class="loginForm" method="post" action="{{ url_for('login') }}">
@@ -37,6 +38,6 @@
             {{ form.password.label }}
             {{ form.password(placeholder='Password', class_="form-control")}}
         </div>
-        <input class="btn btn-primary" type="submit" value="Login">
+        <input class="btn btn-default" type="submit" value="Login">
     </form>
 {% endblock %}
