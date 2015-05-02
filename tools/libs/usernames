@@ -1,3 +1,4 @@
-username:email:password:true
-derp:derp@derp.com:password:false
-herp:herp@derp.com:password:false
+username:email:password:true:false
+derp:derp@derp.com:password:false:false
+herp:herp@derp.com:password:false:false
+judge:judge@example.com:password1:true:true
