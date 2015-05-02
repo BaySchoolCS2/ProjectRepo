@@ -16,6 +16,9 @@ class User(Document):
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
     apiKey = StringField()
+    isJudge = BooleanField(default=False)
+    hasJudgeKey = BooleanField(default=False)
+    judgeKey = StringField()
 
 class Comment(Document):
     created_at = DateTimeField(default=datetime.datetime.now, required=True)
@@ -38,13 +41,22 @@ class Posts(Document):
 
 alias = raw_input('alias: ')
 
+#uncomment when sticky posts added
+'''stick = raw_input('sticky [Y/n]: ')
+if stick.lower() in ['y', 'yes']:
+    stick = True
+else:
+    stick = False'''
+
+score = raw_input('score: ')
+
 title = raw_input('title: ')
 
 content = raw_input('post (Not required.  Must be under 1000 characters): ')
 
 try:
     user = User.objects(alias=alias)[0]  # returns user object by alias
-    post = Posts(author=user, title=title, content=content)
+    post = Posts(author=user, title=title, content=content, score=score)
 
     post.save()
 

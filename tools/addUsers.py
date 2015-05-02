@@ -19,9 +19,13 @@ class User(Document):
     lastLogin = DateTimeField()
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
+    apiKey = StringField()
+    isJudge = BooleanField(default=False)
+    hasJudgeKey = BooleanField(default=False)
+    judgeKey = StringField()
 
 for line in usernames_file:
     for line in usernames_file:
         print line
         pw_hash = generate_password_hash(line.split(":")[2])
-        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3]).save()
+        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3], isJudge=line.split(":")[4]).save()
