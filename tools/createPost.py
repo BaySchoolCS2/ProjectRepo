@@ -33,6 +33,7 @@ class Posts(Document):
     #max length of content is 10000 characters
     content = StringField(max_length = 10000)
     score = IntField(default = 0)
+    sticky = BooleanField(default = False)
     comments = ListField(EmbeddedDocumentField('Comment'))
     meta = {
         'allow_inheritance': True
@@ -41,12 +42,11 @@ class Posts(Document):
 
 alias = raw_input('alias: ')
 
-#uncomment when sticky posts added
-'''stick = raw_input('sticky [Y/n]: ')
+stick = raw_input('sticky [Y/n]: ')
 if stick.lower() in ['y', 'yes']:
     stick = True
 else:
-    stick = False'''
+    stick = False
 
 score = raw_input('score: ')
 
@@ -56,7 +56,7 @@ content = raw_input('post (Not required.  Must be under 1000 characters): ')
 
 try:
     user = User.objects(alias=alias)[0]  # returns user object by alias
-    post = Posts(author=user, title=title, content=content, score=score)
+    post = Posts(author=user, title=title, content=content, score=score, sticky=stick)
 
     post.save()
 
