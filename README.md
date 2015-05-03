@@ -1,7 +1,9 @@
 # ProjectRepo
 
 ## Setup Environment
-To setup the environment you first have to install mongodb
+To set up the environment you first have to install mongodb,
+the database management software (DBMS) we will be using
+for this project.
 
 On Linux this is as easy as
 ```
@@ -25,13 +27,14 @@ Congratulations, you can now edit and test.
 
 ## To run
 
-Setup environment first then execute
+Set up environment first, then execute
 
 ```
 ./run.py
 ```
 
-and then point your browser (navigate) to [localhost:5000](http://localhost:5000) to test (as well as to?) write unittests and then, push
+Then point your browser (navigate) to [localhost:5000](http://localhost:5000) to test
+(as well as to???) write unittests and then, push
 
 ## Pushing Rules
 
