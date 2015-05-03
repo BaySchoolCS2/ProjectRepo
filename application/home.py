@@ -17,7 +17,7 @@ def profile(name = None):
 	profile = User.objects(alias = name).get_or_404()
 
 	try:
-		posts = Posts.objects(author = profile)
+		posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
 	except IndexError:
 		pass
 	return render_template('user.html', name = profile.alias, posts = posts)
