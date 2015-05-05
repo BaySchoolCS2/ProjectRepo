@@ -7,16 +7,20 @@
     <form class="loginForm" method="post" action="{{ url_for('signup') }}">
         {{ form.csrf_token }}
         <div class="form-group">
-        {{ form.email.label }} {{ form.email(placeholder = 'Email') }}
+        {{ form.email.label }}
+        {{ form.email(placeholder = 'Email', class_="form-control") }}
         </div>
         <div class="form-group">
-        {{ form.alias.label }} {{ form.alias(placeholder = 'Username') }}
+        {{ form.alias.label }}
+        {{ form.alias(placeholder = 'Username', class_="form-control") }}
         </div>
         <div class="form-group">
-        {{ form.password.label }} {{ form.password(placeholder = 'Password')}}
+        {{ form.password.label }}
+        {{ form.password(placeholder = 'Password', class_="form-control")}}
         </div>
         <div class="form-group">
-        {{ form.password2.label }} {{ form.password2(placeholder = 'Password (Again)') }}
+        {{ form.password2.label }}
+        {{ form.password2(placeholder = 'Password (Again)', class_="form-control") }}
         </div>
         <input class="btn btn-default" type="submit" value="signup">
     </form>
