@@ -42,4 +42,4 @@ def UVote(post=None):
         return 404
     sub = Posts.objects(user=user,following = [fuser])
     sub.save()
-    return redirect(url_for('profile', name = fuser.alias
+    return redirect(url_for('profile', name = fuser.alias))
