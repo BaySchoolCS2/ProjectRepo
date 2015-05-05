@@ -28,15 +28,18 @@ def follow(fuser=None):
     sub.save()
     return redirect(url_for('profile', name = fuser.alias))
 
-'''@app.route('/up/<user>')
-def UVote(user=None):
+@app.route('/up/<post>')
+def UVote(post=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     try:
         user = User.objects(alias = session.get("alias")).get()
-        fuser = User.objects(alias = fuser).get()
+        post = User.objects(id = post)
+        post.VotedUp = [user]
+        post.score += 1
+        post.save()
     except IndexError:
         return 404
-    sub = Following(user=user,following = [fuser])
+    sub = Posts.objects(user=user,following = [fuser])
     sub.save()
-    return redirect(url_for('profile', name = fuser.alias'''
+    return redirect(url_for('profile', name = fuser.alias
