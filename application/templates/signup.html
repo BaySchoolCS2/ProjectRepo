@@ -4,7 +4,7 @@
     {% if err != None %}
         {{ err }}
     {% endif %}
-    <form method="post" action="{{ url_for('signup') }}">
+    <form class="loginForm" method="post" action="{{ url_for('signup') }}">
         {{ form.csrf_token }}
         {{ form.email.label }} {{ form.email(placeholder = 'Email') }}<br>
         {{ form.alias.label }} {{ form.alias(placeholder = 'Username') }}<br>
