@@ -30,6 +30,7 @@ class Posts(db.Document):
     score = db.IntField(default = 0)
     sticky = db.BooleanField(default = False)
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
+    votedUp = db.ListField(db.ReferenceField(User))
     meta = {
         'allow_inheritance': True
     }
