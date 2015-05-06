@@ -7,15 +7,23 @@
         <a href="{{ url_for('signup')}}">Sign up</a>
         •
     {% endif %}
-    {% if session.get('logged_in') %}
-        <a href="{{ url_for('logout')}}">Log out</a>
-        •
-        <a href="{{ url_for('settings')}}">Settings</a>
-        •
-        <a href="{{ url_for('dashboard')}}">Dashboard</a>
-    {% endif %}
+    <a href="{{ url_for('index')}}">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    </a>
     •
-    <a href="{{ url_for('index')}}">Home</a>
+    {% if session.get('logged_in') %}
+        <a href="{{ url_for('dashboard')}}">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </a>
+
+        •
+        <a href="{{ url_for('settings')}}">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        •
+        <a href="{{ url_for('logout')}}">Log out</a>
+    {% endif %}
+
 </div>
 <div class="container">
 {% endblock %}
