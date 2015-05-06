@@ -1,18 +1,19 @@
 {% extends 'layout.html' %}
 {% block title %}Login{% endblock %}
 {% block body %}
-
-
-    <form class="loginForm" method="post" action="{{ url_for('login') }}">
-        {{ form.csrf_token }}
-        <div class="form-group">
-            {{ form.email.label }}
-            {{ form.email(placeholder='Email', class_="form-control") }}
-        </div>
-        <div class="form-group">
-            {{ form.password.label }}
-            {{ form.password(placeholder='Password', class_="form-control")}}
-        </div>
-        <input class="btn btn-default" type="submit" value="Login">
-    </form>
+    <div class="col-md-4 col-md-offset-4 loginForm">
+        <h2>Login</h2>
+        <form method="post" action="{{ url_for('login') }}">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(placeholder='Email', class_="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(placeholder='Password', class_="form-control")}}
+            </div>
+            <input class="btn btn-default" type="submit" value="Login">
+        </form>
+    </div>
 {% endblock %}
