@@ -13,6 +13,7 @@
     •
     {% if session.get('logged_in') %}
         <a href="{{ url_for('dashboard')}}">
+            {{ session.get("alias")}}
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         </a>
 
