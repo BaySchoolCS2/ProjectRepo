@@ -52,7 +52,7 @@ class Me(Resource):
     def post(self):
         try:
             user = User.objects.get(apiKey = request.headers.get('Authorization'))
-        except db.DoesNotExists:
+        except db.DoesNotExist:
             abort(401, {'message':'bad api key'})
 
         body = request.form["data"]
@@ -75,6 +75,7 @@ class ViewPosts(Resource):
                 p = []
                 for post in posts:
                     post["author"] = post["author"]["alias"]
+                    return type(post)
                     post.pop("score", None)
                     p.append(post)
             except IndexError:
