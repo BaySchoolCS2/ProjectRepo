@@ -1,6 +1,6 @@
 
 body{
-    background: #9CA6C1;
+    background: #3B8CB2;
     background-repeat: none;
     background-size: 100%;
     text-align: center;
@@ -8,8 +8,8 @@ body{
 
 .links{
     display: block;
-    background: #F2F3F5;
-    border-bottom: 1px solid #1D2F71;
+    background: #FFFFFF;
+    border-bottom: 1px solid #0F3D74;
     opacity: 0.7;
     padding: 7px;
     position: fixed;
@@ -20,33 +20,33 @@ body{
 }
 
 .links a{
-    color: #1D2F71;
+    color: #0F3D74;
     font-size: 14px;
 }
 
 .links a:hover{
-    color: #1D2F71;
+    color: #0F3D74;
     font-weight: bold;
     font-size: 14px;
     text-decoration: none;
 }
 
 .npf{
-    background: #F2F3F5;
+    background: #FFFFFF;
     width : 100%;
-    border: 3px solid #F2F3F5;
-    box-shadow: 0px 0px 3px 1px white;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 3px 1px #FFFFFF;
     font-size: 21px;
     padding: 7px;
     text-align: left;
-    -moz-box-shadow: 0px 0px 7px 1px #F2F3F5;
-    -webkit-box-shadow: 0px 0px 7px 1px #F2F3F5;
+    -moz-box-shadow: 0px 0px 7px 1px #FFFFFF;
+    -webkit-box-shadow: 0px 0px 7px 1px #FFFFFF;
     display:block;
     margin-bottom:10px;
 }
 
 .npf a{
-    color: #1D2F71;
+    color: #0F3D74;
     text-decoration: none;
 }
 
@@ -65,8 +65,8 @@ body{
 }
 
 .loginForm {
-background: #F2F3F5;
-border: 1px solid #4F5D8E;
+background: #FFFFFF;
+border: 1px solid #0F3D74;
 border-radius: 3px;
 left: 50%;
 margin-left: -150px;
