@@ -1,7 +1,7 @@
 #! tools-env/bin/python
 from mongoengine import connect, Document
 
-class User(Document):
+class Posts(Document):
     pass
 
 Uin = raw_input('This command deletes all posts.  Are you sure you want to continue [Y/n]')
