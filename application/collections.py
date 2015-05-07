@@ -15,7 +15,7 @@ class User(db.Document):
     judgeKey = db.StringField()
 
 class Comment(db.EmbeddedDocument):
-    created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
+    created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
 

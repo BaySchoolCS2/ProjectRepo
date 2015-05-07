@@ -61,7 +61,7 @@ class Me(Resource):
         p = Posts(author = user, title = title, content = body)
         p.save()
 
-        return {"derp":"derp"}
+        return {"success" : True}, 200
 
 class ViewPosts(Resource):
     def get(self, user=None):
