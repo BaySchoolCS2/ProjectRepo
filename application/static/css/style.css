@@ -3,6 +3,10 @@ body{
     background: #C3E4ED;
     text-align: center;
 }
+.btn {
+    width: 100%;
+}
+
 
 /*for non mobile screens :)*/
 @media (min-width: 991px) {
@@ -72,10 +76,6 @@ body{
     padding: 24px;
     position: absolute;
     margin-top: 15vh;
-    }
-
-    .btn {
-        width: 100%;
     }
 }
 
