@@ -10,7 +10,7 @@
 """
 
 from application import app, db
-from collections import User, Posts, Following
+from collections import User, Posts, Subscriptions
 from flask.ext.restful import Api, Resource, reqparse
 from flask import abort, request
 
@@ -38,7 +38,7 @@ class Me(Resource):
         s = []
 
         try:
-            for i in Following.objects(user = user):
+            for i in Subscriptions.objects(user = user):
                 s.append(i)
         except db.DoesNotExist:
             s = []

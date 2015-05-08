@@ -10,7 +10,6 @@ db = MongoEngine(app)
 moment = Moment(app)
 CsrfProtect(app)
 
-
 app.jinja_env.globals["len"] = len # allow len to be used in templates
 app.jinja_env.globals["now"] = datetime.utcnow()
 app.jinja_env.globals["str"] = str
@@ -23,7 +22,7 @@ from application import settings
 from application import posts
 from application import post
 from application import judge
-
+from application import follow
 
 from api import api, ViewPosts, apiUrlWrap, Me
 

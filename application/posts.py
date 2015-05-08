@@ -15,5 +15,5 @@ def makePosts():
         user = User.objects(alias = session.get("alias")).get()
         p = Posts(author = user, title = title, content = body)
         p.save()
-        return redirect(url_for('post', pid=str(p.postid)))
+        return redirect(url_for('viewPost', pid=str(p.postid)))
     return render_template("submitPost.html", form=form)

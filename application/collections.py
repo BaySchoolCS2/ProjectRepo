@@ -37,7 +37,7 @@ class Posts(db.Document):
         'allow_inheritance': True
     }
 
-class Following(db.Document):
+class Subscriptions(db.Document):
     '''
         hack for getting around the fact that there cannot be self referencing classes
         i.e. class user():
@@ -49,7 +49,7 @@ class Following(db.Document):
         is there a better way, probably but im lazy
     '''
     user = db.ReferenceField(User)
-    following = db.ListField(db.ReferenceField(User))
+    subscriptions = db.ListField(db.ReferenceField(User))
 
 class Kicked(db.Document):
     '''stores temporary locks on user accounts'''
