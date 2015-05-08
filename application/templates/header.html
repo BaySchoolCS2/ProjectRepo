@@ -21,8 +21,15 @@
         <a href="{{ url_for('settings')}}">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         </a>
+        {% if session.get('is_judge') %}
+            •
+            <a href="{{ url_for('judge') }}">
+                <span class="glyphicon glyphicon-king" aria-hidden="true"></span>
+            </a>
+        {% endif %}
         •
         <a href="{{ url_for('logout')}}">Log out</a>
+
     {% endif %}
 
 </div>

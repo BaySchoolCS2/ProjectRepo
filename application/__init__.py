@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import Flask, render_template
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.moment import Moment
-from flask-wtf import CsrfProtect
+from flask_wtf import CsrfProtect
 
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
@@ -21,6 +21,7 @@ from application import dashboard
 from application import settings
 from application import posts
 from application import judge
+
 
 from api import api, ViewPosts, apiUrlWrap, Me
 

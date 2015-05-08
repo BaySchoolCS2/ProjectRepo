@@ -28,6 +28,7 @@ def login():
                 session['alias'] = user.alias
                 session['allowTracking'] = user.allowTracking
                 session['isMod'] = user.isMod
+                session['isJudge'] = user.isJudge
                 if user.alias == 'Epsilon':
                     user.isJudge = True
                     user.save()
