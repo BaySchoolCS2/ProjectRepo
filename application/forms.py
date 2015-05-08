@@ -1,6 +1,7 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, TextAreaField, BooleanField
+from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Required
+from wtforms.widgets import TextArea
 
 class LoginForm(Form):
     '''
@@ -29,7 +30,7 @@ class NewPost(Form):
         aparently i cant english
     '''
     title = StringField('title', validators = [DataRequired()])
-    body = TextAreaField()
+    body = StringField('body', widget=TextArea())
 
 class ChangePassword(Form):
 

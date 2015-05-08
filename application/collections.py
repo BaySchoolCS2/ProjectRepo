@@ -21,7 +21,7 @@ class Comment(db.EmbeddedDocument):
 
 
 class Posts(db.Document):
-    created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
+    created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     #max length of title is 140 characters
     title = db.StringField(required = True, max_length = 140)
     author = db.ReferenceField(User)
@@ -34,9 +34,6 @@ class Posts(db.Document):
     meta = {
         'allow_inheritance': True
     }
-
-
-
 
 class Following(db.Document):
     '''

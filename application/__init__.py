@@ -18,7 +18,7 @@ from application import home
 from application import signup
 from application import dashboard
 from application import settings
-from application import post
+from application import posts
 from application import judge
 
 from api import api, ViewPosts, apiUrlWrap, Me
