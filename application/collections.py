@@ -1,5 +1,6 @@
 from application import db
 import datetime
+import uuid
 
 class User(db.Document):
     email = db.EmailField(required = True, unique = True)
@@ -21,6 +22,7 @@ class Comment(db.EmbeddedDocument):
 
 
 class Posts(db.Document):
+    postid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     #max length of title is 140 characters
     title = db.StringField(required = True, max_length = 140)

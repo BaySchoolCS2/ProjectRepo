@@ -4,10 +4,12 @@ from flask import render_template, session, redirect, url_for, flash
 from mongoengine import ValidationError, errors
 
 @app.route('/p/')
-@app.route('/p/<uid>')
-def post(uid = None):
+@app.route('/p/<pid>')
+def viewPost(pid = None):
+    if pid == None:
+        return redirect(url_for('index'))
     try:
-        content = Posts.objects(id = uid)[0]
+        content = Posts.objects(postid = pid)[0]
         err = 200
         print(content)
     except ValidationError:

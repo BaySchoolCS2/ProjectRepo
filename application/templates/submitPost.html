@@ -4,7 +4,7 @@
     SubmitPost
 {% endblock %}
 {% block body %}
-<form action="{{ url_for('make_posts') }}" method="post">
+<form action="{{ url_for('makePosts') }}" method="post">
   {{ form.csrf_token }}
     <div class="form-group">
         {{ form.title.label }}
