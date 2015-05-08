@@ -1,6 +1,6 @@
 from application import app
 from collections import User, Posts, Following
-from flask import render_template, session, redirect, url_for
+from flask import render_template, session, redirect, url_for, flash
 from mongoengine import ValidationError, errors
 
 @app.route('/p/')
@@ -35,9 +35,13 @@ def UVote(post=None):
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = User.objects(id = post)
-        post.VotedUp = [user]
-        post.score += 1
-        post.save()
+        if not(user in post.VotedUp.objects()):
+            post.VotedUp = [user]
+            post.score += 1
+            post.save()
+        else:
+            flash("You already upvoted this post!")
+            return redirect(url_for('profile', name = fuser.alias))
     except IndexError:
         return 404
     sub = Posts.objects(user=user,following = [fuser])
