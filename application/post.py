@@ -19,22 +19,22 @@ def viewPost(pid = None):
         content = ''
     return render_template('post.html', post=content, comment=newComment), err
 
-@app.route('/up/<post>')
-def UVote(post=None):
+@app.route('/up/<pid>')
+def UVote(pid=None):
+    pid = pid.decode('ascii')
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     try:
         user = User.objects(alias = session.get("alias")).get()
-        post = User.objects(id = post)
-        if not(user in post.votedUp.objects()):
+        post = Posts.objects(postid = pid)[0]
+        print(post.votedUp)
+        if not(user in post.votedUp):
             post.votedUp = [user]
             post.score += 1
             post.save()
         else:
             flash("You already upvoted this post!")
-            return redirect(url_for('profile', name = fuser.alias))
+            return redirect(url_for('veiwPost', pid = str(pid)))
     except IndexError:
         return 404
-    sub = Posts.objects(user=user,following = [fuser])
-    sub.save()
-    return redirect(url_for('profile', name = fuser.alias))
+    return redirect(url_for('veiwPost', pid = pid))
