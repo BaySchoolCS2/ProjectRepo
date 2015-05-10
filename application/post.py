@@ -12,7 +12,7 @@ def viewPost(pid = None):
         content = Posts.objects(postid = pid)[0]
         err = 200
         print(content)
-    except ValidationError:
+    except IndexError:
         err = 404
         content = ''
     return render_template('post.html', post=content), err
@@ -24,8 +24,8 @@ def UVote(post=None):
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = User.objects(id = post)
-        if not(user in post.VotedUp.objects()):
-            post.VotedUp = [user]
+        if not(user in post.votedUp.objects()):
+            post.votedUp = [user]
             post.score += 1
             post.save()
         else:
