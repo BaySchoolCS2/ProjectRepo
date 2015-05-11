@@ -90,3 +90,10 @@ class ViewPosts(Resource):
                 post["author"] = post["author"]["alias"]
                 post.pop("score", None)
         return {"posts":p}
+
+class Follow(Resource):
+    def get(self, user=None):
+        if user != None:
+            pass
+        else:
+            abort(401)
