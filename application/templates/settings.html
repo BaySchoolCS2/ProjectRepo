@@ -3,6 +3,21 @@
 {% block body%}
     <h1>Settings</h1>
     <div class="col-md-4 col-md-offset-4">
+        <form method="post" action="{{ url_for('settings') }}">
+            {{ changeColor.csrf_token }}
+            <table>
+                <tr>
+                    <td>
+                        <div style="display:block; background-color:#{{ user.color }};width:100px;height:100px">.</div>
+                    </td>
+                    <td>
+                        {{ changeColor.color(placeholder=user.color, class_="form-control") }}
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="col-md-4 col-md-offset-4">
     {% if err != None %}
         {{ err }}
     {% endif %}

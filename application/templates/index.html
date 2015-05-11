@@ -19,5 +19,7 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
-
+	{% if session.get('logged_in') %}
+		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
+	{% endif %}
 	{% endblock %}

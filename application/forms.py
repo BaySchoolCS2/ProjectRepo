@@ -37,3 +37,6 @@ class ChangePassword(Form):
     password = PasswordField('Password', validators = [DataRequired()])
     newPassword = PasswordField('New Password', validators = [DataRequired()])
     newPassword2 = PasswordField('Verify New Password', validators = [DataRequired()])
+
+class ChangeColor(Form):
+    color = StringField('Color', validators = [DataRequired()])

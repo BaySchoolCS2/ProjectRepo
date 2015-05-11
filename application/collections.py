@@ -2,6 +2,7 @@ from application import db
 import datetime
 import uuid
 
+
 class User(db.Document):
     email = db.EmailField(required = True, unique = True)
     alias = db.StringField(required = True, unique = True)
@@ -14,6 +15,7 @@ class User(db.Document):
     isJudge = db.BooleanField(default=False)
     hasJudgeKey = db.BooleanField(default=False)
     judgeKey = db.StringField()
+    color = db.StringField(default=str(uuid.uuid4())[:6])
 
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
