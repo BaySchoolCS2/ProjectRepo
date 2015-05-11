@@ -23,6 +23,7 @@ from application import posts
 from application import post
 from application import judge
 from application import follow
+from application import flag
 
 from api import api, ViewPosts, apiUrlWrap, Me
 
