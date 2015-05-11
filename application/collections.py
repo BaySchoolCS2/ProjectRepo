@@ -16,6 +16,7 @@ class User(db.Document):
     judgeKey = db.StringField()
 
 class Comment(db.EmbeddedDocument):
+    commentid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
@@ -33,6 +34,8 @@ class Posts(db.Document):
     sticky = db.BooleanField(default = False)
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
     votedUp = db.ListField(db.ReferenceField(User))
+    flags = db.IntField(default=0, required=True)
+
     meta = {
         'allow_inheritance': True
     }
