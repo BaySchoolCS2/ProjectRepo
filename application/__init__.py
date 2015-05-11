@@ -24,6 +24,7 @@ from application import post
 from application import judge
 from application import follow
 from application import flag
+from application import moderators
 
 from api import api, ViewPosts, apiUrlWrap, Me
 

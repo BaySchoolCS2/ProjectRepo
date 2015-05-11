@@ -37,7 +37,10 @@ class Posts(db.Document):
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
     votedUp = db.ListField(db.ReferenceField(User))
     flags = db.IntField(default=0, required=True)
-
+    flagTypes =  db.ListField(db.IntField())
+    invisible = db.BooleanField(default=False)
+    moderated = db.BooleanField(default=False)
+    moderatedBy = db.ListField(db.ReferenceField(User))
     meta = {
         'allow_inheritance': True
     }
