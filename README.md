@@ -27,7 +27,7 @@ Congratulations, you can now edit and test.
 
 ## To run
 
-Set up environment first [See, above?], then execute
+Set up environment first [Every time?], then execute
 
 ```
 ./run.py
