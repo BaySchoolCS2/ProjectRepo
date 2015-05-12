@@ -33,7 +33,7 @@
 	{% if session.get('logged_in') %}
 		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
-	
+
 	{% if page == 1 %}
 		<a style="color:white;" href="{{ url_for('index',page=page+1)}}">Next</a>
 	{% elif len(posts.items) < 5 %}

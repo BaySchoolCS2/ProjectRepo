@@ -1,7 +1,7 @@
 from application import app
-from collections import User, Posts
+from collections import User, Posts, Comment
 from flask import session, render_template, redirect, flash, url_for, request
-from forms import NewPost
+from forms import NewPost, NewComment
 
 @app.route('/post', methods=["POST", "GET"])
 def makePosts():
@@ -22,11 +22,11 @@ def makePosts():
 def newComment(postid=None):
     if not session.get("logged_in"):
         return redirect(url_for("login"))
-    if post == None:
+    if postid == None:
         abort(404)
-    form = NewComment(request.form)
+    form = NewComment()
     if form.validate_on_submit():
-        user = Users.objects.get(alias=session.get("alias"))
+        user = User.objects.get(alias=session.get("alias"))
         post = Posts.objects.get(postid=postid)
         c = Comment(author=user, body=form.content.data)
         post.comments.append(c)
