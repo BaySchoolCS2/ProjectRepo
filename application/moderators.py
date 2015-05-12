@@ -35,4 +35,11 @@ def bad(postid=None):
 def good(postid=None):
     if not session.get("logged_in") or not session.get("isMod") or postid == None:
         abort(404)
-    return "derp"
+    user = User.objects.get(alias=session.get("alias"))
+
+    post = Posts.objects.get(postid=postid)
+    if post.flags > 0:
+        post.moderated = True
+        post.moderatedBy.append(user)
+        post.save()
+    return redirect(url_for("moderate"))

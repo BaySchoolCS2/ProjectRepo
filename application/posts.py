@@ -17,3 +17,20 @@ def makePosts():
         p.save()
         return redirect(url_for('viewPost', pid=str(p.postid)))
     return render_template("submitPost.html", form=form)
+
+@app.route("/comment/<postid>", method=["POST"])
+def newComment(postid=None):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
+    if post == None:
+        abort(404)
+    form = NewComment()
+    if form.validate_on_submit():
+        user = Users.objects.get(alias=session.get("alias"))
+        post = Posts.objects.get(postid=postid)
+        c = Comment(author=user, body=form.content.data)
+        post.comments.append(c)
+        post.save()
+        return redirect(url_for("viewPost", postid=postid))
+    else:
+        return redirect(url_for("viewPost", postid=postid))

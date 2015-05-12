@@ -1,11 +1,13 @@
 from application import app
 from collections import User, Posts
+from forms import NewComment
 from flask import render_template, session, redirect, url_for, flash
 from mongoengine import ValidationError, errors
 
 @app.route('/p/')
 @app.route('/p/<pid>')
 def viewPost(pid = None):
+    newComment = NewComment()
     if pid == None:
         return redirect(url_for('index'))
     try:

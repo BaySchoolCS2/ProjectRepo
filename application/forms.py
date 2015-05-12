@@ -32,6 +32,9 @@ class NewPost(Form):
     title = StringField('title', validators = [DataRequired()])
     body = StringField('body', widget=TextArea())
 
+class NewComment(Form):
+    content = StringField('Your Comment', widget=TextArea())
+
 class ChangePassword(Form):
 
     password = PasswordField('Password', validators = [DataRequired()])
