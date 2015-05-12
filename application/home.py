@@ -16,6 +16,7 @@ def index(page=1):
 @app.route('/u')
 @app.route('/u/<name>')
 def profile(name = None):
+	
 	posts = None
 	profile = User.objects(alias = name).get_or_404()
 
