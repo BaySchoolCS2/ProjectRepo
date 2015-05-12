@@ -16,7 +16,7 @@
         </p>
 		{% if session.get('logged_in') %}
 			<form action="{{ url_for('newComment', postid = post.postid) }}" method="post">
-				{{ comment.csrf_protect }}
+				{{ comment.csrf_token }}
 				<div class="form-group">
 			        {{ comment.content.label }}
 					{{ comment.content(placeholder="Comment", class_="form-control") }}
@@ -26,9 +26,9 @@
 		{% else %}
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}
-		{% for comment in post.comments %}
+		{% for c in post.comments %}
 			<p>C</p>
-		{% endif %}
+		{% endfor %}
 	{% else %}
 		<h1>Error 404</h1>
 		no post found<br/>

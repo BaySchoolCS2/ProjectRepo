@@ -17,7 +17,7 @@ def viewPost(pid = None):
     except IndexError:
         err = 404
         content = ''
-    return render_template('post.html', post=content), err
+    return render_template('post.html', post=content, comment=newComment), err
 
 @app.route('/up/<post>')
 def UVote(post=None):

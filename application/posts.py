@@ -18,13 +18,13 @@ def makePosts():
         return redirect(url_for('viewPost', pid=str(p.postid)))
     return render_template("submitPost.html", form=form)
 
-@app.route("/comment/<postid>", method=["POST"])
+@app.route("/comment/<postid>", methods=["POST"])
 def newComment(postid=None):
     if not session.get("logged_in"):
         return redirect(url_for("login"))
     if post == None:
         abort(404)
-    form = NewComment()
+    form = NewComment(request.form)
     if form.validate_on_submit():
         user = Users.objects.get(alias=session.get("alias"))
         post = Posts.objects.get(postid=postid)
