@@ -4,28 +4,7 @@
 {% block body %}
 	{% if posts %}
 		{% for post in posts.items %}
-			<div class="row npf">
-				<div class="col-md-8">
-					<a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
-				</div>
-				<div class="col-md-8">
-						posted {{ moment(post.created_at).fromNow() }}
-				</div>
-				<div class="col-md-2 by">
-					By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
-					<div class="dropdown">
-						<div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-							<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-						</div>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=1, postid=post.postid) }}">Inapropriate</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=2, postid=post.postid) }}">Intolerant</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=3, postid=post.postid) }}">Illegal Content</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=4, postid=post.postid) }}">Spam</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			{{ renderPost(post) }}
 		{% endfor %}
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
@@ -33,7 +12,7 @@
 	{% if session.get('logged_in') %}
 		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
-	
+
 	{% if page == 1 %}
 		<a style="color:white;" href="{{ url_for('index',page=page+1)}}">Next</a>
 	{% elif len(posts.items) < 5 %}
