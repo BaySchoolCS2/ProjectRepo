@@ -40,12 +40,9 @@ body{
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
-        box-shadow: 0px 0px 3px 1px #FFFFFF;
         font-size: 21px;
         padding: 7px;
         text-align: left;
-        -moz-box-shadow: 0px 0px 7px 1px #FFFFFF;
-        -webkit-box-shadow: 0px 0px 7px 1px #FFFFFF;
         display:block;
         margin-bottom:10px;
     }
@@ -82,5 +79,68 @@ body{
 /* mobile screens only */
 
 @media (max-width: 990px){
+
+    .links{
+        display: block;
+        background: #FFFFFF;
+        border-bottom: 1px solid #0F3D74;
+        opacity: 0.7;
+        padding: 7px;
+        position: fixed;
+        right: 0px;
+        text-align: right;
+        top: 0px;
+        width: 100%;
+    }
+
+    .links a{
+        font-weight:bold;
+        color: #0F3D74;
+        font-size: 14px;
+    }
+
+    .links a:hover{
+        color: #06182E;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .npf{
+        background: #FFFFFF;
+        border: 3px solid #FFFFFF;
+        font-size: 21px;
+        padding: 7px;
+        text-align: left;
+        display:block;
+        margin-bottom:10px;
+    }
+
+    .npf a{
+        color: #0F3D74;
+        text-decoration: none;
+    }
+
+    .npf a:hover{
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .by{
+        font-size: 15;
+    }
+
+
+    .container {
+        margin-top:50px;
+    }
+
+    .loginForm {
+    background: #FFFFFF;
+    border: 1px solid #0F3D74;
+    border-radius: 3px;
+    padding: 24px;
+    position: absolute;
+    margin-top: 15vh;
+    }
 
 }
