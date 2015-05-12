@@ -5,7 +5,9 @@ body{
 }
 
 .btn {
-    width: 100%;
+    display: block;
+    margin: auto;
+    width: 50%;
 }
 
 
@@ -43,8 +45,10 @@ body{
         font-size: 21px;
         padding: 7px;
         text-align: left;
-        display:block;
+        display: block;
+        margin: auto;
         margin-bottom:10px;
+        width: 50%;
     }
 
     .npf a{
@@ -53,7 +57,7 @@ body{
     }
 
     .npf a:hover{
-        font-weight: bold;
+        color: black;
         text-decoration: none;
     }
 
