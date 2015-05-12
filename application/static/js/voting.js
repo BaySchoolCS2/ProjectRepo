@@ -1,27 +1,19 @@
 function upV(){
     id = $('#pid').val();
     out = $.ajax({
-        url:'/up'+id
+        url:'/up/'+id
     });
-    if (out==='true'){
-        $('#up').remove();
-    }else{
-        $('.flashes').html("<li><b>Don't upvote multiple times</b></li>")
-        $('#up').remove();
-        console.log('FAIL');
-    };
+    out = JSON.parse(out);
+    console.log(out.responseText);
+    $('#up').remove();
 };
 
 function UupV(){
     id = $('#pid').val();
     out = $.ajax({
-        url:'/uUp'+id
+        url:'/uUp/'+id
     });
-    if (out==='true'){
-        $('#up').remove();
-    }else{
-        $('.flashes').html("<li><b>Don't upvote multiple times</b></li>")
-        $('#up').remove();
-        console.log('FAIL');
-    };
+    out = JSON.parse(out);
+    console.log(out);
+    $('#up').remove();
 };

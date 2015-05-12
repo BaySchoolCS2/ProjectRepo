@@ -16,7 +16,8 @@ def viewPost(pid = None):
         content = Posts.objects(postid = pid)[0]
         err = 200
         print(content)
-        if user in user.votedUp:
+        user = User.objects(alias = session.get("alias")).get()
+        if user in content.votedUp:
             up = True
     except IndexError:
         err = 404
@@ -28,7 +29,6 @@ def UVote(pid=None):
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = Posts.objects(postid = pid)[0]
-        print(post.votedUp)
         if not(user in post.votedUp):
             post.votedUp = [user]
             post.score += 1
@@ -44,9 +44,8 @@ def UVote(pid=None):
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = Posts.objects(postid = pid)[0]
-        print(post.votedUp)
         if user in post.votedUp:
-            post.votedUp = [user]
+            post.votedUp.remove(user)
             post.score -= 1
             post.save()
             return 'true'
