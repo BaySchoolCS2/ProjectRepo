@@ -6,6 +6,7 @@ body{
 
 .btn {
     display: block;
+    margin: auto;
     width: 50%;
 }
 
