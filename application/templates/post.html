@@ -13,19 +13,11 @@
     	<h2>{{ post.title }}</h2>
         <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
         <input type="hidden" id="pid" value="{{ post.postid }}"></input>
-<<<<<<< HEAD
         {% if up %}
             <button id="up" class="btn" style="width:100px;" onclick="UupV()">Unvote</button>
         {% else %}
             <button id="up" class="btn" style="width:100px;" onclick="upV()">Upvote</button>
         {% endif %}
-=======
-        {{% if up %}}
-            <button id="up" class="btn" style="width:100px;" onclick="UupV()">Unvote</button>
-        {{% else %}}
-            <button id="up" class="btn" style="width:100px;" onclick="upV()">Upvote</button>
-        {{% endif %}}
->>>>>>> adb5fa61f560f0cb8abe32f4c34d48ae7e4952d0
         <p>
             {{ post.content }}
         </p>
