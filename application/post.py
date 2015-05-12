@@ -6,22 +6,23 @@ from mongoengine import ValidationError, errors
 @app.route('/p/')
 @app.route('/p/<pid>')
 def viewPost(pid = None):
+    up = False
+    down = False
     if pid == None:
         return redirect(url_for('index'))
     try:
         content = Posts.objects(postid = pid)[0]
         err = 200
         print(content)
+        if user in user.votedUp:
+            up = True
     except IndexError:
         err = 404
         content = ''
-    return render_template('post.html', post=content), err
+    return render_template('post.html', post=content, up=up, down=down), err
 
 @app.route('/up/<pid>')
 def UVote(pid=None):
-    pid = pid.decode('ascii')
-    if not session.get('logged_in'):
-        return redirect(url_for('login'))
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = Posts.objects(postid = pid)[0]
@@ -30,9 +31,24 @@ def UVote(pid=None):
             post.votedUp = [user]
             post.score += 1
             post.save()
+            return 'true'
         else:
-            flash("You already upvoted this post!")
-            return redirect(url_for('veiwPost', pid = str(pid)))
+            return 'false'
     except IndexError:
         return 404
-    return redirect(url_for('veiwPost', pid = pid))
+
+@app.route('/uUp/<pid>')
+def UVote(pid=None):
+    try:
+        user = User.objects(alias = session.get("alias")).get()
+        post = Posts.objects(postid = pid)[0]
+        print(post.votedUp)
+        if user in post.votedUp:
+            post.votedUp = [user]
+            post.score -= 1
+            post.save()
+            return 'true'
+        else:
+            return 'false'
+    except IndexError:
+        return 404
