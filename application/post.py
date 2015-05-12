@@ -40,7 +40,7 @@ def UVote(pid=None):
         return 404
 
 @app.route('/uUp/<pid>')
-def UVote(pid=None):
+def uUVote(pid=None):
     try:
         user = User.objects(alias = session.get("alias")).get()
         post = Posts.objects(postid = pid)[0]
