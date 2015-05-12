@@ -57,7 +57,7 @@ body{
     }
 
     .npf a:hover{
-        font-weight: bold;
+        color: black;
         text-decoration: none;
     }
 
