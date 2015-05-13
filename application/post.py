@@ -19,6 +19,8 @@ def viewPost(pid = None):
         user = User.objects(alias = session.get("alias")).get()
         if user in content.votedUp:
             up = True
+        if user in content.votedDown:
+            down = True
     except IndexError:
         err = 404
         content = ''
@@ -47,6 +49,36 @@ def uUVote(pid=None):
         if user in post.votedUp:
             post.votedUp.remove(user)
             post.score -= 1
+            post.save()
+            return 'true'
+        else:
+            return 'false'
+    except IndexError:
+        return 404
+
+@app.route('/dw/<pid>')
+def DVote(pid=None):
+    try:
+        user = User.objects(alias = session.get("alias")).get()
+        post = Posts.objects(postid = pid)[0]
+        if not(user in post.votedDown):
+            post.votedDown = [user]
+            post.score -= 1
+            post.save()
+            return 'true'
+        else:
+            return 'false'
+    except IndexError:
+        return 404
+
+@app.route('/uDw/<pid>')
+def uDVote(pid=None):
+    try:
+        user = User.objects(alias = session.get("alias")).get()
+        post = Posts.objects(postid = pid)[0]
+        if user in post.votedDown:
+            post.votedDown.remove(user)
+            post.score += 1
             post.save()
             return 'true'
         else:
