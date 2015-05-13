@@ -10,7 +10,7 @@ def follow(fuser=None):
         user = User.objects(alias = session.get("alias")).get()
         fuser = User.objects(alias = fuser).get()
     except IndexError:
-        abort(404) #If there is an error, return a 404 code 
+        abort(404) #If there is an error, return a 404 code s
     return Subscriptions.objects.get_or_create(user=user)
     # if fuser not in following.subscriptions:
     #     following.subscriptions.append(fuser)
