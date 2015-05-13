@@ -9,17 +9,29 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found :( </h2>
 	{% endif %}
+
 	{% if session.get('logged_in') %}
 		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
 
 	{% if page == 1 %}
-		<a style="color:white;" href="{{ url_for('index',page=page+1)}}">Next</a>
+		<nav>
+			<ul class="pager">
+				<li class="next"><a href="{{ url_for('index', page=page+1) }}">Next</a></li>
+			</ul>
+		</nav>
 	{% elif len(posts.items) < 5 %}
-		<a style="color:white;" href="{{ url_for('index',page=page-1)}}">Previous</a>
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href="{{ url_for('index', page=page-1) }}">Previous</a></li>
+			</ul>
+		</nav>
 	{% else %}
-		<a style="color:white;" href="{{ url_for('index',page=page-1)}}">Previous</a>
-		|
-		<a style="color:white;" href="{{ url_for('index',page=page+1)}}">Next</a>
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href="{{ url_for('index', page=page-1) }}">Previous</a></li>
+				<li class="next"><a href="{{ url_for('index', page=page+1) }}">Next</a></li>
+			</ul>
+		</nav>
 	{% endif %}
 	{% endblock %}

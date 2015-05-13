@@ -4,7 +4,7 @@
             <a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
         </div>
         <div class="col-md-8">
-                posted {{ moment(post.created_at).fromNow() }}
+            {{ moment(post.created_at).fromNow() }}
         </div>
         <div class="col-md-2 by">
             By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>

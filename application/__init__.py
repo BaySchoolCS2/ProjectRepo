@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template
 from flask.ext.mongoengine import MongoEngine
-from flask.ext.moment import Moment
+from flask.ext.moment import Moment, _moment
 from flask_wtf import CsrfProtect
 
 app = Flask(__name__)
@@ -13,6 +13,7 @@ CsrfProtect(app)
 app.jinja_env.globals["len"] = len # allow len to be used in templates
 app.jinja_env.globals["now"] = datetime.utcnow()
 app.jinja_env.globals["str"] = str
+app.jinja_env.globals["moment"] = _moment
 
 from application import login
 from application import home
