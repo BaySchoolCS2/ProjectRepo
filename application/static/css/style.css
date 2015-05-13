@@ -60,6 +60,7 @@ body{
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
+        border-radius: 1px;
         font-size: 21px;
         padding: 7px;
         text-align: left;
