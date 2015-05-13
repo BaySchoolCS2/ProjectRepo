@@ -41,6 +41,7 @@ class Posts(db.Document):
     sticky = db.BooleanField(default = False)
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
     votedUp = db.ListField(db.ReferenceField(User))
+    votedDown = db.ListField(db.ReferenceField(User))
     flags = db.IntField(default=0, required=True)
     flagTypes =  db.ListField(db.IntField())
     invisible = db.BooleanField(default=False)
