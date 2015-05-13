@@ -3,7 +3,7 @@
 
 {% block body %}
   {% if posts %}
-	 {% if len(posts) > 0 %}
+    {{ macros.renderPost(post) }}
 		{% for post in posts %}
 			<div class="row npf">
 				<div class="col-md-8">
@@ -13,7 +13,7 @@
 						posted {{ moment(post.created_at).fromNow() }}
 				</div>
 				<div class="col-md-2 by">
-					By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
+					By <a href="{{ url_for('user', name=post.author.alias) }}">{{ post.author.alias }}</a>
 					<div class="dropdown">
 						<div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 							<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
