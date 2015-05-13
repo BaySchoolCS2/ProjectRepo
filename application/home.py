@@ -9,7 +9,7 @@ def index(page=1):
 	page=int(page)
 	if page == None:
 		page = 1
-	posts = Posts.objects.order_by('-sticky', '-score', '-created_at')
+	posts = Posts.objects.order_by('-sticky', '-score', 'created_at')
 	paginated_posts = posts.paginate(page=page, per_page=5)
 	return render_template('index.html', posts = paginated_posts, page = page) # variables go after template
 
