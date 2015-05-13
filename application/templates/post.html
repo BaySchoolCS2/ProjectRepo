@@ -28,13 +28,13 @@
 			        {{ comment.content.label }}
 					{{ comment.content(placeholder="Comment", class_="form-control") }}
 			    </div>
-				<input type="submit" value="Post">
+				<input class="btn btn-default btn-sm" type="submit" value="Post">
 			</form>
 		{% else %}
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}
 		{% for c in post.comments %}
-			<p>C</p>
+			{{ macros.renderComment(c) }}
 		{% endfor %}
 	{% else %}
 		<h1>Error 404</h1>

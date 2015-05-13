@@ -31,6 +31,6 @@ def newComment(postid=None):
         c = Comment(author=user, body=form.content.data)
         post.comments.append(c)
         post.save()
-        return redirect(url_for("viewPost", postid=postid))
+        return redirect(url_for("viewPost", pid=postid))
     else:
-        return redirect(url_for("viewPost", postid=postid))
+        return redirect(url_for("viewPost", pid=postid))
