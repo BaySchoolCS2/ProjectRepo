@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template
+from flask import Flask
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.moment import Moment, _moment
 from flask_wtf import CsrfProtect
@@ -26,13 +26,9 @@ from application import judge
 from application import follow
 from application import flag
 from application import moderators
+from application import errors
 
 from api import api, ViewPosts, apiUrlWrap, Me
 
 api.add_resource(ViewPosts, apiUrlWrap('/posts/<string:user>'), apiUrlWrap('/posts'))
 api.add_resource(Me, apiUrlWrap('/me'))
-
-# Enable once we have a 404 error page
-# @app.errorhandler(404)
-# def page_not_found():
-#     return render_template("errorpages/404.html"), 404
