@@ -2,7 +2,8 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-	{% if len(posts) > 0 %}
+  {% if posts %}
+	 {% if len(posts) > 0 %}
 		{% for post in posts %}
 			<div class="row npf">
 				<div class="col-md-8">
@@ -28,7 +29,7 @@
 			</div>
 		{% endfor %}
 	{% else %}
-		<h2 class="npf"> No Posts Found :( </h2>
+		<h2 class="npf"> No Posts Found </h2>
 	{% endif %}
 
 	{% endblock %}
