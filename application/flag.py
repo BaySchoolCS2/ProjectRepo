@@ -22,4 +22,4 @@ def flagComment(type_=None, postid=None):
     if type_  not in ["1","2","3","4"] or postid == None:
         abort(404)
 
-    return "derp"
+    

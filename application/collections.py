@@ -22,6 +22,11 @@ class Comment(db.EmbeddedDocument):
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
+    flags = db.IntField(default=0)
+    flagTypes = db.ListField(db.IntField())
+    invisible = db.BooleanField(default=False)
+    moderated = db.BooleanField(default=False)
+    moderatedBy = db.ListField(db.ReferenceField(User))
 
 
 class Posts(db.Document):
