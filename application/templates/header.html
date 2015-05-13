@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block header %}
 <div class="links">
-    <a href="{{ url_for('index')}}" title="Home">
+    <a href="{{ url_for('index')}}" data-toggle="tooltip" data-placement="bottom" title="Home">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
     </a>
     {% if not session.get('logged_in') %}
@@ -12,24 +12,24 @@
     {% endif %}
     {% if session.get('logged_in') %}
         •
-        <a href="{{ url_for('dashboard')}}" title="Dashboard">
+        <a href="{{ url_for('dashboard')}}" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
             {{ session.get("alias")}}
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         </a>
 
         •
-        <a href="{{ url_for('settings')}}" title="Settings">
+        <a href="{{ url_for('settings')}}" data-toggle="tooltip" data-placement="bottom"  title="Settings">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         </a>
         {% if session.get('isJudge') %}
             •
-            <a href="{{ url_for('judge') }}" title="Judge">
+            <a href="{{ url_for('judge') }}" data-toggle="tooltip" data-placement="bottom" title="Judge">
                 <span class="glyphicon glyphicon-king" aria-hidden="true"></span>
             </a>
         {% endif %}
         {% if session.get("isMod") %}
             •
-            <a href="{{ url_for('moderate') }}" title="Moderation Queue">
+            <a href="{{ url_for('moderate') }}" data-toggle="tooltip" data-placement="bottom"  title="Moderation Queue">
                 <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
             </a>
         {% endif %}
