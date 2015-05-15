@@ -29,6 +29,9 @@ def signup():
             pw_hash = generate_password_hash(form.password.data)
             try:
                 user = User(email = form.email.data, alias = form.alias.data, password = pw_hash, color=str(uuid.uuid4())[:6])
+                if len(User.objects) == 0:
+                    user.isMod = True
+                    user.isJudge = True
                 user.save()
                 return redirect(url_for('login'))
             except ValidationError:
