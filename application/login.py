@@ -22,16 +22,19 @@ def login():
         return redirect(url_for('index'))
     if form.validate_on_submit():
         try:
-            user = User.objects(email=form.email.data)[0]
-            if check_password_hash(user.password, form.password.data):
-                session['logged_in'] = True
-                session['alias'] = user.alias
-                session['allowTracking'] = user.allowTracking
-                session['isMod'] = user.isMod
-                session['isJudge'] = user.isJudge
-                return redirect(url_for('index'))
+            user = User.objects(email=form.email.data.lower())[0]
+            if User.emailVerified:
+                if check_password_hash(user.password, form.password.data):
+                    session['logged_in'] = True
+                    session['alias'] = user.alias
+                    session['allowTracking'] = user.allowTracking
+                    session['isMod'] = user.isMod
+                    session['isJudge'] = user.isJudge
+                    return redirect(url_for('index'))
+                else:
+                    flash('Wrong password')
             else:
-                flash('Wrong password')
+                flash("A verification email was sent to the email that you signed up with")
         except:
             flash('Wrong email, silly!')
     return render_template('login.html', form = form)

@@ -16,6 +16,7 @@ class User(db.Document):
     hasJudgeKey = db.BooleanField(default=False)
     judgeKey = db.StringField()
     color = db.StringField(required=True)
+    emailVerifyKey = db.StringField()
 
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(required=True)
