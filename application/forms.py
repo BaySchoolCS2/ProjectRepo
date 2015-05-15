@@ -43,3 +43,6 @@ class ChangePassword(Form):
 
 class ChangeColor(Form):
     color = StringField('Color', validators = [DataRequired()])
+
+class ForgotPassword(Form):
+    email = StringField('Email', validators = [DataRequired()])
