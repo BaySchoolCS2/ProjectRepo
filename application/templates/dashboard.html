@@ -2,7 +2,8 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-	{% if len(posts) > 0 %}
+  {% if posts %}
+    {{ macros.renderPost(post) }}
 		{% for post in posts %}
 			<div class="row npf">
 				<div class="col-md-8">
@@ -12,7 +13,7 @@
 						posted {{ moment(post.created_at).fromNow() }}
 				</div>
 				<div class="col-md-2 by">
-					By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
+					By <a href="{{ url_for('user', name=post.author.alias) }}">{{ post.author.alias }}</a>
 					<div class="dropdown">
 						<div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 							<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
@@ -28,7 +29,7 @@
 			</div>
 		{% endfor %}
 	{% else %}
-		<h2 class="npf"> No Posts Found :( </h2>
+		<h2 class="npf"> No Posts Found </h2>
 	{% endif %}
 
 	{% endblock %}
