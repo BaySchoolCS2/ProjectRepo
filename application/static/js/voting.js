@@ -19,7 +19,7 @@ function dV(){
     out = $.ajax({
         url:'/dw/'+id
     });
-    $('#up').remove();
+    $('#down').remove();
 };
 
 function UdV(){
@@ -27,5 +27,5 @@ function UdV(){
     out = $.ajax({
         url:'/uDw/'+id
     });
-    $('#up').remove();
+    $('#down').remove();
 };

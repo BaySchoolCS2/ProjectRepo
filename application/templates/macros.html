@@ -1,7 +1,13 @@
 {% macro renderPost(post) -%}
     <div class="row npf">
         <div class="col-md-8">
-            <a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
+            <a href="{{ url_for('viewPost', pid=str(post.postid)) }}">
+                {% if len(post.title) < 20 %}
+                    {{ post.title }}
+                {% else %}
+                    {{ post.title[:30] }}...
+                {% endif %}
+            </a>
         </div>
         <div class="col-md-8">
             {{ moment(post.created_at).fromNow() }}

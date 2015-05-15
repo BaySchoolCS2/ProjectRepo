@@ -3,6 +3,7 @@ from collections import User
 from flask import session, render_template, redirect, flash, url_for, request
 from forms import SignupForm
 from mongoengine import ValidationError, errors
+import uuid
 from werkzeug.security import generate_password_hash
 
 @app.route('/signup', methods=['POST','GET'])
@@ -27,7 +28,10 @@ def signup():
         if form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)
             try:
-                user = User(email = form.email.data, alias = form.alias.data, password = pw_hash)
+                user = User(email = form.email.data, alias = form.alias.data, password = pw_hash, color=str(uuid.uuid4())[:6])
+                if len(User.objects) == 0:
+                    user.isMod = True
+                    user.isJudge = True
                 user.save()
                 return redirect(url_for('login'))
             except ValidationError:
