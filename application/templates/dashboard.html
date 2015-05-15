@@ -10,7 +10,7 @@
 					<a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
 				</th>
 				<tr>
-					<td>
+					<td class="posted">
 						posted {{ moment(post.created_at).fromNow() }}
 					</td>
 					<td>
