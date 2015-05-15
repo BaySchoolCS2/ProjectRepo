@@ -5,16 +5,19 @@
   {% if posts %}
     {{ macros.renderPost(post) }}
 		{% for post in posts %}
-			<div class="row npf">
-				<div class="col-md-8">
+			<table>
+				<th>
 					<a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
-				</div>
-				<div class="col-md-8">
+				</th>
+				<tr>
+					<td class="posted">
 						posted {{ moment(post.created_at).fromNow() }}
-				</div>
-				<div class="col-md-2 by">
-					By <a href="{{ url_for('user', name=post.author.alias) }}">{{ post.author.alias }}</a>
-					<div class="dropdown">
+					</td>
+					<td>
+						By <a href="{{ url_for('user', name=post.author.alias) }}">{{ post.author.alias }}</a>
+					</td>
+					<td>
+						<div class="dropdown">
 						<div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 							<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
 						</div>
@@ -24,9 +27,10 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=3, postid=post.postid) }}">Illegal Content</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=4, postid=post.postid) }}">Spam</a></li>
 						</ul>
-					</div>
-				</div>
-			</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		{% endfor %}
 	{% else %}
 		<h2 class="npf"> No Posts Found </h2>

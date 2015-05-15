@@ -24,9 +24,18 @@ body{
     text-align: left;
 }
 
+.posted {
+    font-size: 12px;
+}
+
 .flag {
     text-align: right;
 }
+
+.dropdown {
+    font-size: 12px;
+}
+
 /*for non mobile screens :)*/
 @media (min-width: 991px) {
     .user-color {

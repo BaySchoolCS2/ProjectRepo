@@ -15,15 +15,16 @@ def viewPost(pid = None):
     try:
         content = Posts.objects(postid = pid)[0]
         err = 200
-        print(content)
-        user = User.objects(alias = session.get("alias")).get()
+    except IndexError:
+        err = 404
+        content = ''
+    alias = session.get("alias")
+    if alias != None:
+        user = User.objects(alias = alias).get()
         if user in content.votedUp:
             up = True
         if user in content.votedDown:
             down = True
-    except IndexError:
-        err = 404
-        content = ''
     return render_template('post.html', post=content, up=up, down=down, comment=newComment), err
 
 @app.route('/up/<pid>')
