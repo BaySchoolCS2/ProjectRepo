@@ -15,10 +15,10 @@ class User(db.Document):
     isJudge = db.BooleanField(default=False)
     hasJudgeKey = db.BooleanField(default=False)
     judgeKey = db.StringField()
-    color = db.StringField(default=str(uuid.uuid4())[:6])
+    color = db.StringField(required=True)
 
 class Comment(db.EmbeddedDocument):
-    commentid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
+    commentid = db.StringField(required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
@@ -30,7 +30,7 @@ class Comment(db.EmbeddedDocument):
 
 
 class Posts(db.Document):
-    postid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
+    postid = db.StringField(required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     #max length of title is 140 characters
     title = db.StringField(required = True, max_length = 140)
