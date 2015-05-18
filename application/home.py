@@ -10,8 +10,10 @@ def index(page=1):
 	if page == None:
 		page = 1
 	posts = Posts.objects.order_by('-sticky', '-score', 'created_at')
+	print(posts)
 	paginated_posts = posts.paginate(page=page, per_page=5)
-	return render_template('index.html', posts = paginated_posts, page = page) # variables go after template
+	lenposts = len(posts)
+	return render_template('index.html', posts = paginated_posts, page = page, lenposts = lenposts) # variables go after template
 
 @app.route('/u')
 @app.route('/u/<name>')
