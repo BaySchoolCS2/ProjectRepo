@@ -17,7 +17,7 @@ mail=Mail(app)
 
 
 app.jinja_env.globals["len"] = len # allow len to be used in templates
-app.jinja_env.globals["now"] = datetime.utcnow()
+app.jinja_env.globals["now"] = datetime.utcnow
 app.jinja_env.globals["str"] = str
 app.jinja_env.globals["moment"] = _moment
 
