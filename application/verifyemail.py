@@ -1,7 +1,6 @@
 from application import app
 from collections import User
-from forms import VerifyEmail
-from flask import session, render_template, flash, redirect, url_for,
+from flask import session, render_template, flash, redirect, url_for
 
 @app.route("/verifyemail/<code>")
 def verifyemail(code=None):

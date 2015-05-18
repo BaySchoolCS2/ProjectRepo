@@ -3,7 +3,7 @@ from flask import Flask
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.moment import Moment, _moment
 from flask_wtf import CsrfProtect
-from flask.ext.mail import Mail, Message
+from flask.ext.mail import Mail
 
 #Importing Flask and MongoEngine
 
@@ -34,6 +34,7 @@ from application import flag
 from application import moderators
 from application import errors
 from application import monsters
+from application import verifyemail
 
 from api import api, ViewPosts, apiUrlWrap, Me
 
