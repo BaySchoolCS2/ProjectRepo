@@ -7,7 +7,6 @@ from flask.ext.mail import Mail, Message
 
 #Importing Flask and MongoEngine
 
-
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 db = MongoEngine(app)
@@ -34,6 +33,7 @@ from application import follow
 from application import flag
 from application import moderators
 from application import errors
+from application import monsters
 
 from api import api, ViewPosts, apiUrlWrap, Me
 

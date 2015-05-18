@@ -32,9 +32,13 @@
 				<div class="form-group">
 			        {{ comment.content.label }}
 					{{ comment.content(placeholder="Comment", class_="form-control") }}
-			    </div>
-				<input class="btn btn-default btn-sm" type="submit" value="Post">
+				</div>
+			<input class="btn btn-default btn-sm" type="submit" value="Post"></input>
 			</form>
+			<script src="/static/js/monsterUI.js"></script>
+			<button id="mBtn" onclick="SmD()">Insert Emotional Monster</button>
+			<div id="mDialog" style="display:none;border:1px solid;">
+			</div>
 		{% else %}
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}
