@@ -37,7 +37,7 @@
 			</form>
 			<script src="/static/js/monsterUI.js"></script>
 			<button id="mBtn" onclick="SmD()">Insert Emotional Monster</button>
-			<div style="height:100%"><div id="mDialog" style="display:none;border:1px solid;text-align:center;background-color:white;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);position:absolute;"></div></div>
+			<div id="mDialog" style="z-index:1;display:none;border:1px solid;text-align:center;background-color:white;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);position:absolute;"></div>
 		{% else %}
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}
