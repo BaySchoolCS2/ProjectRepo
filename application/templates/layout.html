@@ -12,11 +12,13 @@
             <li>{{ message }}</li>
         {% endfor %}
         </ul>
+        <div class="container">
             {% block body %}
             {% endblock %}
 
             {% block footer %}
             {% endblock %}
+        </div>
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="{{ url_for('static', filename='js/custom.js')}}"></script><!-- example for custom js after jquery so it can be used-->
