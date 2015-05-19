@@ -39,7 +39,8 @@ def signup():
                 msg = Message("Hello",
                     sender="from@example.com",
                     recipients=[form.email.data.lower()])
-                msg.body = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                msg.body = url_for("verifyemail", code=code)
+                msg.html = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
                 mail.send(msg)
                 return redirect(url_for('login'))
             except ValidationError:
