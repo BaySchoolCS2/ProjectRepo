@@ -9,6 +9,6 @@ def forgotpassword():
         return redirect(url_for('index'))
     form = ForgotPassword()
 
-    if form.validated_on_submit():
+    if form.validate_on_submit():
         pass
     return render_template('ForgotPassword.html', form=form)

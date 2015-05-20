@@ -34,6 +34,7 @@ from application import follow
 from application import flag
 from application import moderators
 from application import errors
+from application import forgotpassword
 
 from api import api, ViewPosts, apiUrlWrap, Me
 
