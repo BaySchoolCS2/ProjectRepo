@@ -10,7 +10,11 @@
 {% block body %}
 	{% if name %}
 		<h1>This is the profile for {{ name }}!</h1>
-		<a class="btn btn-success" href="{{ url_for('follow', fuser=name) }}"><span class="glyphicon glyphicon-pushpin"></span>Follow</a>
+		{% if follow %}
+		    <a class="btn btn-danger" href="{{ url_for('uFollow', fuser=name) }}"><span class="glyphicon glyphicon-remove"></span>Un-Follow</a>
+		{% else %}
+		    <a class="btn btn-success" href="{{ url_for('follow', fuser=name) }}"><span class="glyphicon glyphicon-pushpin"></span>Follow</a>
+		{% endif %}
 		<!--Iterates through posts dictionary and adds each post to list-->
 		<h2>Posts:</h2>
 		{% for post in posts %}
