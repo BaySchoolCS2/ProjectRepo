@@ -1,12 +1,15 @@
 from application import app
 from collections import User, Posts
-from flask import render_template
+from flask import render_template, abort
 from mongoengine import errors
 
 @app.route('/')
 @app.route('/<page>') #Defines URL for home page
 def index(page=1):
-	page=int(page)
+	try:
+		page=int(page)
+	except:
+		abort(404)
 	if page == None:
 		page = 1
 	posts = Posts.objects.order_by('-sticky', '-score', '-created_at') #Order for posts to be shown
@@ -24,4 +27,4 @@ def profile(name = None):
 		posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
 	except IndexError:
 		pass
-	return render_template('user.html', name = profile.alias, posts = posts) #Renders page based on the HTML file specified 
+	return render_template('user.html', name = profile.alias, posts = posts) #Renders page based on the HTML file specified

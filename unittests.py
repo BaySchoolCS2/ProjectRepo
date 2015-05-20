@@ -1,7 +1,7 @@
 #! venv/bin/python
 
 import application
-# from mongoengine import connect
+from mongoengine import connect
 import unittest
 from werkzeug.security import generate_password_hash
 
@@ -22,8 +22,9 @@ class AppTestCase(unittest.TestCase):
         self.app = application.app.test_client()
 
     def tearDown(self):
-        application.db.connection.drop_database('project_test')
-
+        connect(db='project_test',
+    		host = 'localhost',
+    		port = 27017).drop_database("project_test")
     def login(self, email, password):
         return self.app.post('/login', data = dict(
             email = email,
