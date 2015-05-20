@@ -112,6 +112,7 @@ body{
     padding: 24px;
     position: absolute;
     margin-top: 15vh;
+    margin-left: 25%;
     }
 }
 
@@ -177,6 +178,7 @@ body{
     padding: 24px;
     position: absolute;
     margin-top: 15vh;
+    width: 100%;
     }
 
 }
