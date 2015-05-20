@@ -10,6 +10,12 @@ class User(Document):
     lastLogin = DateTimeField()
     allowTracking = BooleanField(default = False)
     isMod = BooleanField(default = False)
+    apiKey = StringField()
+    isJudge = BooleanField(default=False)
+    hasJudgeKey = BooleanField(default=False)
+    judgeKey = StringField()
+    color = StringField(required=True)
+    emailVerifyKey = StringField()
 
 connect(db='project',
     host = 'localhost',

@@ -3,21 +3,19 @@ from flask import Flask
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.moment import Moment, _moment
 from flask_wtf import CsrfProtect
-from flask.ext.mail import Mail, Message
+from flask.ext.mail import Mail
 
 #Importing Flask and MongoEngine
-
 
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 db = MongoEngine(app)
 moment = Moment(app)
 CsrfProtect(app)
-mail=Mail(app)
-
+mail = Mail(app)
 
 app.jinja_env.globals["len"] = len # allow len to be used in templates
-app.jinja_env.globals["now"] = datetime.utcnow()
+app.jinja_env.globals["now"] = datetime.utcnow
 app.jinja_env.globals["str"] = str
 app.jinja_env.globals["moment"] = _moment
 
@@ -34,7 +32,11 @@ from application import follow
 from application import flag
 from application import moderators
 from application import errors
+
 from application import forgotpassword
+from application import monsters
+from application import verifyemail
+
 
 from api import api, ViewPosts, apiUrlWrap, Me
 

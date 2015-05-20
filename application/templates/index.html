@@ -2,17 +2,17 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-	
+
 	{% if session.get('logged_in') %}
 		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
-	
-	{% if posts %}
+
+	{% if len(posts.items) > 0 %}
 		{% for post in posts.items %}
 			{{ macros.renderPost(post) }}
 		{% endfor %}
 	{% else %}
-		<h2 class="npf"> No Posts Found :( </h2>
+		<h2 style="text-align:center;">No Posts Found</h2>
 	{% endif %}
 
 	{% if page == 1 and len(posts.items) == 5%}

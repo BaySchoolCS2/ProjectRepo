@@ -14,14 +14,14 @@
         <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
         <input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
-            <button id="up" class="btn" style="width:100px;" onclick="UupV()">Un-up vote</button>
+            <button id="up" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
         {% else %}
-            <button id="up" class="btn" style="width:100px;" onclick="upV()">Upvote</button>
+            <button id="up" class="btn btn-success" style="width:100px;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
         {% endif %}
         {% if down %}
-            <button id="down" class="btn" style="width:100px;" onclick="UdV()">Un-down vote</button>
+            <button id="down" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
         {% else %}
-            <button id="down" class="btn" style="width:100px;" onclick="dV()">Downvote</button>
+            <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
         {% endif %}
         <p>
             {{ post.content }}
@@ -32,9 +32,12 @@
 				<div class="form-group">
 			        {{ comment.content.label }}
 					{{ comment.content(placeholder="Comment", class_="form-control") }}
-			    </div>
-				<input class="btn btn-default btn-sm" type="submit" value="Post">
+				</div>
+			<input class="btn btn-default btn-sm" type="submit" value="Post"></input>
 			</form>
+			<script src="/static/js/monsterUI.js"></script>
+			<button id="mBtn" onclick="SmD()">Insert Emotional Monster</button>
+			<div id="mDialog" style="z-index:1;display:none;border:1px solid;text-align:center;background-color:white;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);position:absolute;"></div>
 		{% else %}
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}

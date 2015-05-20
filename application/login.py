@@ -1,5 +1,6 @@
 from application import app
 from collections import User
+from datetime import datetime
 from flask import session, render_template, flash, redirect, url_for
 from forms import LoginForm
 from werkzeug.security import check_password_hash
@@ -23,20 +24,24 @@ def login():
         return redirect(url_for('index'))
     if form.validate_on_submit():
         try:
-            user = User.objects(email=form.email.data)[0]
-            if check_password_hash(user.password, form.password.data):
-                session['logged_in'] = True
-                session['alias'] = user.alias
-                session['allowTracking'] = user.allowTracking
-                session['isMod'] = user.isMod
-                session['isJudge'] = user.isJudge
-                return redirect(url_for('index'))
+            user = User.objects(email=form.email.data.lower())[0]
+            if user.emailVerified:
+                if check_password_hash(user.password, form.password.data):
+                    session['logged_in'] = True
+                    session['alias'] = user.alias
+                    session['allowTracking'] = user.allowTracking
+                    session['isMod'] = user.isMod
+                    session['isJudge'] = user.isJudge
+                    user.lastLogin = datetime.utcnow()
+                    user.save()
+                    return redirect(url_for('index'))
+                else:
+                    flash('Wrong password')
             else:
-                flash('Wrong password')
+                flash("Your email has not yet been verified")
         except:
             flash('Wrong email, silly!')
     return render_template('login.html', form = form)
-
 
 
 @app.route('/logout')
