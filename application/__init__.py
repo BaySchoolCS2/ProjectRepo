@@ -32,8 +32,11 @@ from application import follow
 from application import flag
 from application import moderators
 from application import errors
+
+from application import forgotpassword
 from application import monsters
 from application import verifyemail
+
 
 from api import api, ViewPosts, apiUrlWrap, Me
 
