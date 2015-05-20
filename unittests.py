@@ -1,7 +1,7 @@
 #! venv/bin/python
 
 import application
-from mongoengine import connect
+# from mongoengine import connect
 import unittest
 from werkzeug.security import generate_password_hash
 
