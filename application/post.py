@@ -3,6 +3,8 @@ from collections import User, Posts, Comment
 from forms import NewComment
 from flask import render_template, session, redirect, url_for, flash
 from mongoengine import ValidationError, errors
+from forms import NewPost, NewComment
+import uuid
 
 @app.route('/p/')
 @app.route('/p/<pid>')
@@ -86,9 +88,6 @@ def uDVote(pid=None):
             return 'false'
     except IndexError:
         return 404
-
-from forms import NewPost, NewComment
-import uuid
 
 @app.route('/post', methods=["POST", "GET"])
 def makePosts():
