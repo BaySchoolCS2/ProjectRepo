@@ -1,3 +1,18 @@
+## Collections.py
+## This file holds all the definitions for the mongodb collections
+##
+## User holds the users information
+##
+## Comment holds the comment document. comment is a embedded document
+##
+## Post holds all the data from posts
+##
+## Subscriptions people that you follow
+##
+## Kicked stores people who are kicked
+##
+## Banned stores users who are banned
+
 from application import db
 import datetime
 import uuid
