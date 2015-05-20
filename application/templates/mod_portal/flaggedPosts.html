@@ -1,0 +1,24 @@
+{% extends 'header.html' %}
+
+{% block body %}
+    {% if posts %}
+        {% for post in posts %}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ post.title }}</div>
+            <div class="panel-body">
+                {{ post.content }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-danger" href="{{ url_for('bad', postid=post.postid) }}">Correctly Flagged</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-success" href="{{ url_for('good', postid=post.postid) }}">Incorrectly Flagged</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <center>Nothing to filter</center>
+    {% endif %}
+{% endblock %}

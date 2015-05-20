@@ -2,6 +2,7 @@ from application import db
 import datetime
 import uuid
 
+
 class User(db.Document):
     email = db.EmailField(required = True, unique = True)
     alias = db.StringField(required = True, unique = True)
@@ -14,16 +15,23 @@ class User(db.Document):
     isJudge = db.BooleanField(default=False)
     hasJudgeKey = db.BooleanField(default=False)
     judgeKey = db.StringField()
+    color = db.StringField(required=True)
+    emailVerifyKey = db.StringField()
 
 class Comment(db.EmbeddedDocument):
-    commentid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
+    commentid = db.StringField(required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
+    flags = db.IntField(default=0)
+    flagTypes = db.ListField(db.IntField())
+    invisible = db.BooleanField(default=False)
+    moderated = db.BooleanField(default=False)
+    moderatedBy = db.ListField(db.ReferenceField(User))
 
 
 class Posts(db.Document):
-    postid = db.StringField(default=str(uuid.uuid4())[:8], required=True)
+    postid = db.StringField(required=True)
     created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
     #max length of title is 140 characters
     title = db.StringField(required = True, max_length = 140)
@@ -34,8 +42,12 @@ class Posts(db.Document):
     sticky = db.BooleanField(default = False)
     comments = db.ListField(db.EmbeddedDocumentField('Comment'))
     votedUp = db.ListField(db.ReferenceField(User))
+    votedDown = db.ListField(db.ReferenceField(User))
     flags = db.IntField(default=0, required=True)
-
+    flagTypes =  db.ListField(db.IntField())
+    invisible = db.BooleanField(default=False)
+    moderated = db.BooleanField(default=False)
+    moderatedBy = db.ListField(db.ReferenceField(User))
     meta = {
         'allow_inheritance': True
     }

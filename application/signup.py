@@ -1,8 +1,10 @@
-from application import app
+from application import app, mail
 from collections import User
 from flask import session, render_template, redirect, flash, url_for, request
+from flask.ext.mail import Message
 from forms import SignupForm
 from mongoengine import ValidationError, errors
+import uuid
 from werkzeug.security import generate_password_hash
 
 @app.route('/signup', methods=['POST','GET'])
@@ -27,8 +29,19 @@ def signup():
         if form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)
             try:
-                user = User(email = form.email.data, alias = form.alias.data, password = pw_hash)
+                user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color=str(uuid.uuid4())[:6])
+                code = str(uuid.uuid4())
+                user.emailVerifyKey = code
+                if len(User.objects) == 0:
+                    user.isMod = True
+                    user.isJudge = True
                 user.save()
+                msg = Message("Hello",
+                    sender="from@example.com",
+                    recipients=[form.email.data.lower()])
+                msg.body = url_for("verifyemail", code=code)
+                msg.html = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                mail.send(msg)
                 return redirect(url_for('login'))
             except ValidationError:
                 error = 'Email is not an email'

@@ -2,22 +2,37 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-	{% if len(posts) > 0 %}
-		{% for post in posts %}
-			<div class="row npf">
-				<div class="col-md-8">
-					<a href="{{ url_for('viewPost', pid=str(post.postid)) }}">{{ post.title }}</a>
-				</div>
-				<div class="col-md-8">
-						posted {{ moment(post.created_at).fromNow() }}
-				</div>
-				<div class="col-md-2 by">
-					By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
-				</div>
-			</div>
-		{% endfor %}
-	{% else %}
-		<h2 class="npf"> No Posts Found :( </h2>
+
+	{% if session.get('logged_in') %}
+		<a class="btn btn-default" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
 
+	{% if len(posts.items) > 0 %}
+		{% for post in posts.items %}
+			{{ macros.renderPost(post) }}
+		{% endfor %}
+	{% else %}
+		<h2 style="text-align:center;">No Posts Found</h2>
+	{% endif %}
+
+	{% if page == 1 and len(posts.items) == 5%}
+		<nav>
+			<ul class="pager">
+				<li class="next"><a href="{{ url_for('index', page=page+1) }}">Next</a></li>
+			</ul>
+		</nav>
+	{% elif len(posts.items) < 5 and page != 1 %}
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href="{{ url_for('index', page=page-1) }}">Previous</a></li>
+			</ul>
+		</nav>
+	{% elif len(posts.items) == 5 and page != 1 %}
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href="{{ url_for('index', page=page-1) }}">Previous</a></li>
+				<li class="next"><a href="{{ url_for('index', page=page+1) }}">Next</a></li>
+			</ul>
+		</nav>
+	{% endif %}
 	{% endblock %}

@@ -27,14 +27,17 @@ Congratulations, you can now edit and test.
 
 ## To run
 
-Set up environment first, then execute
+Set up environment first [Every time?], then execute
 
 ```
 ./run.py
 ```
 
+"." means execute following program in the current bash shell, "/" means look
+in the current directory for the program.
+
 Then point your browser (navigate) to [localhost:5000](http://localhost:5000) to test
-(as well as to???) write unittests and then, push
+[as well as to???] write unittests and then, push
 
 ## Pushing Rules
 
@@ -48,7 +51,7 @@ source venv/bin/activate
 pip freeze > requirements.txt
 ```
 
-If you were messing around inside the tool virtual environment then you should also commit those packages [what packages?] to the tool-requirements.txt
+If you were messing around inside [editing packages that are part of?] the tool virtual environment then you should also commit those packages to the tool-requirements.txt
 ```
 source tools-env/bin/activate
 pip freeze > tool-requirements.txt

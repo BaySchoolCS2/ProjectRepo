@@ -32,8 +32,17 @@ class NewPost(Form):
     title = StringField('title', validators = [DataRequired()])
     body = StringField('body', widget=TextArea())
 
+class NewComment(Form):
+    content = StringField('Your Comment', widget=TextArea())
+
 class ChangePassword(Form):
 
     password = PasswordField('Password', validators = [DataRequired()])
     newPassword = PasswordField('New Password', validators = [DataRequired()])
     newPassword2 = PasswordField('Verify New Password', validators = [DataRequired()])
+
+class ChangeColor(Form):
+    color = StringField('Color', validators = [DataRequired()])
+
+class ForgotPassword(Form):
+    email = StringField('Email', validators = [DataRequired()])

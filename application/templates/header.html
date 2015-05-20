@@ -1,40 +1,49 @@
 {% extends 'layout.html' %}
 {% block header %}
 <div class="links">
-    <a href="{{ url_for('index')}}">
+    <a href="{{ url_for('index')}}" data-toggle="tooltip" data-placement="bottom" title="Home">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
     </a>
     {% if not session.get('logged_in') %}
-        •
+        &bull;
         <a href="{{ url_for('login')}}">Log in</a>
-        •
+        &bull;
         <a href="{{ url_for('signup')}}">Sign up</a>
     {% endif %}
     {% if session.get('logged_in') %}
-        •
-        <a href="{{ url_for('dashboard')}}">
+        &bull;
+        <a href="{{ url_for('dashboard')}}" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
             {{ session.get("alias")}}
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         </a>
 
-        •
-        <a href="{{ url_for('settings')}}">
+        &bull;
+        <a href="{{ url_for('settings')}}" data-toggle="tooltip" data-placement="bottom"  title="Settings">
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         </a>
-        {% if session.get('is_judge') %}
-            •
-            <a href="{{ url_for('judge') }}">
+        {% if session.get('isJudge') %}
+            &bull;
+            <a href="{{ url_for('judge') }}" data-toggle="tooltip" data-placement="bottom" title="Judge">
                 <span class="glyphicon glyphicon-king" aria-hidden="true"></span>
             </a>
         {% endif %}
-        •
+        {% if session.get("isMod") %}
+            &middot;
+            <a href="{{ url_for('moderate') }}" data-toggle="tooltip" data-placement="bottom"  title="Moderation Queue">
+                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+            </a>
+        {% endif %}
+        &bull;
         <a href="{{ url_for('logout')}}">Log out</a>
-
     {% endif %}
-
 </div>
-<div class="container">
 {% endblock %}
+
 {% block footer %}
+<div class="col-md-offset-4 col-md-4 footer">
+    <a href="#">Rules</a> &bull;
+    <a href="#">Terms</a> &bull;
+    <a href="#">About</a> &bull;
+    <a href="#">Help</a>
 </div>
 {% endblock %}

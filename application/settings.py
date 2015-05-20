@@ -1,7 +1,7 @@
 from application import app
 from collections import User
 from flask import render_template, session, redirect, url_for,flash
-from forms import ChangePassword
+from forms import ChangePassword, ChangeColor
 import hashlib
 from os import urandom
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -11,6 +11,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 @app.route('/settings', methods=['POST','GET'])
 def settings():
     form = ChangePassword()
+    changeColor = ChangeColor()
 
 
     if not session.get('logged_in'):
@@ -26,8 +27,13 @@ def settings():
                 flash('Changed Password')
         else:
             flash('Wrong Password')
-
-    return render_template('settings.html', apikey = user.apiKey, form = form)
+    elif changeColor.validate_on_submit():
+        if len(changeColor.color.data) == 6:
+            for c in user.color:
+                if c not in ["a","b","c","d","e","f","1","2","3","4","5","6","7","8","9","0"]:
+                    return redirect(url_for('settings'))
+            user.color = changeColor.color.data
+    return render_template('settings.html', user = user, apikey = user.apiKey, form = form, changeColor = changeColor)
 
 @app.route('/generate_api_key')
 def generateapikey():

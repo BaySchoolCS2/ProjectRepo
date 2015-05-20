@@ -1,12 +1,9 @@
+{% import 'macros.html' as macros %}
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"><!--For custom css-->
-        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="{{ url_for('static', filename='js/custom.js')}}"></script><!-- example for custom js after jquery so it can be used-->
-        {{ moment.include_moment() }}
     </head>
     <body>
         {% block header %}{% endblock %}
@@ -15,8 +12,21 @@
             <li>{{ message }}</li>
         {% endfor %}
         </ul>
-        {% block body %}
-        {% endblock %}
-        {% block footer %}{% endblock %}
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+
+            {% block footer %}
+            {% endblock %}
+        </div>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='js/custom.js')}}"></script><!-- example for custom js after jquery so it can be used-->
+        {{ moment.include_moment() }}
+        <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        </script>
     </body>
 </html>

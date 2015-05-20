@@ -1,3 +1,5 @@
+#! venv/bin/python
+
 import application
 from mongoengine import connect
 import unittest
@@ -20,7 +22,7 @@ class AppTestCase(unittest.TestCase):
         self.app = application.app.test_client()
 
     def tearDown(self):
-        application.app.db.drop_database
+        application.db.connection.drop_database('project_test')
 
     def login(self, email, password):
         return self.app.post('/login', data = dict(
@@ -39,10 +41,16 @@ class AppTestCase(unittest.TestCase):
             password2 = password2
         ), follow_redirects = True)
 
+    def post(self, title, content):
+        return self.app.post('/post', data = dict(
+            title=title,
+            body = body
+        ), follow_redirects = True)
+
     def test_signup(self):
         rv = self.signup('test@test.com', 'testTest', 'password', 'password')
         print rv.data
-        assert 'login' in rv.data
+        assert 'Email' in rv.data and 'Password' in rv.data and 'Login' in rv.data
         rv = self.signup('derp@derp.com', 'testTest2', 'password', 'password')
         assert 'Email or username' in rv.data
         rv = self.signup('derp@herp.com', 'testTest', 'password', 'password')
@@ -52,16 +60,17 @@ class AppTestCase(unittest.TestCase):
         rv = self.signup('derp@herp.com', 'testTest2', 'pass', 'pass')
         assert 'Password too short'
 
-    # def test_login(self):
-    #     rv = self.login("test@test.com", "testPassword")
-    #     assert 'Log in' not in rv.data
-    #     rv = self.logout()
-    #     assert 'Log in' in rv.data
-    #     rv = self.login("test@test.com", "notTestPassword")
-    #     assert 'Wrong password' in rv.data
-    #     rv = self.login("notTest@test.com", "testPassword")
-    #     assert 'Wrong email' in rv.data
+    def test_login(self):
+        rv = self.login("test@test.com", "testPassword")
+        assert 'Log in' not in rv.data
+        rv = self.logout()
+        assert 'Log in' in rv.data
+        rv = self.login("test@test.com", "notTestPassword")
+        assert 'Wrong password' in rv.data
+        rv = self.login("notTest@test.com", "testPassword")
+        assert 'Wrong email' in rv.data
 
-
+    # def test_post(self):
+    #     rv = self.login()
 if __name__ == '__main__':
     unittest.main()
