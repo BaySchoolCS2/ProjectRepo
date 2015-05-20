@@ -1,7 +1,11 @@
+var Mload = true;
+
 function SmD(){//show monsters dialog
-  $('#mDialog').load('/monstersUI')
+  if (Mload){
+    $('#mDialog').load('/monstersUI');
+  };
   $('#mDialog').show();
-  //$('#mBtn').text('Cancel')
+  Mload = false;
 };
 
 function HmD(){//hide monsters dialog

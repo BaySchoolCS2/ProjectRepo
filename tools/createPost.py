@@ -19,14 +19,23 @@ class User(Document):
     isJudge = BooleanField(default=False)
     hasJudgeKey = BooleanField(default=False)
     judgeKey = StringField()
+    color = StringField(required=True)
+    emailVerifyKey = StringField()
 
 class Comment(Document):
+    commentid = StringField(required=True)
     created_at = DateTimeField(default=datetime.datetime.now, required=True)
     author = ReferenceField(User)
     body = StringField(max_length=1000, required=True)
+    flags = IntField(default=0)
+    flagTypes = ListField(IntField())
+    invisible = BooleanField(default=False)
+    moderated = BooleanField(default=False)
+    moderatedBy = ListField(ReferenceField(User))
 
 class Posts(Document):
-    created_at = DateTimeField(default=datetime.datetime.now, required=True)
+    postid = StringField(required=True)
+    created_at = DateTimeField(default=datetime.datetime.utcnow(), required=True)
     #max length of title is 140 characters
     title = StringField(required = True, max_length = 140)
     author = ReferenceField(User)
@@ -35,6 +44,13 @@ class Posts(Document):
     score = IntField(default = 0)
     sticky = BooleanField(default = False)
     comments = ListField(EmbeddedDocumentField('Comment'))
+    votedUp = ListField(ReferenceField(User))
+    votedDown = ListField(ReferenceField(User))
+    flags = IntField(default=0, required=True)
+    flagTypes =  ListField(IntField())
+    invisible = BooleanField(default=False)
+    moderated = BooleanField(default=False)
+    moderatedBy = ListField(ReferenceField(User))
     meta = {
         'allow_inheritance': True
     }
