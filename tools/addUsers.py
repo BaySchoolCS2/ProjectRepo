@@ -23,6 +23,8 @@ class User(Document):
     isJudge = BooleanField(default=False)
     hasJudgeKey = BooleanField(default=False)
     judgeKey = StringField()
+    color = StringField(required=True)
+    emailVerifyKey = StringField()
 
 for line in usernames_file:
     for line in usernames_file:
