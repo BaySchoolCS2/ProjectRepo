@@ -30,4 +30,4 @@ for line in usernames_file:
     for line in usernames_file:
         print line
         pw_hash = generate_password_hash(line.split(":")[2])
-        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3], isJudge=line.split(":")[4]).save()
+        User(email=line.split(":")[1], alias=line.split(":")[0], password=pw_hash, isMod=line.split(":")[3], isJudge=line.split(":")[4], emailVerified=line.split(":")[5]).save()
