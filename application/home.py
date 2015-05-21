@@ -1,6 +1,6 @@
 from application import app
-from collections import User, Posts
-from flask import render_template, abort
+from collections import User, Posts, Subscriptions
+from flask import render_template, session
 from mongoengine import errors
 
 @app.route('/')
@@ -22,12 +22,21 @@ def index(page=1):
 @app.route('/u') #Sets URL for user's pages
 @app.route('/u/<name>')
 def profile(name = None):
-
-	posts = None
-	profile = User.objects(alias = name).get_or_404() #Defines profile and gives a 404 if it can't be found
-
-	try:
-		posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
-	except IndexError:
-		pass
-	return render_template('user.html', name = profile.alias, posts = posts) #Renders page based on the HTML file specified
+    posts = None
+    user = User.objects(alias = session.get("alias")).get()
+    profile = User.objects(alias = name).get_or_404() #Defines profile and gives a 404 if it can't be found
+    follow = False
+    try:
+        sub = Subscriptions.objects(user=user)[0]
+        if user in sub.subscriptions:
+            follow = True
+            print('yay')
+    except IndexError:
+        abort(500)
+    print(follow)
+    print(sub.subscriptions)
+    try:
+        posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
+    except IndexError:
+        pass
+    return render_template('user.html', name = profile.alias, posts = posts, follow=follow) #Renders page based on the HTML file specified
