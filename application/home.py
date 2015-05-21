@@ -12,9 +12,12 @@ def index(page=1):
 		abort(404)
 	if page == None:
 		page = 1
+
 	posts = Posts.objects.order_by('-sticky', '-score', '-created_at') #Order for posts to be shown
+
 	paginated_posts = posts.paginate(page=page, per_page=5)
-	return render_template('index.html', posts = paginated_posts, page = page) # variables go after template
+	lenposts = len(posts)
+	return render_template('index.html', posts = paginated_posts, page = page, lenposts = lenposts) # variables go after template
 
 @app.route('/u') #Sets URL for user's pages
 @app.route('/u/<name>')
