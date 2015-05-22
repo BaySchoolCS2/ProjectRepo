@@ -27,8 +27,8 @@ def profile(name = None):
     profile = User.objects(alias = name).get_or_404() #Defines profile and gives a 404 if it can't be found
     follow = False
     try:
-        sub = Subscriptions.objects(user=user)[0]
-        if user in sub.subscriptions:
+        sub = Subscriptions.objects.get_or_create(user=user)[0]
+        if profile in sub.subscriptions:
             follow = True
             print('yay')
     except IndexError:

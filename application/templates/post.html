@@ -14,14 +14,18 @@
         <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
         <input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
-            <button id="up" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
+            <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
+						<button id="up" class="btn btn-success" style="width:100px;display:none;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
         {% else %}
             <button id="up" class="btn btn-success" style="width:100px;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
+						<button id="unUp" class="btn btn-warning" style="width:100px;display:none;" onclick="UupV()">Un-up vote</button>
         {% endif %}
         {% if down %}
-            <button id="down" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
+            <button id="unDown" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
+						<button id="down" class="btn btn-danger" style="width:100px;display:none;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
         {% else %}
             <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
+						<button id="unDown" class="btn btn-success" style="width:100px;display:none;" onclick="UdV()">Un-down vote</button>
         {% endif %}
         <p>
             {{ post.content }}
