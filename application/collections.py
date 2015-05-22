@@ -17,6 +17,7 @@ class User(db.Document):
     judgeKey = db.StringField()
     color = db.StringField(required=True)
     emailVerifyKey = db.StringField()
+    resetPasswordCode = db.StringField()
 
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(required=True)
