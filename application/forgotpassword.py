@@ -10,7 +10,7 @@ def forgotpassword():
         return redirect(url_for('index'))
     form = ForgotPassword()
     if form.validate_on_submit():
-        user = User.query() # get the user
+        user = User.objects() # get the user
         # set the code object via uuid4()
         msg = Message("Hello",
             sender="from@example.com",
