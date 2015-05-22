@@ -12,13 +12,9 @@ def follow(fuser=None):
     except IndexError:
         abort(404) #If there is an error, return a 404 code
     sub = Subscriptions.objects.get_or_create(user=user)[0]
-    print(sub.subscriptions)
     if user not in sub.subscriptions:
-        sub.subscriptions.append(user)
-        print(sub.subscriptions[0].alias)
+        sub.subscriptions.append(fuser)
         sub.save()
-    else:
-        print('FAIL!')
     return redirect(url_for('profile', name = fuser.alias))
 
 @app.route('/uFollow/<fuser>') #Defines URL for following users
@@ -29,11 +25,9 @@ def uFollow(fuser=None):
         user = User.objects(alias = session.get("alias")).get()
         fuser = User.objects(alias = fuser).get()
     except IndexError:
-        abort(404) #If there is an error, return a 404 code s
+        abort(404) #If there is an error, return a 404 code
     sub = Subscriptions.objects.get_or_create(user=user)[0]
     if user in sub.subscriptions:
-        sub.subscriptions.remove(user)
-        print(sub.subscriptions)
+        sub.subscriptions.remove(fuser)
         sub.save()
-
     return redirect(url_for('profile', name = fuser.alias))
