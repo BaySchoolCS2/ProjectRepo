@@ -25,7 +25,19 @@ def forgotpassword(code = None):
 def resetpassword(code=None):
     if code == None:
         return redirect(url_for('index'))
-
     # check if code is correct
+    form = ForgotPassword()
+    if form.validate_on_submit():
+        if form.password.data == form.password2.data and len(form.password.data) >= 8:
+            pw_hash = generate_password_hash(form.password.data)
+            try:
+                user = User(password = pw_hash, color=str(uuid.uuid4())[:6])
+                code = str(uuid.uuid4())
+    else:
+        if len(form.password.data) < 8:
+            error = 'Password too short'
+        else:
+            error = 'Passwords do not match'
     # reset password
+    return redirect(url_for('login'))
     # redirect to login
