@@ -12,7 +12,7 @@ def forgotpassword():
     if form.validate_on_submit():
         user = User.objects() # get the user
         # set the code object via uuid4()
-        msg = Message("Hello",
+        msg = Message("Hello")
             sender="from@example.com",
             recipients=[form.email.data.lower()])
         msg.body = url_for("resetpassword", code=str(uuid.uuid4()))
