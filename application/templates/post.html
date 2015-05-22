@@ -31,7 +31,7 @@
 				{{ comment.csrf_token }}
 				<div class="form-group">
 			        {{ comment.content.label }}
-					{{ comment.content(placeholder="Comment", class_="form-control") }}
+					{{ comment.content(placeholder="Comment", class_="form-control comment-box") }}
 				</div>
 			<input class="btn btn-default btn-sm" type="submit" value="Post"></input>
 			</form>
@@ -48,4 +48,13 @@
 		<h1>Error 404</h1>
 		no post found<br/>
 	{% endif %}
+{% endblock %}
+{% block script %}
+<script>
+	$('.reply').click(function(e){
+		e.preventDefault();
+		$('.comment-box').val($('.comment-box').val()+">>>"+$(this).attr('href'))
+	});
+
+</script>
 {% endblock %}

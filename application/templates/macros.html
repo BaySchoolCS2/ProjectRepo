@@ -30,7 +30,7 @@
 {%- endmacro %}
 
 {% macro renderComment(comment) -%}
-    <div class="comment">
+    <div class="comment" name="{{ comment.commentid }}">
         <div class="row">
             <div class="col-md-1">
                 <div class="user-color" style="background-color:{{ comment.author.color }}"></div>
@@ -39,9 +39,10 @@
                 <h5>
                     <a href="{{ url_for('profile', name=comment.author.alias)}}">{{ comment.author.alias }}</a>
                     <small>{{ moment(comment.created_at).fromNow() }}</small>
+                    <a class="reply" href="{{ comment.commentid }}">Reply</a>
                 </h5>
             </div>
-            <div class="col-md-6 flag">
+            <div class="col-md-3 flag">
                 <div class="dropdown">
                     <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                         <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
