@@ -1,1 +1,9 @@
-{% extends 'headers.html' %}
+{% extends 'header.html' %}
+{% block title %}Error 404 - Page not found{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+  <h1>Whoops!</h1>      
+  <p>You're here because something went wrong. Please <a href="javascript:history.back()">go back.</a></p>
+</div>
+{% endblock %}
