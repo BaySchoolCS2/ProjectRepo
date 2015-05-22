@@ -28,7 +28,7 @@ def profile(name = None):
     follow = False
     try:
         sub = Subscriptions.objects.get_or_create(user=user)[0]
-        if user in sub.subscriptions:
+        if profile in sub.subscriptions:
             follow = True
             print('yay')
     except IndexError:
