@@ -4,8 +4,8 @@ from forms import ForgotPassword
 from flask import render_template, session, redirect, url_for
 import uuid
 
-@app.route('/forgotpassword/<code>', methods=["POST","GET"])
-def forgotpassword(code = None):
+@app.route('/forgotpassword/', methods=["POST","GET"])
+def forgotpassword():
     if session.get('logged_in'):
         return redirect(url_for('index'))
     form = ForgotPassword()
@@ -15,7 +15,7 @@ def forgotpassword(code = None):
         msg = Message("Hello",
             sender="from@example.com",
             recipients=[form.email.data.lower()])
-        msg.body = url_for("resetpassword", code=code)
+        msg.body = url_for("resetpassword", code=str(uuid.uuid4()))
         msg.html = "<a href='http://localhost:5000"+url_for("resetpassword", code=code)+"'>Reset Password</a>"
         mail.send(msg)
         # redirect to login
@@ -33,11 +33,14 @@ def resetpassword(code=None):
             try:
                 user = User(password = pw_hash, color=str(uuid.uuid4())[:6])
                 code = str(uuid.uuid4())
-    else:
-        if len(form.password.data) < 8:
-            error = 'Password too short'
+            except:
+                pass
+
         else:
-            error = 'Passwords do not match'
+            if len(form.password.data) < 8:
+                error = 'Password too short'
+            else:
+                error = 'Passwords do not match'
     # reset password
     return redirect(url_for('login'))
     # redirect to login
