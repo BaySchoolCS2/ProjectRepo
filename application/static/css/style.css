@@ -176,11 +176,11 @@ body{
     }
     
     .btn img{
-    height: 30px
+    width: 100%;
     }
     
-    .glyphicon img{
-    height: 30px;
+    .glyphicon {
+    font-size: 30px;
     }
 
     .loginForm {
