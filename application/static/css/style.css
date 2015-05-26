@@ -14,15 +14,6 @@ body{
     width: 100%;
 }
 
-button {
-    width: 100%;
-    background: white;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    padding: 3px;
-    font-size: 12px;
-}
-
 /* new post button */
 .npb {
     display: block;
@@ -144,6 +135,15 @@ button {
         word-wrap: break-word;
         text-align: left;
     }
+    
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 3px;
+        font-size: 12px;
+    }
 
     .by{
         font-size: 12px;
@@ -262,6 +262,15 @@ button {
         margin-right: auto;
         word-wrap: break-word;
         text-align: center;
+    }
+    
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 50px;
     }
 
     .by{
