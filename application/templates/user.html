@@ -11,7 +11,7 @@
 	{% if name %}
 		<h1>This is the profile for {{ name }}!</h1>
 		{% if follow %}
-		    <a class="btn btn-dange fb" href="{{ url_for('uFollow', fuser=name) }}"><span class="glyphicon glyphicon-remove"></span>Un-Follow</a>
+		    <a class="btn btn-danger fb" href="{{ url_for('uFollow', fuser=name) }}"><span class="glyphicon glyphicon-remove"></span>Un-Follow</a>
 		{% else %}
 		    <a class="btn btn-success fb" href="{{ url_for('follow', fuser=name) }}"><span class="glyphicon glyphicon-pushpin"></span>Follow</a>
 		{% endif %}
