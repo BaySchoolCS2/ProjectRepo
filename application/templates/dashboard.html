@@ -2,9 +2,9 @@
 {% block title %}Welcome{% endblock %}
 
 {% block body %}
-  {% if len(posts.items) > 0 %}
+  {% if len(posts) > 0 %}
 		{% for post in posts %}
-    {{ macros.renderPost(post) }}
+      {{ macros.renderPost(post) }}
 		{% endfor %}
 	{% else %}
 		<h2 class="npf"> No Posts Found </h2>
