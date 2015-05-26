@@ -14,7 +14,7 @@
     	<p class="pc">
             {{ post.content }}
         </p>
-        <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
+        <h4 class="author">By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
         <input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
             <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
