@@ -154,7 +154,8 @@ body{
         text-align: left;
         display:block;
         margin-bottom:10px;
-        width: 90%;
+        margin: auto;
+        width: 95%;
     }
     .npf a{
         color: #0F3D74;
