@@ -144,6 +144,12 @@ body{
         font-size: 31px;
         text-decoration: none;
     }
+    
+    .links a:active{
+        color: #06182E;
+        font-size: 31px;
+        text-decoration: none;
+    }
 
     /* posts */
     .npf{
