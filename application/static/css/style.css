@@ -14,6 +14,14 @@ body{
     width: 100%;
 }
 
+/* new post button */
+.npb {
+display: block;
+margin: auto
+margin-bottom: 10px;
+width: 50% !important;
+}
+
 .comment {
     text-align: left;
     background-color: white;
