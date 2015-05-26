@@ -214,6 +214,10 @@ body{
     margin: auto;
     }
 
+    .form-control {
+    font-size: 35px;
+    }
+
     .loginForm {
     background: #FFFFFF;
     border: 1px solid #0F3D74;
