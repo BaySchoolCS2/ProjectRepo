@@ -195,11 +195,16 @@ body{
     left: 0;
     margin-bottom: 5px;
     width: 100%;
-}
+    }
 
-.tooltip {
+    .tooltip {
     font-size: 30px;
-}
+    }
+    
+    textarea.form-control {
+    height: 15%;
+    width: 50%;
+    margin: auto;
 
     .loginForm {
     background: #FFFFFF;
