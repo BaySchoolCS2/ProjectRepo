@@ -208,7 +208,8 @@ body{
     }
     
     textarea.form-control {
-    height: 15%;
+    height: 10%;
+    font-size: 35px
     width: 100%;
     margin: auto;
     }
