@@ -30,11 +30,8 @@ def profile(name = None):
         sub = Subscriptions.objects.get_or_create(user=user)[0]
         if profile in sub.subscriptions:
             follow = True
-            print('yay')
     except IndexError:
         abort(500)
-    print(follow)
-    print(sub.subscriptions)
     try:
         posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
     except IndexError:
