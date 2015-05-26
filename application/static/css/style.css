@@ -177,8 +177,8 @@ body{
         width: 100%;
     }
     
-    .btn img{
-    width: 100%;
+    .btn {
+    width: 100% !important;
     }
     
     .glyphicon {
