@@ -103,6 +103,7 @@ body{
     max-width: 50%;
     margin: auto;
     word-wrap: break-word;
+    text-align: left;
     }
     
     /* post content */
@@ -111,6 +112,7 @@ body{
     max-width: 50%;
     margin: auto;
     word-wrap: break-word;
+    text-align: left;
     }
 
     .by{
@@ -198,6 +200,7 @@ body{
     max-width: 100%;
     margin: auto;
     word-wrap: break-word;
+    text-align: left;
     }
     
     /* post content */
@@ -206,6 +209,7 @@ body{
     max-width: 100%;
     margin: auto;
     word-wrap: break-word;
+    text-align: left;
     }
 
     .by{
