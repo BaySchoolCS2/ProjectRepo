@@ -10,8 +10,8 @@
 {% block body %}
     <script src="/static/js/voting.js"></script>
 	{% if post %}
-    	<h2>{{ post.title }}</h2>
-    	<p>
+    	<h2 class="pt">{{ post.title }}</h2>
+    	<p class="pc">
             {{ post.content }}
         </p>
         <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
