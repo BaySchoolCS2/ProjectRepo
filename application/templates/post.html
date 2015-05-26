@@ -20,6 +20,9 @@
         {% if up %}
             <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
 						<button id="up" class="btn btn-success" style="width:100px;display:none;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
+		{% elif down %}
+            <button id="up" class="btn btn-success" style="width:100px;display:none;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
+						<button id="unUp" class="btn btn-warning" style="width:100px;display:none;" onclick="UupV()">Un-up vote</button>
         {% else %}
             <button id="up" class="btn btn-success" style="width:100px;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
 						<button id="unUp" class="btn btn-warning" style="width:100px;display:none;" onclick="UupV()">Un-up vote</button>
@@ -27,6 +30,9 @@
         {% if down %}
             <button id="unDown" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
 						<button id="down" class="btn btn-danger" style="width:100px;display:none;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
+		{% elif up %}
+            <button id="down" class="btn btn-danger" style="width:100px;display:none;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
+						<button id="unDown" class="btn btn-success" style="width:100px;display:none;" onclick="UdV()">Un-down vote</button>
         {% else %}
             <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
 						<button id="unDown" class="btn btn-success" style="width:100px;display:none;" onclick="UdV()">Un-down vote</button>
