@@ -1,77 +1,70 @@
 #! venv/bin/python
-
 import application
-from mongoengine import connect
+import os
 import unittest
-from werkzeug.security import generate_password_hash
+from mongoengine import connect
 
 MONGODB = {
-    'db' : 'project_test',
-    'host' : 'localhost',
-    'port' : 27017
+    'db' : 'project_test'
 }
 
 
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
-        application.app.config["MONGODB_SETTINGS"] = MONGODB
-        application.app.config["WTF_CSRF_ENABLED"] = False
+        self.db_fd, application.app.config["MONGODB_SETTINGS"] = MONGODB, MONGODB
+        application.app.secret_key="TESTING"
         application.app.config["TESTING"] = True
-        application.app.secret_key = "TEST KEY"
+        application.app.config['WTF_CSRF_ENABLED'] = False
         self.app = application.app.test_client()
-
+        #application.init_db()
     def tearDown(self):
-        connect(db='project_test',
-    		host = 'localhost',
-    		port = 27017).drop_database("project_test")
+        pass
+        #connect(MONGODB["db"]).drop_database()
     def login(self, email, password):
-        return self.app.post('/login', data = dict(
-            email = email,
-            password = password
-        ), follow_redirects = True)
+        return self.app.post('/login', data=dict(
+            email=email,
+            password=password
+        ), follow_redirects=True)
 
     def logout(self):
-        return self.app.get('/logout', follow_redirects = True)
+        return self.app.get("/logout", follow_redirects=True)
 
-    def signup(self, email, alias, password, password2):
-        return self.app.post('/signup', data = dict(
-            email =  email,
-            alias = alias,
-            password = password,
-            password2 = password2
-        ), follow_redirects = True)
+    def signup(self, email, alias, password, password2=None):
+        if password2 == None:
+            password2 = password
+        return self.app.post('/signup', data=dict(
+            email=email,
+            alias=alias,
+            password=password,
+            password2=password2
+        ), follow_redirects=True)
 
-    def post(self, title, content):
-        return self.app.post('/post', data = dict(
-            title=title,
-            body = body
-        ), follow_redirects = True)
+    def test_empty_db(self):
+        rv = self.app.get('/')
+        assert 'No Posts Found' in rv.data
 
     def test_signup(self):
-        rv = self.signup('test@test.com', 'testTest', 'password', 'password')
+        rv = self.signup("admin", "admin", "admin", "admin")
+        #print rv.data
+        assert "Password too short" in rv.data
+        rv = self.signup("admin", "admin", "password", "password2")
+        assert "Passwords do not match" in rv.data
+        rv = self.signup("admin", "admin", "password")
+        assert "Email not correct" in rv.data
+        rv = self.signup("admin@test.com", "admin", "password")
         print rv.data
-        assert 'Email' in rv.data and 'Password' in rv.data and 'Login' in rv.data
-        rv = self.signup('derp@derp.com', 'testTest2', 'password', 'password')
-        assert 'Email or username' in rv.data
-        rv = self.signup('derp@herp.com', 'testTest', 'password', 'password')
-        assert 'Email or username' in rv.data
-        rv = self.signup('derp@herp.com', 'testTest2', 'password', 'password2')
-        assert 'Passwords do no match'
-        rv = self.signup('derp@herp.com', 'testTest2', 'pass', 'pass')
-        assert 'Password too short'
+        #assert "Login" in rv.data
 
-    def test_login(self):
-        rv = self.login("test@test.com", "testPassword")
-        assert 'Log in' not in rv.data
+    def test_login_logout(self):
+        rv = self.login('admin@test.com', 'password')
+        assert 'You were logged in' in rv.data
         rv = self.logout()
-        assert 'Log in' in rv.data
-        rv = self.login("test@test.com", "notTestPassword")
-        assert 'Wrong password' in rv.data
-        rv = self.login("notTest@test.com", "testPassword")
+        assert 'You were logged out' in rv.data
+        rv = self.login('adminx@test.com', 'password')
         assert 'Wrong email' in rv.data
+        rv = self.login('admin@test.com', 'password1')
+        assert 'Invalid password' in rv.data
 
-    # def test_post(self):
-    #     rv = self.login()
 if __name__ == '__main__':
     unittest.main()

@@ -4,6 +4,7 @@ function upV(){
         url:'/up/'+id
     });
     $('#up').hide();
+    $('#down').hide();
     $('#unUp').show();
 };
 
@@ -13,6 +14,7 @@ function UupV(){
         url:'/uUp/'+id
     });
     $('#unUp').hide();
+    $('#down').show();
     $('#up').show();
 };
 
@@ -22,6 +24,7 @@ function dV(){
         url:'/dw/'+id
     });
     $('#down').hide();
+    $('#up').hide();
     $('#unDown').show();
 };
 
@@ -31,5 +34,6 @@ function UdV(){
         url:'/uDw/'+id
     });
     $('#unDown').hide();
+    $('#up').show();
     $('#down').show();
 };

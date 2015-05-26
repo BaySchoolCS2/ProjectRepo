@@ -183,6 +183,11 @@ body{
         font-size: 12px;
     }
     
+    button:hover{
+        background: lightgray;
+        border: 1px solid gray;
+    }
+    
     /* follow button on user pages */
     .fb {
         width: 50%;
@@ -370,6 +375,11 @@ body{
         border-radius: 3px;
         padding: 10px;
         font-size: 50px;
+    }
+    
+    button:hover{
+        background: lightgray;
+        border: 1px solid gray;
     }
     
     /* follow button on user pages */
