@@ -76,6 +76,11 @@ body{
     }
 
     /* posts */
+    
+    .post {
+    background: white;
+    }
+    
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -171,6 +176,11 @@ body{
     }
 
     /* posts */
+    
+    .post {
+    background: white;
+    }
+    
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
