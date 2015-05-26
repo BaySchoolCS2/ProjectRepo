@@ -138,7 +138,6 @@ body{
         font-weight:bold;
         color: #0F3D74;
         font-size: 50px;
-        text-transform: uppercase;
     }
     .links a:hover{
         color: #06182E;
@@ -175,7 +174,7 @@ body{
     }
 
     .container {
-        margin-top: 125px;
+        margin-top: 120px;
         width: 100%;
     }
     
