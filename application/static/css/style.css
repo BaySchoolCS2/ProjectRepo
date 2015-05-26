@@ -147,6 +147,7 @@ body{
     
     button:hover{
         background: lightgray;
+        border: 1px solid gray;
     }
     
     /* follow button on user pages */
@@ -280,6 +281,11 @@ body{
         border-radius: 3px;
         padding: 10px;
         font-size: 50px;
+    }
+    
+    button:hover{
+        background: lightgray;
+        border: 1px solid gray;
     }
     
     /* follow button on user pages */
