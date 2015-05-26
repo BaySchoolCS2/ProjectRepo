@@ -10,6 +10,7 @@
 {% block body %}
     <script src="/static/js/voting.js"></script>
 	{% if post %}
+	<div class="post">
     	<h2 class="pt">{{ post.title }}</h2>
     	<p class="pc">
             {{ post.content }}
@@ -51,6 +52,7 @@
 	{% else %}
 		<h1>Error 404</h1>
 		no post found<br/>
+	</div>
 	{% endif %}
 {% endblock %}
 {% block script %}
