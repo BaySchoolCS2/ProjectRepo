@@ -10,28 +10,33 @@
 {% block body %}
     <script src="/static/js/voting.js"></script>
 	{% if post %}
-    	<h2>{{ post.title }}</h2>
-        <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
-        <input type="hidden" id="pid" value="{{ post.postid }}"></input>
-        {% if up %}
-            <button id="up" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
-        {% else %}
-            <button id="up" class="btn btn-success" style="width:100px;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
-        {% endif %}
-        {% if down %}
-            <button id="down" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
-        {% else %}
-            <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
-        {% endif %}
-        <p>
+	<div class="post">
+    	<h2 class="pt">{{ post.title }}</h2>
+    	<p class="pc">
             {{ post.content }}
         </p>
+        <h4 class="author">By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
+        <input type="hidden" id="pid" value="{{ post.postid }}"></input>
+        {% if up %}
+            <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
+						<button id="up" class="btn btn-success" style="width:100px;display:none;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
+        {% else %}
+            <button id="up" class="btn btn-success" style="width:100px;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
+						<button id="unUp" class="btn btn-warning" style="width:100px;display:none;" onclick="UupV()">Un-up vote</button>
+        {% endif %}
+        {% if down %}
+            <button id="unDown" class="btn btn-success" style="width:100px;" onclick="UdV()">Un-down vote</button>
+						<button id="down" class="btn btn-danger" style="width:100px;display:none;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
+        {% else %}
+            <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
+						<button id="unDown" class="btn btn-success" style="width:100px;display:none;" onclick="UdV()">Un-down vote</button>
+        {% endif %}
 		{% if session.get('logged_in') %}
 			<form action="{{ url_for('newComment', postid = post.postid) }}" method="post">
 				{{ comment.csrf_token }}
 				<div class="form-group">
 			        {{ comment.content.label }}
-					{{ comment.content(placeholder="Comment", class_="form-control") }}
+					{{ comment.content(placeholder="Comment", class_="form-control comment-box") }}
 				</div>
 			<input class="btn btn-default btn-sm" type="submit" value="Post"></input>
 			</form>
@@ -47,5 +52,15 @@
 	{% else %}
 		<h1>Error 404</h1>
 		no post found<br/>
+	</div>
 	{% endif %}
+{% endblock %}
+{% block script %}
+<script>
+	$('.reply').click(function(e){
+		e.preventDefault();
+		$('.comment-box').val($('.comment-box').val()+">>>"+$(this).attr('href'))
+	});
+
+</script>
 {% endblock %}
