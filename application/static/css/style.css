@@ -141,7 +141,7 @@ body{
         text-decoration: none;
     }
     .links a:hover,a:selected,a:active{
-        color: black;
+        color: #000;
         font-size: 31px;
         text-decoration: none !important;
     }
