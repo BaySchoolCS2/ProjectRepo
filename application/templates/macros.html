@@ -13,7 +13,7 @@
             {{ moment(post.created_at).fromNow() }}
         </div>
         <div class="col-md-2 by" style="display: inline;">
-            By <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
+            by <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
             <div class="dropdown" style="display: inline;">
                 <div class="dropdown-toggle" style="display: inline;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                     <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
