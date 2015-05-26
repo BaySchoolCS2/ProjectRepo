@@ -104,6 +104,12 @@ body{
     .container {
         margin-top:50px;
     }
+    
+    textarea.form-control {
+    height: 15%;
+    width: 50%;
+    margin: auto;
+    }
 
     .loginForm {
     background: #FFFFFF;
@@ -203,8 +209,9 @@ body{
     
     textarea.form-control {
     height: 15%;
-    width: 50%;
+    width: 100%;
     margin: auto;
+    }
 
     .loginForm {
     background: #FFFFFF;
