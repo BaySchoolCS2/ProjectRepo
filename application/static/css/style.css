@@ -178,6 +178,10 @@ body{
     .btn img{
     height: 30px
     }
+    
+    .glyphicon img{
+    height: 30px;
+    }
 
     .loginForm {
     background: #FFFFFF;
