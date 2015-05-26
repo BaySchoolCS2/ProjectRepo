@@ -144,6 +144,11 @@ body{
         padding: 3px;
         font-size: 12px;
     }
+    
+    /* follow button on user pages */
+    .fb {
+        width: 50%;
+    }
 
     .by{
         font-size: 12px;
@@ -271,6 +276,11 @@ body{
         border-radius: 3px;
         padding: 10px;
         font-size: 50px;
+    }
+    
+    /* follow button on user pages */
+    .fb {
+        width: 100%;
     }
 
     .by{
