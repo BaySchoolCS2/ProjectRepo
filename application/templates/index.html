@@ -4,7 +4,7 @@
 {% block body %}
 
 	{% if session.get('logged_in') %}
-		<a class="btn btn-default" class="npb" href="{{ url_for('makePosts') }}">New Post</a>
+		<a class="btn btn-default npb" href="{{ url_for('makePosts') }}">New Post</a>
 	{% endif %}
 
 	{% if posts %}
