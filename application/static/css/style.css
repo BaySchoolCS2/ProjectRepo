@@ -139,13 +139,7 @@ body{
         color: #0F3D74;
         font-size: 50px;
     }
-    .links a:hover{
-        color: #06182E;
-        font-size: 31px;
-        text-decoration: none;
-    }
-    
-    .links a:active{
+    .links a:hover,a:selected,a:active{
         color: #06182E;
         font-size: 31px;
         text-decoration: none;
