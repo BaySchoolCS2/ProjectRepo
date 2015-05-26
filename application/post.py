@@ -116,15 +116,13 @@ def newComment(postid=None):
         user = User.objects.get(alias=session.get("alias"))
         post = Posts.objects.get(postid=postid)
         content = form.content.data.split(" ")
+        fcontent = ''
         for c in content:
             if re.match('>{3}[0-9a-f]{8}\b', c) == None:
-
-                c = Comment(author=user, body=content, commentid=str(uuid.uuid4())[:8])
-                post.comments.append(c)
-
-                pass
-    
-            post.save()
+                fcontent += " "+c
+        c = Comment(author=user, body=fcontent, commentid=str(uuid.uuid4())[:8])
+        post.comments.append(c)
+        post.save()
         return redirect(url_for("viewPost", pid=postid))
     else:
         return redirect(url_for("viewPost", pid=postid))
