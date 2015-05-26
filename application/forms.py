@@ -30,7 +30,7 @@ class NewPost(Form):
         aparently i cant english
     '''
     title = StringField('title', validators = [DataRequired()])
-    body = StringField('body', widget=TextArea())
+    body = StringField('body', widget=TextArea(), validators=[DataRequired()])
 
 class NewComment(Form):
     content = StringField('Your Comment', widget=TextArea())

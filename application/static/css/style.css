@@ -84,7 +84,7 @@ body{
     }
 
     /* posts */
-    
+
     .post {
         background: white;
         border-radius: 3px;
@@ -93,7 +93,7 @@ body{
         width: 50%;
         margin: auto;
     }
-    
+
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -114,7 +114,7 @@ body{
         color: black;
         text-decoration: none;
     }
-    
+
     /* post title */
     .pt {
         font-size: 30px;
@@ -123,7 +123,7 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
-    
+
     /* post content */
     .pc {
         font-size: 13px;
@@ -135,7 +135,7 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
-    
+
     button {
         width: 100%;
         background: white;
@@ -152,7 +152,7 @@ body{
     .container {
         margin-top:50px;
     }
-    
+
     textarea.form-control {
         height: 15%;
         width: 100%;
@@ -201,13 +201,13 @@ body{
     }
 
     /* posts */
-    
+
     .post {
         background: white;
         border: 3px groove darkblue;
         padding: 10px;
     }
-    
+
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -230,7 +230,7 @@ body{
         font-weight: bold;
         text-decoration: none;
     }
-    
+
     /* post title */
     .pt {
         font-size: 65px;
@@ -239,7 +239,7 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
-    
+
     /* post content */
     .pc {
         font-size: 50px;
@@ -251,7 +251,7 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
-    
+
     /* by ____ */
     .author {
         font-size: 45px;
@@ -263,7 +263,7 @@ body{
         word-wrap: break-word;
         text-align: center;
     }
-    
+
     button {
         width: 100%;
         background: white;
@@ -281,16 +281,16 @@ body{
         margin-top: 111px;
         width: 100%;
     }
-    
+
     .btn {
         width: 100% !important;
         font-size: 50px;
     }
-    
+
     .glyphicon {
         font-size: 35px;
     }
-    
+
     .footer {
         text-align: center;
         position: fixed;
@@ -303,7 +303,7 @@ body{
     .tooltip {
         font-size: 30px;
     }
-    
+
     textarea.form-control {
         height: 10%;
         font-size: 35px
