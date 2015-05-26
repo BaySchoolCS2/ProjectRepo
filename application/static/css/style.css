@@ -212,10 +212,14 @@ body{
     text-align: left;
     }
     
+    /* by ____ */
     .author {
     font-size: 45px;
     max-width: 100%;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-bottom: 50px;
+    margin-right: auto;
     word-wrap: break-word;
     text-align: center;
     }
