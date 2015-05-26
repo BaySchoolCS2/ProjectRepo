@@ -138,6 +138,7 @@ body{
         font-weight:bold;
         color: #0F3D74;
         font-size: 31px;
+        text-transform: uppercase;
     }
     .links a:hover{
         color: #06182E;
