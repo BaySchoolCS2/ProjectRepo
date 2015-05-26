@@ -11,6 +11,9 @@
     <script src="/static/js/voting.js"></script>
 	{% if post %}
     	<h2>{{ post.title }}</h2>
+    	<p>
+            {{ post.content }}
+        </p>
         <h4>By <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
         <input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
@@ -27,9 +30,6 @@
             <button id="down" class="btn btn-danger" style="width:100px;" onclick="dV()"><span class="glyphicon glyphicon-arrow-down"></span>Downvote</button>
 						<button id="unDown" class="btn btn-success" style="width:100px;display:none;" onclick="UdV()">Un-down vote</button>
         {% endif %}
-        <p>
-            {{ post.content }}
-        </p>
 		{% if session.get('logged_in') %}
 			<form action="{{ url_for('newComment', postid = post.postid) }}" method="post">
 				{{ comment.csrf_token }}
