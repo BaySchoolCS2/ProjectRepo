@@ -140,7 +140,7 @@ body{
         font-size: 50px;
         text-decoration: none;
     }
-    .links a:hover,a:selected,a:active{
+    .links a:hover,a:selection,a:active{
         color: #000;
         font-size: 31px;
         text-decoration: none !important;
