@@ -81,6 +81,7 @@ body{
     background: white;
     padding: 10px;
     width: 50%;
+    margin: auto;
     }
     
     .npf{
@@ -107,7 +108,7 @@ body{
     /* post title */
     .pt {
     font-size: 30px;
-    max-width: 50%;
+    max-width: 100%;
     margin: auto;
     word-wrap: break-word;
     text-align: left;
@@ -116,7 +117,7 @@ body{
     /* post content */
     .pc {
     font-size: 13px;
-    max-width: 50%;
+    max-width: 100%;
     margin: auto;
     word-wrap: break-word;
     text-align: left;
