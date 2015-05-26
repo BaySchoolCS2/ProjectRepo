@@ -96,6 +96,14 @@ body{
         color: black;
         text-decoration: none;
     }
+    
+    /* post title thing */
+    h2 {
+    font-size: 30px;
+    max-width: 50%;
+    margin: auto;
+    word-wrap: break-word;
+    }
 
     .by{
         font-size: 12px;
@@ -174,6 +182,13 @@ body{
     .npf a:hover{
         font-weight: bold;
         text-decoration: none;
+    }
+    
+    h2 {
+    font-size: 50px;
+    max-width: 100%;
+    margin: auto;
+    word-wrap: break-word;
     }
 
     .by{
