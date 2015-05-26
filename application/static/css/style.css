@@ -125,6 +125,7 @@ body{
         display: block;
         background: #FFFFFF;
         border-bottom: 1px solid #0F3D74;
+        font-size: 21px;
         opacity: 0.7;
         padding: 7px;
         position: fixed;
@@ -136,11 +137,11 @@ body{
     .links a{
         font-weight:bold;
         color: #0F3D74;
-        font-size: 14px;
+        font-size: 21px;
     }
     .links a:hover{
         color: #06182E;
-        font-size: 14px;
+        font-size: 21px;
         text-decoration: none;
     }
 
@@ -156,6 +157,7 @@ body{
     }
     .npf a{
         color: #0F3D74;
+        font-size: 31px;
         text-decoration: none;
     }
     .npf a:hover{
