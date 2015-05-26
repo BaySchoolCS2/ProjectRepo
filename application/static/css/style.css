@@ -145,6 +145,10 @@ body{
         font-size: 12px;
     }
     
+    button:hover{
+        background: lightgray;
+    }
+    
     /* follow button on user pages */
     .fb {
         width: 50%;
