@@ -211,6 +211,14 @@ body{
     word-wrap: break-word;
     text-align: left;
     }
+    
+    .author {
+    font-size: 45px;
+    max-width: 100%;
+    margin: auto;
+    word-wrap: break-word;
+    text-align: center;
+    }
 
     .by{
         font-size: 50px;
