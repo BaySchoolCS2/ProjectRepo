@@ -1,7 +1,7 @@
 #! tools-env/bin/python
 
 from mongoengine import connect, Document, EmailField, StringField, BooleanField, DateTimeField, ReferenceField, IntField, ListField, EmbeddedDocumentField
-import datetime
+import datetime, uuid
 
 connect(db='project',
     host = 'localhost',
@@ -72,7 +72,7 @@ content = raw_input('post (Not required.  Must be under 1000 characters): ')
 
 try:
     user = User.objects(alias=alias)[0]  # returns user object by alias
-    post = Posts(author=user, title=title, content=content, score=score, sticky=stick)
+    post = Posts(author=user, title=title, content=content, score=score, sticky=stick, postid=str(uuid.uuid4())[:8])
 
     post.save()
 
