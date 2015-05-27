@@ -23,7 +23,10 @@ def index(page=1):
 @app.route('/u/<name>')
 def profile(name = None):
     posts = None
-    user = User.objects(alias = session.get("alias")).get()
+    try:
+        user = User.objects(alias = session.get("alias"))[0]
+    except IndexError:
+        user = None
     profile = User.objects(alias = name).get_or_404() #Defines profile and gives a 404 if it can't be found
     follow = False
     try:
