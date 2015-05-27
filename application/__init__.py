@@ -8,7 +8,7 @@ from flask.ext.mail import Mail
 #Importing Flask and MongoEngine
 
 app = Flask(__name__) # Initializes flask application
-app.config.from_pyfile('test_config.cfg') # loads application testing config from config.cfg
+app.config.from_pyfile('config.cfg') # loads application testing config from config.cfg
 db = MongoEngine(app) # sets the mongoengine database to db
 moment = Moment(app) # initializes flask-moment
 CsrfProtect(app) # initializes CSRF protection for forms
