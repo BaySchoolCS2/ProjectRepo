@@ -3,7 +3,9 @@ function upV(){
     out = $.ajax({
         url:'/up/'+id
     });
-    $('#up').remove();
+    $('#up').hide();
+    $('#down').hide();
+    $('#unUp').show();
 };
 
 function UupV(){
@@ -11,7 +13,9 @@ function UupV(){
     out = $.ajax({
         url:'/uUp/'+id
     });
-    $('#up').remove();
+    $('#unUp').hide();
+    $('#down').show();
+    $('#up').show();
 };
 
 function dV(){
@@ -19,7 +23,9 @@ function dV(){
     out = $.ajax({
         url:'/dw/'+id
     });
-    $('#down').remove();
+    $('#down').hide();
+    $('#up').hide();
+    $('#unDown').show();
 };
 
 function UdV(){
@@ -27,5 +33,7 @@ function UdV(){
     out = $.ajax({
         url:'/uDw/'+id
     });
-    $('#down').remove();
+    $('#unDown').hide();
+    $('#up').show();
+    $('#down').show();
 };

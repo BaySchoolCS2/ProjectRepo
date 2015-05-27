@@ -16,3 +16,39 @@ def pull():
     changed
     '''
     local('./utils/pull.sh')
+
+def deleteDB():
+    '''
+        Deletes the database
+    '''
+    local('./tools/deleteDB.py')
+
+def deleteUsers():
+    '''
+        Deletes all users
+    '''
+    local('./tools/deleteDB.py')
+
+def deleteFollowers():
+    '''
+        Deletes all followers
+    '''
+    local('./tools/deleteFollowers.py')
+
+def deletePosts():
+    '''
+        Deletes all posts
+    '''
+    local('./tools/deletePosts.py')
+
+def createPost():
+    '''
+        Create Post
+    '''
+    local('./tools/createPost.py')
+
+def listUsers():
+    '''
+        List Users
+    '''
+    local('./tools/listUsers.py')

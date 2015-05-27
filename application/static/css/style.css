@@ -11,7 +11,15 @@ body{
     display: block;
     margin: auto;
     margin-bottom: 10px;
-    width: 50%;
+    width: 100%;
+}
+
+/* new post button */
+.npb {
+    display: block;
+    margin: auto
+    margin-bottom: 10px;
+    width: 50% !important;
 }
 
 .comment {
@@ -44,7 +52,7 @@ body{
     margin-bottom:20px;
 }
 /*for non mobile screens :)*/
-@media (min-width: 991px) {
+@media (min-width: 990px) {
     .user-color {
         display: block;
         width: 50px;
@@ -76,6 +84,16 @@ body{
     }
 
     /* posts */
+
+    .post {
+        background: white;
+        border-radius: 3px;
+        border: 3px groove darkblue;
+        padding: 10px;
+        width: 50%;
+        margin: auto;
+    }
+
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -97,6 +115,46 @@ body{
         text-decoration: none;
     }
 
+    /* post title */
+    .pt {
+        font-size: 30px;
+        max-width: 100%;
+        margin: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* post content */
+    .pc {
+        font-size: 13px;
+        max-width: 100%;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-bottom: 10px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 3px;
+        font-size: 12px;
+    }
+    
+    button:hover{
+        background: lightgray;
+        border: 1px solid gray;
+    }
+    
+    /* follow button on user pages */
+    .fb {
+        width: 50%;
+    }
+
     .by{
         font-size: 12px;
     }
@@ -105,56 +163,77 @@ body{
         margin-top:50px;
     }
 
+    textarea.form-control {
+        height: 15%;
+        width: 100%;
+        margin: auto;
+    }
+
     .loginForm {
-    background: #FFFFFF;
-    border: 1px solid #0F3D74;
-    border-radius: 3px;
-    padding: 24px;
-    position: absolute;
-    margin-top: 15vh;
+        background: #FFFFFF;
+        border: 1px solid #0F3D74;
+        border-radius: 3px;
+        padding: 24px;
+        position: absolute;
+        margin-top: 15vh;
+        margin-left: 20% !important;
     }
 }
 
 /* mobile screens only */
 
-@media (max-width: 990px){
+@media (max-width: 989px){
 
     /* header */
     .links{
         display: block;
         background: #FFFFFF;
         border-bottom: 1px solid #0F3D74;
+        font-size: 50px;
         opacity: 0.7;
         padding: 7px;
         position: fixed;
         right: 0px;
-        text-align: right;
+        text-align: center;
         top: 0px;
         width: 100%;
     }
     .links a{
         font-weight:bold;
         color: #0F3D74;
-        font-size: 14px;
-    }
-    .links a:hover{
-        color: #06182E;
-        font-size: 14px;
+        font-size: 50px;
         text-decoration: none;
+    }
+    .links a:hover,a:selection,a:active{
+        color: #000;
+        font-size: 31px;
+        text-decoration: none !important;
     }
 
     /* posts */
+
+    .post {
+        background: white;
+        border: 3px groove darkblue;
+        padding: 10px;
+    }
+
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
-        font-size: 21px;
+        font-size: 50px;
         padding: 7px;
         text-align: left;
         display:block;
         margin-bottom:10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        width: 100%;
     }
     .npf a{
         color: #0F3D74;
+        font-size: 50px;
         text-decoration: none;
     }
     .npf a:hover{
@@ -162,21 +241,109 @@ body{
         text-decoration: none;
     }
 
+    /* post title */
+    .pt {
+        font-size: 65px;
+        max-width: 100%;
+        margin: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* post content */
+    .pc {
+        font-size: 50px;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-bottom: 50px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* by ____ */
+    .author {
+        font-size: 45px;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-bottom: 50px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 50px;
+    }
+    
+    button:hover{
+        background: lightgray;
+        border: 1px solid gray;
+    }
+    
+    /* follow button on user pages */
+    .fb {
+        width: 100%;
+    }
+
     .by{
-        font-size: 12px;
+        font-size: 50px;
     }
 
     .container {
-        margin-top:50px;
+        margin-top: 111px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100% !important;
+        font-size: 50px;
+    }
+
+    .glyphicon {
+        font-size: 35px;
+    }
+
+    .footer {
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .tooltip {
+        font-size: 30px;
+    }
+
+    textarea.form-control {
+        height: 10%;
+        font-size: 35px
+        width: 100%;
+        margin: auto;
+    }
+
+    .form-control {
+        font-size: 35px;
     }
 
     .loginForm {
-    background: #FFFFFF;
-    border: 1px solid #0F3D74;
-    border-radius: 3px;
-    padding: 24px;
-    position: absolute;
-    margin-top: 15vh;
+        background: #FFFFFF;
+        border: 1px solid #0F3D74;
+        border-radius: 3px;
+        padding: 24px;
+        position: absolute;
+        margin-top: 15vh;
+        width: 90%;
+        margin-left: 0;
     }
 
 }

@@ -35,13 +35,25 @@ def signup():
                 if len(User.objects) == 0:
                     user.isMod = True
                     user.isJudge = True
-                user.save()
                 msg = Message("Hello",
                     sender="from@example.com",
                     recipients=[form.email.data.lower()])
-                msg.body = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
-                mail.send(msg)
-                return redirect(url_for('login'))
+                if not app.config.get("TESTING"):
+                    try:
+                        msg.body = url_for("verifyemail", code=code)
+                        msg.html = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                        mail.send(msg)
+                        user.save()
+                        return redirect(url_for('login'))
+                    except:
+                        error = "Email not correct"
+                else:
+                    if "@" in form.email.data:
+                        user.emailVerified = True
+                        user.save()
+                        return redirect(url_for('login'))
+                    else:
+                        error = "Email not correct"
             except ValidationError:
                 error = 'Email is not an email'
             except errors.NotUniqueError:

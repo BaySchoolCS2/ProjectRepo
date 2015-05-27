@@ -17,9 +17,6 @@ from flask import abort, request
 
 api = Api(app)
 
-
-
-
 def apiUrlWrap(url, version="v1"):
     return "/api/"+version+url
 
