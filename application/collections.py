@@ -35,7 +35,7 @@ class User(db.Document):
 
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(required=True)
-    created_at = db.DateTimeField(default=datetime.datetime.utcnow(), required=True)
+    created_at = db.DateTimeField(required=True)
     author = db.ReferenceField(User)
     body = db.StringField(max_length=1000, required=True)
     flags = db.IntField(default=0)
