@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-8">
             {{ moment(post.created_at).fromNow() }}
-        </div>
+        </div>p
         <div class="col-md-2 by" style="display: inline;">
             by <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
             <div class="dropdown" style="display: inline;">
@@ -30,7 +30,7 @@
 {%- endmacro %}
 
 {% macro renderComment(comment) -%}
-    <div class="comment" name="{{ post comment.commentid }}">
+    <div class="comment" name="{{ comment.commentid }}">
         <div class="row">
             <div class="col-md-1">
                 <div class="user-color" style="background-color:{{ comment.author.color }}"></div>
