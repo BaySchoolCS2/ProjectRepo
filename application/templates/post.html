@@ -11,12 +11,11 @@
     <script src="/static/js/voting.js"></script>
 	{% if post %}
 	<div class="post">
-    	<h2 class="pt">{{ post.title }}</h2>
+    	<h2 class="pt">{{ post.title }}{{ macros.flagPost(post.postid) }}</h2>
     	<p class="pc">
             {{ post.content }}
         </p>
         <h4 class="author">by <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
-        {{ macros.flagPost(post.postid) }}
 		<input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
             <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
@@ -66,7 +65,7 @@
 <script>
 	$('.reply').click(function(e){
 		e.preventDefault();
-		$('.comment-box').val($('.comment-box').val()+">>>"+$(this).attr('href'))
+		$('.comment-box').val($('.comment-box').val()+">>>"+$(this).attr('href')+"\r")
 	});
 
 </script>
