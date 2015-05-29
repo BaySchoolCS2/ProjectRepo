@@ -5,19 +5,11 @@
     <div class="col-md-4 col-md-offset-4">
         <form method="post" action="{{ url_for('settings') }}">
             {{ changeColor.csrf_token }}
-            <table>
-                <tr>
-                    <td>
-                        <div style="display:block; background-color:{{ user.color }};width:100px;height:100px">.</div>
-                    </td>
-                    <td>
-                        {{ changeColor.color(value=user.color, style="width:45px;", class_="form-control") }}
-                    </td>
-                    <td>
-                      <input class="btn" type="submit" value="change user color"></input>
-                    </td>
-                </tr>
-            </table>
+            <div class="form-group">
+                {{ changeColor.label }}
+                <input type="color" class="form-control" value="{{ user.color }}" style="width:100%;">
+            </div>
+            <input class="btn btn-default" type="submit" value="Change Color"></input>
         </form>
     </div>
     <div class="col-md-4 col-md-offset-4">

@@ -2,7 +2,6 @@ from flask.ext.wtf import Form, html5
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Required
 from wtforms.widgets import TextArea
-from wtforms_components import ColorField
 
 class LoginForm(Form):
     '''
@@ -43,7 +42,7 @@ class ChangePassword(Form):
     newPassword2 = PasswordField('Verify New Password', validators = [DataRequired()])
 
 class ChangeColor(Form):
-    color = ColorField('Color', validators = [DataRequired()])
+    color = StringField('Color', validators = [DataRequired()])
 
 class ForgotPassword(Form):
     email = StringField('Email', validators = [DataRequired()])
