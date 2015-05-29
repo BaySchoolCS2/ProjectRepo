@@ -8,13 +8,10 @@ from flask.ext.mail import Mail
 #Importing Flask and MongoEngine
 
 app = Flask(__name__) # Initializes flask application
-app.config["TESTING"] = False
-if not app.config.get("TESTING"):
-    app.config.from_pyfile('config.cfg') # loads application config from config.cfg
+app.config.from_pyfile('config.cfg') # loads application testing config from config.cfg
 db = MongoEngine(app) # sets the mongoengine database to db
 moment = Moment(app) # initializes flask-moment
-if not app.config.get("TESTING"): # if testing the application disable csrf
-    CsrfProtect(app) # initializes CSRF protection for forms
+CsrfProtect(app) # initializes CSRF protection for forms
 mail = Mail(app) # allows mail to be sent
 
 app.jinja_env.globals["len"] = len # allow len to be used in templates

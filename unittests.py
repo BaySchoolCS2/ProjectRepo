@@ -18,9 +18,10 @@ class AppTestCase(unittest.TestCase):
         application.app.config['WTF_CSRF_ENABLED'] = False
         self.app = application.app.test_client()
         #application.init_db()
+
     def tearDown(self):
-        pass
-        #connect(MONGODB["db"]).drop_database()
+        connect().drop_database(MONGODB["db"])
+        
     def login(self, email, password):
         return self.app.post('/login', data=dict(
             email=email,

@@ -4,8 +4,7 @@ from forms import NewComment
 from flask import render_template, session, redirect, url_for, flash
 from mongoengine import ValidationError, errors
 from forms import NewPost, NewComment
-import uuid
-import re
+import uuid, re, datetime
 
 @app.route('/p/')
 @app.route('/p/<pid>')
@@ -120,7 +119,7 @@ def newComment(postid=None):
         for c in content:
             if re.match('>{3}[0-9a-f]{8}\b', c) == None:
                 fcontent += " "+c
-        c = Comment(author=user, body=fcontent, commentid=str(uuid.uuid4())[:8])
+        c = Comment(author=user, body=fcontent, commentid=str(uuid.uuid4())[:8], created_at=datetime.datetime.utcnow())
         post.comments.append(c)
         post.save()
         return redirect(url_for("viewPost", pid=postid))

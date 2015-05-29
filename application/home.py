@@ -23,18 +23,18 @@ def index(page=1):
 @app.route('/u/<name>')
 def profile(name = None):
     posts = None
-    user = User.objects(alias = session.get("alias")).get()
+    try:
+        user = User.objects(alias = session.get("alias"))[0]
+    except IndexError:
+        user = None
     profile = User.objects(alias = name).get_or_404() #Defines profile and gives a 404 if it can't be found
     follow = False
     try:
         sub = Subscriptions.objects.get_or_create(user=user)[0]
         if profile in sub.subscriptions:
             follow = True
-            print('yay')
     except IndexError:
         abort(500)
-    print(follow)
-    print(sub.subscriptions)
     try:
         posts = Posts.objects(author = profile).order_by('-sticky', '-score', '-created_at')
     except IndexError:
