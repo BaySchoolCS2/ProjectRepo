@@ -28,7 +28,7 @@ def settings():
         else:
             flash('Wrong Password')
     elif changeColor.validate_on_submit():
-        user.color = changeColor.color.data.hex
+        user.color = changeColor.color.data.hex_l
         user.save()
     return render_template('settings.html', user = user, apikey = user.apiKey, form = form, changeColor = changeColor)
 
