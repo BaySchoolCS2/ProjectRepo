@@ -84,11 +84,6 @@ body{
     }
 
     /* posts */
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .post {
         background: white;
         border-radius: 3px;
@@ -97,11 +92,6 @@ body{
         width: 50%;
         margin: auto;
     }
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -121,36 +111,6 @@ body{
     .npf a:hover{
         color: black;
         text-decoration: none;
-    }
-
-    /* post title */
-    .pt {
-        font-size: 30px;
-        max-width: 100%;
-        margin: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-
-    /* post content */
-    .pc {
-        font-size: 13px;
-        max-width: 100%;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-bottom: 10px;
-        margin-right: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-
-    button {
-        width: 100%;
-        background: white;
-        border: 1px solid lightgray;
-        border-radius: 3px;
-        padding: 3px;
-        font-size: 12px;
     }
 
     /* post title */
@@ -206,13 +166,6 @@ body{
         width: 100%;
         margin: auto;
     }
-
-    textarea.form-control {
-        height: 15%;
-        width: 100%;
-        margin: auto;
-    }
-
     .loginForm {
         background: #FFFFFF;
         border: 1px solid #0F3D74;
@@ -255,21 +208,11 @@ body{
     }
 
     /* posts */
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .post {
         background: white;
         border: 3px groove darkblue;
         padding: 10px;
     }
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .npf{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
@@ -395,28 +338,14 @@ body{
         margin-top: 111px;
         width: 100%;
     }
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .btn {
         width: 100% !important;
         font-size: 50px;
     }
-<<<<<<< HEAD
 
     .glyphicon {
         font-size: 35px;
     }
-
-=======
-
-    .glyphicon {
-        font-size: 35px;
-    }
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     .footer {
         text-align: center;
         position: fixed;
@@ -429,11 +358,6 @@ body{
     .tooltip {
         font-size: 30px;
     }
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
     textarea.form-control {
         height: 10%;
         font-size: 35px
