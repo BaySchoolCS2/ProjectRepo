@@ -1,3 +1,45 @@
+{% macro flagPost(postid) %}
+<div class="dropdown" style="display: inline;">
+    <div class="dropdown-toggle" style="display: inline;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+    </div>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=1, postid=postid) }}">Inapropriate</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=2, postid=postid) }}">Intolerant</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=3, postid=postid) }}">Illegal Content</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=4, postid=postid) }}">Spam</a></li>
+    </ul>
+</div>
+{% endmacro %}
+{% macro flagComment(commentid) %}
+    <div class="dropdown">
+        <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+        </div>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, postid=commentid) }}">
+                    Inapropriate
+                </a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=2, postid=commentid) }}">
+                    Intolerant
+                </a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=3, postid=commentid) }}">
+                    Illegal Content
+                </a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=4, postid=commentid) }}">
+                    Spam
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endmacro %}
 {% macro renderPost(post) -%}
     <div class="row npf">
         <div class="col-md-8">
@@ -14,17 +56,7 @@
         </div>
         <div class="col-md-2 by" style="display: inline;">
             by <a href="{{ url_for('profile',  name=post.author.alias) }}">{{ post.author.alias }}</a>
-            <div class="dropdown" style="display: inline;">
-                <div class="dropdown-toggle" style="display: inline;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                    <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-                </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=1, postid=post.postid) }}">Inapropriate</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=2, postid=post.postid) }}">Intolerant</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=3, postid=post.postid) }}">Illegal Content</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('flag', type_=4, postid=post.postid) }}">Spam</a></li>
-                </ul>
-            </div>
+            {{ flagPost(post.postid) }}
         </div>
     </div>
 {%- endmacro %}
@@ -43,33 +75,7 @@
                 </h5>
             </div>
             <div class="col-md-3 flag">
-                <div class="dropdown">
-                    <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                        <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-                    </div>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, postid=comment.commentid) }}">
-                                Inapropriate
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=2, postid=comment.commentid) }}">
-                                Intolerant
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=3, postid=comment.commentid) }}">
-                                Illegal Content
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=4, postid=comment.commentid) }}">
-                                Spam
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                {{ flagComment(comment.commentid) }}
             </div>
         </div>
         <div class="row">
