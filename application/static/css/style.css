@@ -52,7 +52,7 @@ body{
     margin-bottom:20px;
 }
 /*for non mobile screens :)*/
-@media (min-width: 990px) {
+@media {
     .user-color {
         display: block;
         width: 50px;
@@ -179,7 +179,7 @@ body{
 
 /* mobile screens only */
 
-@media (max-width: 989px){
+@media handheld {
 
     /* header */
     .links{
