@@ -29,8 +29,8 @@
     </div>
 {%- endmacro %}
 
-{% macro renderComment(post comment) -%}
-    <div class="comment" name="{{ comment.commentid }}">
+{% macro renderComment(comment) -%}
+    <div class="comment" name="{{ post comment.commentid }}">
         <div class="row">
             <div class="col-md-1">
                 <div class="user-color" style="background-color:{{ comment.author.color }}"></div>
