@@ -8,10 +8,13 @@
             <table>
                 <tr>
                     <td>
-                        <div style="display:block; background-color:#{{ user.color }};width:100px;height:100px">.</div>
+                        <div style="display:block; background-color:{{ user.color }};width:100px;height:100px">.</div>
                     </td>
                     <td>
-                        {{ changeColor.color(placeholder=user.color, class_="form-control") }}
+                        {{ changeColor.color(value=user.color, style="width:45px;", class_="form-control") }}
+                    </td>
+                    <td>
+                      <input class="btn" type="submit" value="change user color"></input>
                     </td>
                 </tr>
             </table>

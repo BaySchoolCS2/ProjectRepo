@@ -28,12 +28,8 @@ def settings():
         else:
             flash('Wrong Password')
     elif changeColor.validate_on_submit():
-        if len(changeColor.color.data) <= 6:
-            for c in user.color:
-                if c not in ["a","b","c","d","e","f","1","2","3","4","5","6","7","8","9","0"]:
-                    return redirect(url_for('settings'))
-            user.color = changeColor.color.data
-            user.save()
+        user.color = changeColor.color.data.hex
+        user.save()
     return render_template('settings.html', user = user, apikey = user.apiKey, form = form, changeColor = changeColor)
 
 @app.route('/generate_api_key')
