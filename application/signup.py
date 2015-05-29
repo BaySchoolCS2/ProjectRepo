@@ -29,7 +29,7 @@ def signup():
         if form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)
             try:
-                user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color=str(uuid.uuid4())[:6])
+                user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color="#"+str(uuid.uuid4())[:6])
                 code = str(uuid.uuid4())
                 user.emailVerifyKey = code
                 if len(User.objects) == 0:
