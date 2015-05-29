@@ -1,6 +1,6 @@
 from application import app
 from collections import User, Posts, Subscriptions
-from flask import render_template, session
+from flask import render_template, session, abort
 from mongoengine import errors
 
 @app.route('/')
