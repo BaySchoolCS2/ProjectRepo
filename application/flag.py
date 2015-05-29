@@ -1,6 +1,6 @@
 from application import app
 from collections import Subscriptions, User, Posts
-from flask import render_template, session, redirect, url_for, abort
+from flask import render_template, session, redirect, url_for, abort, flash
 
 @app.route("/flag/<type_>/<postid>")
 def flag(type_=None, postid=None):
@@ -13,6 +13,7 @@ def flag(type_=None, postid=None):
     post.flags += 1
     post.flagTypes.append(int(type_))
     post.save()
+    flash("You have flagged {0} by {1}".format(post.title, post.author.alias))
     return redirect(url_for("index"))
 
 @app.route("/flagcomment/<type_>/<postid>")
@@ -21,5 +22,3 @@ def flagComment(type_=None, postid=None):
         abort(401)
     if type_  not in ["1","2","3","4"] or postid == None:
         abort(404)
-
-    
