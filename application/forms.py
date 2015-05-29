@@ -20,17 +20,17 @@ class SignupForm(Form):
         password is a password field meaning that the characters will be obfuscated
         password2 is compared to password in login.py
     '''
-    email = html5.EmailField('email', validators = [DataRequired()])
-    alias = StringField('alias', validators = [DataRequired()])
-    password = PasswordField('password', validators = [DataRequired()])
-    password2 = PasswordField('password (again)', validators = [DataRequired()])
+    email = html5.EmailField('Email', validators = [DataRequired()])
+    alias = StringField('Username', validators = [DataRequired()])
+    password = PasswordField('Password', validators = [DataRequired()])
+    password2 = PasswordField('Password (again)', validators = [DataRequired()])
 
 class NewPost(Form):
     '''
         aparently i cant english
     '''
-    title = StringField('title', validators = [DataRequired()])
-    body = StringField('body', widget=TextArea(), validators=[DataRequired()])
+    title = StringField('Title', validators = [DataRequired()])
+    body = StringField('Body', widget=TextArea(), validators=[DataRequired()])
 
 class NewComment(Form):
     content = StringField('Your Comment', widget=TextArea())

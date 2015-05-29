@@ -85,7 +85,7 @@ body{
 
     /* posts */
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
@@ -98,7 +98,7 @@ body{
         margin: auto;
     }
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
@@ -122,36 +122,6 @@ body{
         color: black;
         text-decoration: none;
     }
-    
-    /* post title */
-    .pt {
-        font-size: 30px;
-        max-width: 100%;
-        margin: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-    
-    /* post content */
-    .pc {
-        font-size: 13px;
-        max-width: 100%;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-bottom: 10px;
-        margin-right: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-    
-    button {
-        width: 100%;
-        background: white;
-        border: 1px solid lightgray;
-        border-radius: 3px;
-        padding: 3px;
-        font-size: 12px;
-    }
 
     /* post title */
     .pt {
@@ -182,12 +152,42 @@ body{
         padding: 3px;
         font-size: 12px;
     }
-    
+
+    /* post title */
+    .pt {
+        font-size: 30px;
+        max-width: 100%;
+        margin: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* post content */
+    .pc {
+        font-size: 13px;
+        max-width: 100%;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-bottom: 10px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 3px;
+        font-size: 12px;
+    }
+
     button:hover{
         background: lightgray;
         border: 1px solid gray;
     }
-    
+
     /* follow button on user pages */
     .fb {
         width: 50%;
@@ -200,7 +200,7 @@ body{
     .container {
         margin-top:50px;
     }
-    
+
     textarea.form-control {
         height: 15%;
         width: 100%;
@@ -256,7 +256,7 @@ body{
 
     /* posts */
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
@@ -266,7 +266,7 @@ body{
         padding: 10px;
     }
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
@@ -292,48 +292,6 @@ body{
         font-weight: bold;
         text-decoration: none;
     }
-    
-    /* post title */
-    .pt {
-        font-size: 65px;
-        max-width: 100%;
-        margin: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-    
-    /* post content */
-    .pc {
-        font-size: 50px;
-        max-width: 100%;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-bottom: 50px;
-        margin-right: auto;
-        word-wrap: break-word;
-        text-align: left;
-    }
-    
-    /* by ____ */
-    .author {
-        font-size: 45px;
-        max-width: 100%;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-bottom: 50px;
-        margin-right: auto;
-        word-wrap: break-word;
-        text-align: center;
-    }
-    
-    button {
-        width: 100%;
-        background: white;
-        border: 1px solid lightgray;
-        border-radius: 3px;
-        padding: 10px;
-        font-size: 50px;
-    }
 
     /* post title */
     .pt {
@@ -376,12 +334,54 @@ body{
         padding: 10px;
         font-size: 50px;
     }
-    
+
+    /* post title */
+    .pt {
+        font-size: 65px;
+        max-width: 100%;
+        margin: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* post content */
+    .pc {
+        font-size: 50px;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-bottom: 50px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: left;
+    }
+
+    /* by ____ */
+    .author {
+        font-size: 45px;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-bottom: 50px;
+        margin-right: auto;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: 50px;
+    }
+
     button:hover{
         background: lightgray;
         border: 1px solid gray;
     }
-    
+
     /* follow button on user pages */
     .fb {
         width: 100%;
@@ -396,7 +396,7 @@ body{
         width: 100%;
     }
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
@@ -405,11 +405,11 @@ body{
         font-size: 50px;
     }
 <<<<<<< HEAD
-    
+
     .glyphicon {
         font-size: 35px;
     }
-    
+
 =======
 
     .glyphicon {
@@ -430,7 +430,7 @@ body{
         font-size: 30px;
     }
 <<<<<<< HEAD
-    
+
 =======
 
 >>>>>>> 7d609c74569d399f085cd32f905013fd1bfd89d0
