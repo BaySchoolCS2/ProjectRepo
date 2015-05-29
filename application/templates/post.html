@@ -16,7 +16,8 @@
             {{ post.content }}
         </p>
         <h4 class="author">by <a href='{{ url_for("profile", name = post.author.alias) }}'>{{post.author.alias}}</a></h4>
-        <input type="hidden" id="pid" value="{{ post.postid }}"></input>
+        {{ macros flagPost(post.postid) }}
+		<input type="hidden" id="pid" value="{{ post.postid }}"></input>
         {% if up %}
             <button id="unUp" class="btn btn-warning" style="width:100px;" onclick="UupV()">Un-up vote</button>
 						<button id="up" class="btn btn-success" style="width:100px;display:none;" onclick="upV()"><span class="glyphicon glyphicon-arrow-up"></span>Upvote</button>
