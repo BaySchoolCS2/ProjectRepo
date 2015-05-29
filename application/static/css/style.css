@@ -354,6 +354,15 @@ body{
         margin-bottom: 5px;
         width: 100%;
     }
+    
+    footer {
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 5px;
+        width: 100%;
+    }
 
     .tooltip {
         font-size: 30px;
@@ -379,5 +388,5 @@ body{
         width: 90%;
         margin-left: 0;
     }
-
+    
 }
