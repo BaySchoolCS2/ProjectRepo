@@ -8,6 +8,7 @@ def dashboard():
         user = User.objects.get(alias = session.get("alias"))
         subscriptions=Subscriptions.objects.get_or_create(user=user)[0]
         posts = Posts.objects(author__in=subscriptions.subscriptions).order_by('-sticky', '-score', '-created_at')
+        #Shows posts of users you are following
         print subscriptions
         return render_template("dashboard.html", posts=posts)
     else:
