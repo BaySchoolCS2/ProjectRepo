@@ -1,5 +1,6 @@
 from application import app, mail
 from collections import Subscriptions, User, Posts
+from flask.ext.mail import Message
 from flask import render_template, session, redirect, url_for, abort, flash
 
 @app.route("/flag/<type_>/<postid>")
@@ -13,15 +14,16 @@ def flag(type_=None, postid=None):
     post.flagTypes.append(int(type_))
     post.save()
 
-    mods = User.objects.get(isMod = True)
+    mods = User.objects(isMod = True)
     mod_emails = []
     for mod in mods:
-        mod_email.append(mod.email)
+        mod_emails.append(mod.email)
 
     msg = Message("Post has been flagged",
         sender="whrlplcs@gmail.com",
-        recipients=mod_email)
-
+        recipients=mod_emails)
+    msg.body = "{0} has flagged a post by {1} entitled {2} for {3}".format(session.get("alias"), post.author.alias, post.title, type_)
+    mail.send(msg)
     flash("You have flagged {0} by {1}".format(post.title, post.author.alias))
     return redirect(url_for("index"))
 

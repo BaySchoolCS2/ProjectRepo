@@ -38,14 +38,12 @@ def signup():
                 msg = Message("Hello",
                     sender="from@example.com",
                     recipients=[form.email.data.lower()])
-                try:
-                    msg.body = url_for("verifyemail", code=code)
-                    msg.html = "<a href='http://%s"+url_for("verifyemail", code=code)+"'>Verify Here</a>" % config.get('domain')
-                    mail.send(msg)
-                    user.save()
-                    return render_template("signupLanding.html")
-                except:
-                    error = "Email not correct"
+                msg.body = url_for("verifyemail", code=code)
+                msg.html = "<a href='http://"+app.config.get('DOMAIN')+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                mail.send(msg)
+                user.save()
+                return render_template("signupLanding.html")
+                    #error = "Email not correct"
             except ValidationError:
                 error = 'Email is not an email'
             except errors.NotUniqueError:
