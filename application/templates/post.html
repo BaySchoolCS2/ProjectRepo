@@ -54,6 +54,7 @@
 		{% endif %}
 		{% for c in post.comments %}
 			{{ macros.renderComment(c) }}
+			<br><hr><br>
 		{% endfor %}
 	{% else %}
 		<h1>Error 404</h1>
