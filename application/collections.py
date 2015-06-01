@@ -34,6 +34,11 @@ class User(db.Document):
     emailVerifyKey = db.StringField()
     resetPasswordCode = db.StringField()
 
+class Inquery(db.Document):
+    user = db.ReferenceField(User)
+    reporters = db.ListField(db.ReferenceField(User))
+    
+
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(required=True)
     created_at = db.DateTimeField(required=True)
