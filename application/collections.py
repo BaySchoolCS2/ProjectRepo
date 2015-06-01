@@ -37,7 +37,7 @@ class User(db.Document):
 class Inquery(db.Document):
     user = db.ReferenceField(User)
     reporters = db.ListField(db.ReferenceField(User))
-    
+
 
 class Comment(db.EmbeddedDocument):
     commentid = db.StringField(required=True)
@@ -66,6 +66,7 @@ class Posts(db.Document):
     votedDown = db.ListField(db.ReferenceField(User))
     flags = db.IntField(default=0, required=True)
     flagTypes =  db.ListField(db.IntField())
+    flaggedBy = db.ListField(db.ReferenceField(User))
     invisible = db.BooleanField(default=False)
     moderated = db.BooleanField(default=False)
     moderatedBy = db.ListField(db.ReferenceField(User))

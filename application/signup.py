@@ -38,22 +38,12 @@ def signup():
                 msg = Message("Hello",
                     sender="from@example.com",
                     recipients=[form.email.data.lower()])
-                if not app.config.get("TESTING"):
-                    try:
-                        msg.body = url_for("verifyemail", code=code)
-                        msg.html = "<a href='http://localhost:5000"+url_for("verifyemail", code=code)+"'>Verify Here</a>"
-                        mail.send(msg)
-                        user.save()
-                        return render_template("signupLanding.html")
-                    except:
-                        error = "Email not correct"
-                else:
-                    if "@" in form.email.data:
-                        user.emailVerified = True
-                        user.save()
-                        return render_template("signupLanding.html")
-                    else:
-                        error = "Email not correct"
+                msg.body = url_for("verifyemail", code=code)
+                msg.html = "<a href='http://"+app.config.get('DOMAIN')+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                mail.send(msg)
+                user.save()
+                return render_template("signupLanding.html")
+                    #error = "Email not correct"
             except ValidationError:
                 error = 'Email is not an email'
             except errors.NotUniqueError:
