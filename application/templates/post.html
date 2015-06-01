@@ -50,10 +50,13 @@
 			<button id="mBtn" onclick="SmD()">Insert Emotional Monster</button>
 			<div id="mDialog" style="z-index:1;display:none;border:1px solid;text-align:center;background-color:white;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);position:absolute;"></div>
 		{% else %}
+			<br>
 			<h3>Please Signup or Login to comment</h3>
 		{% endif %}
 		{% for c in post.comments %}
+			<br>
 			{{ macros.renderComment(c) }}
+			<br><hr><br>
 		{% endfor %}
 	{% else %}
 		<h1>Error 404</h1>
