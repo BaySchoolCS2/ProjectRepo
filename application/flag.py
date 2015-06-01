@@ -29,11 +29,11 @@ def flag(type_=None, postid=None):
     msg.body = "{0} has flagged a post by {1} entitled {2} for {3}".format(session.get("alias"), post.author.alias, post.title, type_)
     mail.send(msg)
     flash("You have flagged {0} by {1}".format(post.title, post.author.alias))
-    return redirect(url_for("index"))
+    return redirect(url_for("post", postid=postid))
 
-@app.route("/flagcomment/<type_>/<postid>")
-def flagComment(type_=None, postid=None):
+@app.route("/flagcomment/<type_>/<commentid>/<postid>")
+def flagComment(type_=None, postid=None, commentid=None):
     if not session.get('logged_in'):
-        abort(401)
-    if type_  not in ["1","2","3","4"] or postid == None:
+        return redirect(url_for("index"))
+    if type_  not in ["1","2","3","4","5"] or commentid == None or postid==None:
         abort(404)

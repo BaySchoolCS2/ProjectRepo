@@ -18,7 +18,7 @@
         </div>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, postid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, commentid=commentid) }}">
                     Inapropriate
                 </a>
             </li>
@@ -35,6 +35,11 @@
             <li role="presentation">
                 <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=4, postid=commentid) }}">
                     Spam
+                </a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=5, postid=commentid) }}">
+                    Not constructive
                 </a>
             </li>
         </ul>
