@@ -121,6 +121,10 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
+    
+    .pt a {
+        font-size: 10px;
+    }
 
     /* post content */
     .pc {
