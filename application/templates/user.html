@@ -11,10 +11,11 @@
 	{% if name %}
 		<h1>This is the profile for {{ name }}!</h1>
 		{% if follow %}
-		    <a class="btn btn-danger fb" href="{{ url_for('uFollow', fuser=name) }}"><span class="glyphicon glyphicon-remove"></span>Un-Follow</a>
+		    <a class="btn btn-warning fb" href="{{ url_for('uFollow', fuser=name) }}"><span class="glyphicon glyphicon-remove"></span>Un-Follow</a>
 		{% else %}
 		    <a class="btn btn-success fb" href="{{ url_for('follow', fuser=name) }}"><span class="glyphicon glyphicon-pushpin"></span>Follow</a>
 		{% endif %}
+		<a href="{{ url_for('startInquery', alias=name) }}" class="btn btn-danger">Report</a>
 		<!--Iterates through posts dictionary and adds each post to list-->
 		<h2>Posts:</h2>
 		{% for post in posts %}
