@@ -12,25 +12,4 @@
 	{% else %}
 		<h2 class="npf"> No Posts Found </h2>
 	{% endif %}
-
-  {% if page == 1 and len(posts) == 5 %}
-    <nav>
-      <ul class="pager">
-        <li class="next"><a href="{{ url_for('dashboard', page=page+1) }}">Next</a></li> #Makes it so you can go to the next page
-      </ul>
-    </nav>
-  {% elif len(posts) % 5 == 0 and len(posts) / 5 == page %}
-    <nav>
-      <ul class="pager">
-        <li class="previous"><a href="{{ url_for('dashboard', page=page-1) }}">Previous</a></li> #Allows you to go back a page
-      </ul>
-    </nav>
-  {% elif len(posts) == 5 and page != 1 %}
-    <nav>
-      <ul class="pager">
-        <li class="previous"><a href="{{ url_for('dashboard', page=page-1) }}">Previous</a></li>
-        <li class="next"><a href="{{ url_for('dashboard', page=page+1) }}">Next</a></li>
-      </ul>
-    </nav>
-  {% endif %}
   {% endblock %}
