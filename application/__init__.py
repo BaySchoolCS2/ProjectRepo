@@ -35,6 +35,7 @@ from application import forgotpassword
 from application import monsters
 from application import verifyemail
 from application import information
+from application import inquery
 
 # API import and other things pertaining to the API
 from api import api, ViewPosts, apiUrlWrap, Me
