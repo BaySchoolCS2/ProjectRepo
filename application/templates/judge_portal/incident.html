@@ -1,0 +1,10 @@
+{% extends 'header.html' %}
+
+{# do we need this {% block title %}Judge{% endblock %} #}
+
+{% block body %}
+    {{ user }}
+    <!--forms with CRSF for buttons below go here-->
+    <button class="btn btn-success" onlick="//Submit CSRF protected form">Do not reveal</button>
+    <button class="btn btn-danger" onlick="//Submit CSRF protected form">Reveal</button>
+{% endblock %}
