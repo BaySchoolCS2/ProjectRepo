@@ -61,13 +61,13 @@ body{
 }
 
 .previous {
-	left: 0px;
+	left: 30%;
 	position: fixed;
 	bottom: 15px;
 }
 
 .next {
-	right: 0px;
+	right: 30%;
 	position: fixed;
 	bottom: 15px;
 }
