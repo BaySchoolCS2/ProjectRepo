@@ -59,6 +59,14 @@ body{
     left: 0;
     margin-bottom: 7px;
 }
+
+.previous {
+	left: 0px;
+}
+
+.next {
+	right: 0px;
+}
 /*for non mobile screens :)*/
 @media {
     .user-color {
