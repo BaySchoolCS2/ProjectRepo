@@ -15,7 +15,7 @@ def judge():
         abort(404)
     
     inqueries = Inquery.objects()
-    print(inqueries[0].user.alias)
+    print(inqueries)
 
     return render_template("judge_portal/index.html", user = user, inqueries = inqueries)
 
@@ -41,4 +41,3 @@ def gJudgement(user=None):
         return render_template("judge_portal/incident.html", user=user.alias)
     except IndexError:
         abort(400)
-    
