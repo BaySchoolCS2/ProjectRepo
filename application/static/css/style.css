@@ -6,6 +6,12 @@ body{
     text-align: center;
 }
 
+.logo {
+	position: fixed;
+	left: 7px;
+	bottom: 7px;
+}
+
 /* buttons */
 .btn {
     display: block;
