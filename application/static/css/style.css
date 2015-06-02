@@ -6,11 +6,10 @@ body{
     text-align: center;
 }
 
-.logo {
+.logo img{
 	position: fixed;
 	left: 7px;
 	bottom: 7px;
-	width: 200px;
 	z-index: -9px;
 }
 
