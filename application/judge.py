@@ -13,8 +13,11 @@ def judge():
 
     if not user.isJudge:
         abort(404)
+    
+    inqueries = Inquery.objects()
+    print(inqueries[0].user.alias)
 
-    return render_template("judge_portal/index.html", user = user)
+    return render_template("judge_portal/index.html", user = user, inqueries = inqueries)
 
 @app.route("/generate-judge-key")
 def generateJudgeKey():

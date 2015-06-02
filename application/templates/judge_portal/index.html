@@ -7,5 +7,10 @@
     {% else %}
         <a class="btn btn-danger" href="/generate-judge-key">Get Key</a>
     {% endif %}
+    {% if inqueries.items %}
+        {% for inquery in inqueries.items %}
+            <a href="{{ url_for('gJudgement', user=inquery.user.alias) }}">{{ inquery.user.alias }}</a>
+        {% endfor %}
+    {% endif  %}
 </div>
 {% endblock %}
