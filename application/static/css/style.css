@@ -62,10 +62,14 @@ body{
 
 .previous {
 	left: 0px;
+	position: fixed;
+	bottom: 15px;
 }
 
 .next {
 	right: 0px;
+	position: fixed;
+	bottom: 15px;
 }
 /*for non mobile screens :)*/
 @media {
