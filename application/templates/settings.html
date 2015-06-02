@@ -7,7 +7,7 @@
             {{ changeColor.csrf_token }}
             <div class="form-group">
                 {{ changeColor.label }}
-                <input type="color" class="form-control" value="{{ user.color }}" style="width:100%;">
+                <input name="color" type="color" class="form-control" value="{{ user.color }}" style="width:100%;">
             </div>
             <input class="btn btn-default" type="submit" value="Change Color"></input>
         </form>

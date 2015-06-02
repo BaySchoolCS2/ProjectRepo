@@ -1,6 +1,6 @@
 from application import app
 from collections import User
-from flask import render_template, session, redirect, url_for,flash
+from flask import render_template, session, redirect, url_for,flash, request
 from forms import ChangePassword, ChangeColor
 import hashlib
 from os import urandom
@@ -28,7 +28,7 @@ def settings():
         else:
             flash('Wrong Password')
     elif changeColor.validate_on_submit():
-        user.color = changeColor.color.data.hex_l
+        user.color = request.form.get("color")
         user.save()
     return render_template('settings.html', user = user, apikey = user.apiKey, form = form, changeColor = changeColor)
 
