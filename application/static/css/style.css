@@ -10,6 +10,7 @@ body{
 	position: fixed;
 	left: 7px;
 	bottom: 7px;
+	z-index: -9px;
 }
 
 /* buttons */
