@@ -354,18 +354,18 @@ body{
     }
     
     .previous {
-				left: 35%;
-				font-size: 45px;
-				position: fixed;
-				bottom: 15px;
-		}
+		left: 35%;
+		font-size: 45px;
+		position: fixed;
+		bottom: 15px;
+	}
 
-		.next {
-				right: 35%;
-				font-size: 45px;
-				position: fixed;
-				bottom: 15px;
-		}
+	.next {
+		right: 35%;
+		font-size: 45px;
+		position: fixed;
+		bottom: 15px;
+	}
 
     /* follow button on user pages */
     .fb {
@@ -379,6 +379,7 @@ body{
     .container {
         margin-top: 111px;
         width: 100%;
+        margin-bottom: 50px;
     }
     .btn {
         width: 100% !important;
