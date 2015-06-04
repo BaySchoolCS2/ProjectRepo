@@ -357,14 +357,14 @@ body{
 		left: 35%;
 		font-size: 45px;
 		position: fixed;
-		bottom: 15px;
+		bottom: 50px;
 	}
 
 	.next {
 		right: 35%;
 		font-size: 45px;
 		position: fixed;
-		bottom: 15px;
+		bottom: 50px;
 	}
 
     /* follow button on user pages */
@@ -390,7 +390,7 @@ body{
         font-size: 35px;
     }
     .footer {
-        text-align: center;
+        text-align: right;
         position: fixed;
         bottom: 0;
         left: 0;
