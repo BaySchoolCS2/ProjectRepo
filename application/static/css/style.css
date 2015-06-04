@@ -379,7 +379,7 @@ body{
     .container {
         margin-top: 111px;
         width: 100%;
-        margin-bottom: 100px;
+        margin-bottom: 200px;
     }
     .btn {
         width: 100% !important;
@@ -396,6 +396,7 @@ body{
         left: 0;
         margin-bottom: 5px;
         width: 100%;
+        font-size: 35px;
     }
     
     footer {
