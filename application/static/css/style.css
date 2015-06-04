@@ -357,14 +357,14 @@ body{
 		left: 30%;
 		font-size: 45px;
 		position: fixed;
-		bottom: 50px;
+		bottom: 75px;
 	}
 
 	.next {
 		right: 30%;
 		font-size: 45px;
 		position: fixed;
-		bottom: 50px;
+		bottom: 75px;
 	}
 
     /* follow button on user pages */
