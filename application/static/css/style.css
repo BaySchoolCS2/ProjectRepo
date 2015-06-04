@@ -354,7 +354,7 @@ body{
     }
     
     .previous {
-		right: 10%;
+		right: -5%;
 		font-size: 45px;
 		position: fixed;
 		bottom: 100px;
