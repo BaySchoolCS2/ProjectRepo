@@ -60,17 +60,6 @@ body{
     margin-bottom: 7px;
 }
 
-.previous {
-	left: 35%;
-	position: fixed;
-	bottom: 15px;
-}
-
-.next {
-	right: 35%;
-	position: fixed;
-	bottom: 15px;
-}
 /*for non mobile screens :)*/
 @media screen {
     .user-color {
@@ -171,6 +160,18 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
+    
+    .previous {
+				left: 35%;
+				position: fixed;
+				bottom: 15px;
+		}
+
+		.next {
+				right: 35%;
+				position: fixed;
+				bottom: 15px;
+		}
 
     /* follow button on user pages */
     .fb {
@@ -351,6 +352,20 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
+    
+    .previous {
+				left: 35%;
+				font-size: 45px;
+				position: fixed;
+				bottom: 15px;
+		}
+
+		.next {
+				right: 35%;
+				font-size: 45px;
+				position: fixed;
+				bottom: 15px;
+		}
 
     /* follow button on user pages */
     .fb {
