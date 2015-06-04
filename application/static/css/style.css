@@ -206,7 +206,7 @@ body{
 
 /* mobile screens only */
 
-@media handheld,media="screen and (max-device-width: 480px) and (resolution: 163dpi)" {
+@media handheld,mobile,queries {
 
     /* header */
     .links{
