@@ -181,6 +181,10 @@ body{
     .by{
         font-size: 12px;
     }
+    
+    .col-md-2 {
+    	box-sizing: content-box;
+    }
 
     .container {
         margin-top:50px;
