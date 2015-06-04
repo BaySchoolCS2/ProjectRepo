@@ -354,14 +354,14 @@ body{
     }
     
     .previous {
-		left: 35%;
+		left: 30%;
 		font-size: 45px;
 		position: fixed;
 		bottom: 50px;
 	}
 
 	.next {
-		right: 35%;
+		right: 30%;
 		font-size: 45px;
 		position: fixed;
 		bottom: 50px;
