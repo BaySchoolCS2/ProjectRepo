@@ -162,16 +162,16 @@ body{
     }
     
     .previous {
-				left: 35%;
-				position: fixed;
-				bottom: 15px;
-		}
+		left: 35%;
+		position: fixed;
+		bottom: 15px;
+	}
 
-		.next {
-				right: 35%;
-				position: fixed;
-				bottom: 15px;
-		}
+	.next {
+		right: 35%;
+		position: fixed;
+		bottom: 15px;
+	}
 
     /* follow button on user pages */
     .fb {
