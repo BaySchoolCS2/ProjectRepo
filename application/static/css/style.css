@@ -72,7 +72,7 @@ body{
 	bottom: 15px;
 }
 /*for non mobile screens :)*/
-@media {
+@media screen {
     .user-color {
         display: block;
         width: 50px;
