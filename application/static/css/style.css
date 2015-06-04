@@ -206,7 +206,7 @@ body{
 
 /* mobile screens only */
 
-@media handheld,mobile,queries {
+@media handheld,mobile and (max-device-width: 480px) and (orientation: portrait) {
 
     /* header */
     .links{
