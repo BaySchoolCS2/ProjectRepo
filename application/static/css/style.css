@@ -60,6 +60,13 @@ body{
     margin-bottom: 7px;
 }
 
+/* for half non mobile screens */
+@media (width < 900px) {
+	logo img {
+		width: 30px;
+	}
+}
+
 /*for non mobile screens :)*/
 @media screen {
     .user-color {
