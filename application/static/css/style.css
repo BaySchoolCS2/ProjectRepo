@@ -161,6 +161,10 @@ body{
         border: 1px solid gray;
     }
     
+    .btn-danger {
+    	width: 50% !important;
+    }
+    
     .previous {
 		left: 35%;
 		position: fixed;
