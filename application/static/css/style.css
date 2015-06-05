@@ -165,6 +165,10 @@ body{
     	width: 50% !important;
     }
     
+    .btn-success {
+    	width: 50% !important;
+    }
+    
     .form-control {
     	display: inline-block !important;
     	width: 50% !important;
