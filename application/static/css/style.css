@@ -123,6 +123,7 @@ body{
     .npf a{
         color: #0F3D74;
         text-decoration: none;
+        font-size: 12px;
     }
     .npf a:hover{
         color: black;
