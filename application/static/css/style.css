@@ -178,7 +178,7 @@ body{
     
     .form-control {
     	display: inline-block !important;
-    	width: 50% !important;
+    	width: 100% !important;
     }
     
     .previous {
