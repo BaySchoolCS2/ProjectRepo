@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form, html5
-from wtforms import StringField, PasswordField, BooleanField
+from wtforms import StringField, PasswordField, BooleanField, HiddenField
 from wtforms.validators import DataRequired, Required
 from wtforms.widgets import TextArea
 
@@ -46,3 +46,7 @@ class ChangeColor(Form):
 
 class ForgotPassword(Form):
     email = StringField('Email', validators = [DataRequired()])
+
+class Judge(Form):
+    jKey = StringField(widget=TextArea(), validators=[DataRequired()])
+    state = HiddenField(validators=[DataRequired()])
