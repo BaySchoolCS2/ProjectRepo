@@ -25,7 +25,7 @@ body{
 /* new post button */
 .npb {
     display: block;
-    margin: auto
+    margin: auto;
     margin-bottom: 10px;
     width: 50% !important;
 }
@@ -112,7 +112,7 @@ body{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
         border-radius: 1px;
-        font-size: 17px;
+        font-size: 16px;
         padding: 7px;
         text-align: left;
         display: block;
@@ -123,7 +123,7 @@ body{
     .npf a{
         color: #0F3D74;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 16px;
     }
     .npf a:hover{
         color: black;
@@ -208,7 +208,7 @@ body{
     }
 
     .by{
-        font-size: 17px;
+        font-size: 16px;
     }
     
     .col-md-2 {
