@@ -43,9 +43,9 @@ def gJudgement(user=None):
         print('not logged in')
         abort(401)
     if judge.validate_on_submit():
-        print type(juser.judgeKey)
-        print type(sha224(judge.jKey.data).hexdigest())
-        if juser.hasJudgeKey and juser.judgeKey.encode("ascii")  == sha224(judge.jKey.data.encode("ascii")).hexdigest():
+        print type(str(juser.judgeKey))
+        print type(str(sha224(judge.jKey.data).hexdigest()))
+        if juser.hasJudgeKey and str(juser.judgeKey)  == str(sha224(judge.jKey.data).hexdigest()):
             print(judge.state.data)
             try:
                 inquery = Inquery.objects(user=user)[0]
@@ -59,9 +59,9 @@ def gJudgement(user=None):
         else:
             print('auth err')
             print(juser.judgeKey == judge.jKey)
-            print(juser.judgeKey)
+            print(str(juser.judgeKey))
             print()
-            print(sha224(judge.jKey.data).hexdigest())
+            print(str(sha224(judge.jKey.data).hexdigest()))
             print()
             print(judge.jKey.data)
             abort(401)
