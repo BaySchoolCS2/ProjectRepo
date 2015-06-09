@@ -169,6 +169,10 @@ body{
         border: 1px solid gray;
     }
     
+    .btn-success {
+    	width: 50% !important;
+    }
+    
     .btn-danger {
     	width: 50% !important;
     }
@@ -452,7 +456,7 @@ body{
     	left:50%;
 	    top:50%;
     	transform:translate(-50%,-50%);
-	    -webkit-transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
         background: #FFFFFF;
         border: 1px solid #0F3D74;
         border-radius: 3px;
