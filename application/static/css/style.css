@@ -170,11 +170,11 @@ body{
     }
     
     .btn-success {
-    	width: 50% !important;
+    	width: 100% !important;
     }
     
     .btn-danger {
-    	width: 50% !important;
+    	width: 100% !important;
     }
     
     .btn.focus {
