@@ -1,5 +1,6 @@
 function YV(){
     $('#state').val('True');
+    alert('testing');
     $('#jForm').submit();
 };
 

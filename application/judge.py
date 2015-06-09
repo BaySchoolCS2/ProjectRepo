@@ -14,7 +14,7 @@ def judge():
 
     if not user.isJudge:
         abort(404)
-    
+
     inqueries = Inquery.objects()
 
     return render_template("judge_portal/index.html", user = user, inqueries = inqueries)
@@ -29,6 +29,7 @@ def generateJudgeKey():
     if not user.isJudge:
         abort(404)
     key = urandom(1000).encode("base_64").replace("=","")
+    print(key)
     user.judgeKey = sha224(key).hexdigest()
     user.save()
     return render_template("judge_portal/judgekey.html", key = key)
@@ -36,8 +37,34 @@ def generateJudgeKey():
 @app.route("/giveJudgement/<user>", methods=('GET', 'POST'))
 def gJudgement(user=None):
     judge = Judge()
+    try:
+        juser = User.objects(alias = session.get("alias"))[0]
+    except:
+        print('not logged in')
+        abort(401)
     if judge.validate_on_submit():
-        print(form.state)
+        print type(juser.judgeKey)
+        print type(sha224(judge.jKey.data).hexdigest())
+        if juser.hasJudgeKey and juser.judgeKey.encode("ascii")  == sha224(judge.jKey.data.encode("ascii")).hexdigest():
+            print(judge.state.data)
+            try:
+                inquery = Inquery.objects(user=user)[0]
+            except IndexError:
+                abort(400)
+            if judge.state == "True":
+                inquery.vote += 1
+            else:
+                inquery.vote -= 1
+            print vote
+        else:
+            print('auth err')
+            print(juser.judgeKey == judge.jKey)
+            print(juser.judgeKey)
+            print()
+            print(sha224(judge.jKey.data).hexdigest())
+            print()
+            print(judge.jKey.data)
+            abort(401)
     try:
         user=User.objects(alias=user)[0]
         inquery = Inquery.objects(user=user)[0]

@@ -11,6 +11,6 @@
         {{ judge.state }}
     </form>
     <script src="{{ url_for('static', filename='js/judge.js')}}"></script>
-    <button class="btn btn-success" onlick="NV()">Do not reveal</button>
-    <button class="btn btn-danger" onlick="YV()">Reveal</button>
+    <button class="btn btn-success" onclick="NV()">Do not reveal identity of {{ user }}</button>
+    <button class="btn btn-danger" onclick="YV()">Reveal the identity of {{ user }}</button>
 {% endblock %}
