@@ -177,6 +177,10 @@ body{
     	width: 100% !important;
     }
     
+    .btn-warning {
+    	width: 100% !important;
+    }
+    
     .btn.focus {
     	width: 50% !important;
     }
