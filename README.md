@@ -1,6 +1,6 @@
 # ProjectRepo
 
-Link to testing server [here](whirpl.facebjork.com)
+Link to testing server [here](http://whirpl.facebjork.com)
 
 ## Setup Environment
 To set up the environment you first have to install mongodb,
