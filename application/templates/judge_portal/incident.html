@@ -5,6 +5,12 @@
 {% block body %}
     {{ user }}
     <!--forms with CRSF for buttons below go here-->
-    <button class="btn btn-success" onlick="//Submit CSRF protected form">Do not reveal</button>
-    <button class="btn btn-danger" onlick="//Submit CSRF protected form">Reveal</button>
+    <form id="jForm" method="POST">
+        {{ judge.csrf_token }}
+        {{ judge.jKey }}
+        {{ judge.state }}
+    </form>
+    <script src="{{ url_for('static', filename='js/judge.js')}}"></script>
+    <button class="btn btn-success" onclick="NV()">Do not reveal identity of {{ user }}</button>
+    <button class="btn btn-danger" onclick="YV()">Reveal the identity of {{ user }}</button>
 {% endblock %}

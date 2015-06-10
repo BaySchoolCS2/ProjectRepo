@@ -25,7 +25,7 @@ body{
 /* new post button */
 .npb {
     display: block;
-    margin: auto
+    margin: auto;
     margin-bottom: 10px;
     width: 50% !important;
 }
@@ -56,23 +56,19 @@ body{
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 0;
     margin-bottom: 7px;
 }
 
-.previous {
-	left: 35%;
-	position: fixed;
-	bottom: 15px;
+/* for half non mobile screens */
+@media (max-width:900px) {
+	.logo img {
+		width: 150px;
+	}
 }
 
-.next {
-	right: 35%;
-	position: fixed;
-	bottom: 15px;
-}
 /*for non mobile screens :)*/
-@media {
+@media screen {
     .user-color {
         display: block;
         width: 50px;
@@ -106,8 +102,8 @@ body{
     /* posts */
     .post {
         background: white;
-        border-radius: 3px;
-        border: 3px groove darkblue;
+        border-radius: 0px;
+        border: 1px solid navy;
         padding: 10px;
         width: 50%;
         margin: auto;
@@ -116,7 +112,7 @@ body{
         background: #FFFFFF;
         border: 3px solid #FFFFFF;
         border-radius: 1px;
-        font-size: 21px;
+        font-size: 16px;
         padding: 7px;
         text-align: left;
         display: block;
@@ -127,6 +123,7 @@ body{
     .npf a{
         color: #0F3D74;
         text-decoration: none;
+        font-size: 16px;
     }
     .npf a:hover{
         color: black;
@@ -171,6 +168,39 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
+    
+    .btn-success {
+    	width: 100% !important;
+    }
+    
+    .btn-danger {
+    	width: 100% !important;
+    }
+    
+    .btn-warning {
+    	width: 100% !important;
+    }
+    
+    .btn.focus {
+    	width: 50% !important;
+    }
+    
+    .form-control {
+    	display: inline-block !important;
+    	width: 100% !important;
+    }
+    
+    .previous {
+		left: 35%;
+		position: fixed;
+		bottom: 15px;
+	}
+
+	.next {
+		right: 35%;
+		position: fixed;
+		bottom: 15px;
+	}
 
     /* follow button on user pages */
     .fb {
@@ -178,7 +208,11 @@ body{
     }
 
     .by{
-        font-size: 12px;
+        font-size: 16px;
+    }
+    
+    .col-md-2 {
+    	box-sizing: content-box;
     }
 
     .container {
@@ -206,7 +240,7 @@ body{
 
 /* mobile screens only */
 
-@media handheld {
+@media (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
 
     /* header */
     .links{
@@ -351,6 +385,21 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
+    
+    .previous {
+		right: 10%;
+		font-size: 45px;
+		position: fixed;
+		float: right;
+		bottom: 100px;
+	}
+
+	.next {
+		right: 5%;
+		font-size: 45px;
+		position: fixed;
+		bottom: 100px;
+	}
 
     /* follow button on user pages */
     .fb {
@@ -364,6 +413,7 @@ body{
     .container {
         margin-top: 111px;
         width: 100%;
+        margin-bottom: 200px;
     }
     .btn {
         width: 100% !important;
@@ -374,19 +424,20 @@ body{
         font-size: 35px;
     }
     .footer {
-        text-align: center;
+        text-align: right;
         position: fixed;
         bottom: 0;
-        left: 0;
+        right: 0;
         margin-bottom: 5px;
         width: 100%;
+        font-size: 35px;
     }
     
     footer {
         text-align: center;
         position: fixed;
         bottom: 0;
-        left: 0;
+        right: 0;
         margin-bottom: 1em;
         width: 100%;
     }
@@ -409,7 +460,7 @@ body{
     	left:50%;
 	    top:50%;
     	transform:translate(-50%,-50%);
-	    -webkit-transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
         background: #FFFFFF;
         border: 1px solid #0F3D74;
         border-radius: 3px;
