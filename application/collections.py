@@ -37,7 +37,7 @@ class User(db.Document):
 class Inquery(db.Document):
     user = db.ReferenceField(User)
     reporters = db.ListField(db.ReferenceField(User))
-    vote = db.IntField()
+    vote = db.IntField(default=0)
 
 
 class Comment(db.EmbeddedDocument):
