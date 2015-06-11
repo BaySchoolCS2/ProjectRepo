@@ -38,6 +38,7 @@ body{
 
 .comment-title {
     text-align: left;
+    padding-left: 20px;
 }
 
 .posted {
@@ -138,7 +139,7 @@ body{
         word-wrap: break-word;
         text-align: left;
     }
-    
+
     .pt a {
         font-size: 10px;
     }
@@ -168,28 +169,28 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
-    
+
     .btn-success {
     	width: 100% !important;
     }
-    
+
     .btn-danger {
     	width: 100% !important;
     }
-    
+
     .btn-warning {
     	width: 100% !important;
     }
-    
+
     .btn.focus {
     	width: 50% !important;
     }
-    
+
     .form-control {
     	display: inline-block !important;
     	width: 100% !important;
     }
-    
+
     .previous {
 		left: 35%;
 		position: fixed;
@@ -210,7 +211,7 @@ body{
     .by{
         font-size: 16px;
     }
-    
+
     .col-md-2 {
     	box-sizing: content-box;
     }
@@ -385,7 +386,7 @@ body{
         background: lightgray;
         border: 1px solid gray;
     }
-    
+
     .previous {
 		right: 10%;
 		font-size: 45px;
@@ -432,7 +433,7 @@ body{
         width: 100%;
         font-size: 35px;
     }
-    
+
     footer {
         text-align: center;
         position: fixed;
@@ -468,5 +469,5 @@ body{
         position: absolute;
         margin-top: 15vh;
     }
-    
+
 }
