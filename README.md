@@ -1,5 +1,7 @@
 # ProjectRepo
 
+Link to testing server [here](http://whirpl.facebjork.com)
+
 ## Setup Environment
 To set up the environment you first have to install mongodb,
 the database management software (DBMS) we will be using
