@@ -26,8 +26,9 @@ def signup():
         return redirect(url_for('index'))
 
     if form.validate_on_submit():
-        if not(form.email.data.lower().endswith("@bayschoolsf.org")):
-            return render_template('signup.html', form = form, err = "You must use and @bayschoolsf.org email"), 400
+        if len(app.config.get("EMAIL_DOMAINS")) > 0:
+            if any(x in form.email.data for x in app.config.get("EMAIL_DOMAINS")):
+                return render_template('signup.html', form = form, err = "You must use and @bayschoolsf.org email"), 400
         elif form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)
             try:
