@@ -26,7 +26,9 @@ def signup():
         return redirect(url_for('index'))
 
     if form.validate_on_submit():
-        if form.password.data == form.password2.data and len(form.password.data) >= 8:
+        if not(form.email.data.lower().endswith("@bayschoolsf.org")):
+            return render_template('signup.html', form = form, err = "You must use and @bayschoolsf.org email"), 400
+        elif form.password.data == form.password2.data and len(form.password.data) >= 8:
             pw_hash = generate_password_hash(form.password.data)
             try:
                 user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color="#"+str(uuid.uuid4())[:6])
