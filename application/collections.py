@@ -47,6 +47,7 @@ class Comment(db.EmbeddedDocument):
     body = db.StringField(max_length=1000, required=True)
     flags = db.IntField(default=0)
     flagTypes = db.ListField(db.IntField())
+    flaggedBy = db.ListField(db.ReferenceField(User))
     invisible = db.BooleanField(default=False)
     moderated = db.BooleanField(default=False)
     moderatedBy = db.ListField(db.ReferenceField(User))

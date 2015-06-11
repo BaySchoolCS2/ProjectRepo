@@ -11,34 +11,34 @@
     </ul>
 </div>
 {% endmacro %}
-{% macro flagComment(commentid) %}
+{% macro flagComment(commentid, postid) %}
     <div class="dropdown">
         <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
             <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
         </div>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, commentid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=1, commentid=commentid, postid=postid) }}">
                     Inapropriate
                 </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=2, postid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=2, commentid=commentid, postid=postid) }}">
                     Intolerant
                 </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=3, postid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=3, commentid=commentid, postid=postid) }}">
                     Illegal Content
                 </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=4, postid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=4, commentid=commentid, postid=postid) }}">
                     Spam
                 </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=5, postid=commentid) }}">
+                <a role="menuitem" tabindex="-1" href="{{ url_for('flagComment', type_=5, commentid=commentid, postid=postid) }}">
                     Not constructive
                 </a>
             </li>
@@ -66,7 +66,7 @@
     </div>
 {%- endmacro %}
 
-{% macro renderComment(comment) -%}
+{% macro renderComment(comment, post) -%}
     <div class="comment" name="{{ comment.commentid }}">
         <div class="row">
             <div class="col-md-1">
@@ -80,7 +80,7 @@
                 </h5>
             </div>
             <div class="col-md-3 flag">
-                {{ flagComment(comment.commentid) }}
+                {{ flagComment(comment.commentid, post.postid) }}
             </div>
         </div>
         <div class="row">

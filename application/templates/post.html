@@ -56,7 +56,7 @@
 		{% endif %}
 		{% for c in post.comments %}
 			<br>
-			{{ macros.renderComment(c) }}
+			{{ macros.renderComment(c, post) }}
 			<br><hr><br>
 		{% endfor %}
 	{% else %}
