@@ -51,6 +51,8 @@ def signup():
                 error = 'Email is not an email'
             except errors.NotUniqueError:
                 error = 'Email or username is already in use'
+            except:
+                error = "Other Stupid Error"
         else:
             if len(form.password.data) < 8:
                 error = 'Password too short'
