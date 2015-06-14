@@ -16,7 +16,7 @@ def signup():
         greater than 8 characters then create the password hash
         if it is not the throw errors
 
-        try to create the user object and catch all expected errors.
+        try to create the user object and catch all expected erropasswordrs.
     """
     form = SignupForm()
 
@@ -29,34 +29,34 @@ def signup():
         if len(app.config.get("EMAIL_DOMAINS")) > 0:
             if not any(x in form.email.data for x in app.config.get("EMAIL_DOMAINS")):
                 return render_template('signup.html', form = form, err = app.config.get("BAD_DOMAIN_MSG")), 400
-        elif form.password.data == form.password2.data and len(form.password.data) >= 8:
-            pw_hash = generate_password_hash(form.password.data)
-            try:
-                user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color="#"+str(uuid.uuid4())[:6])
-                code = str(uuid.uuid4())
-                user.emailVerifyKey = code
-                if len(User.objects) == 0:
-                    user.isMod = True
-                    user.isJudge = True
-                msg = Message("Hello",
-                    sender="from@example.com",
-                    recipients=[form.email.data.lower()])
-                msg.body = url_for("verifyemail", code=code)
-                msg.html = "<a href='http://"+app.config.get('DOMAIN')+url_for("verifyemail", code=code)+"'>Verify Here</a>"
-                mail.send(msg)
-                user.save()
-                return render_template("signupLanding.html")
-                    #error = "Email not correct"
-            except ValidationError:
-                error = 'Email is not an email'
-            except errors.NotUniqueError:
-                error = 'Email or username is already in use'
-            except:
-                error = "Other Stupid Error"
-        else:
-            if len(form.password.data) < 8:
-                error = 'Password too short'
+            elif form.password.data == form.password2.data and len(form.password.data) >= 8:
+                pw_hash = generate_password_hash(form.password.data)
+                try:
+                    user = User(email = form.email.data.lower(), alias = form.alias.data, password = pw_hash, color="#"+str(uuid.uuid4())[:6])
+                    code = str(uuid.uuid4())
+                    user.emailVerifyKey = code
+                    if len(User.objects) == 0:
+                        user.isMod = True
+                        user.isJudge = True
+                    msg = Message("Hello",
+                        sender="from@example.com",
+                        recipients=[form.email.data.lower()])
+                    msg.body = url_for("verifyemail", code=code)
+                    msg.html = "<a href='http://"+app.config.get('DOMAIN')+url_for("verifyemail", code=code)+"'>Verify Here</a>"
+                    mail.send(msg)
+                    user.save()
+                    return render_template("signupLanding.html")
+                        #error = "Email not correct"
+                except ValidationError:
+                    error = 'Email is not an email'
+                except errors.NotUniqueError:
+                    error = 'Email or username is already in use'
+                except:
+                    error = "Other Stupid Error"#is this for smtplib.SMTPAuthenticationError
             else:
-                error = 'Passwords do not match'
-
+                if len(form.password.data) < 8:
+                    error = 'Password too short'
+                else:
+                    error = 'Passwords do not match'
+    
     return render_template('signup.html', form = form, err = error)
